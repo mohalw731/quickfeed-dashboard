@@ -2,6 +2,7 @@
 import { projects } from '@/db/schema'
 import { db } from '@/db'
 import { auth } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation'
 
 
 export async function createProject(formData: FormData) {
@@ -18,5 +19,5 @@ export async function createProject(formData: FormData) {
 
    console.log('new id' + newProjectId)
 
-   return newProjectId.insertId
+   redirect(`/projects/${newProjectId.insertId}/instructions`)
 }
