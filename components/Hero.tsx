@@ -13,13 +13,14 @@ const avatarUrls = [
 export default function Hero() {
   return (
     <>
-      <div className="bg-orange-500 size-64 blur-[200px] top-8 rotate-[-45deg]   absolute" />
-      <div className="bg-orange-500 size-64 blur-[200px] right-28 bottom-44 rotate-[-45deg]   absolute md:visible hidden" />
+  <div className="bg-orange-500 size-48 md:size-64 blur-[130px] md:blur-[200px] rotate-[-45deg] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-8 md:left-28 md:translate-x-0 md:translate-y-0" />
+
+      <div className="bg-orange-500 size-64 blur-[200px] right-28 bottom-44 rotate-[-45deg]   absolute md:block hidden" />
 
       <main className="flex flex-col items-center gap-4 my-12 ">
         <div className=" flex flex-col items-center gap-2 ">
           <div className=" z-10 flex -space-x-4 rtl:space-x-reverse ">
-            
+
      <AvatarCircles numPeople={11} avatarUrls={avatarUrls} />
 
           </div>
@@ -29,7 +30,7 @@ export default function Hero() {
         </div>
 
         <div className="flex items-center flex-col gap-4">
-          <h1 className="md:text-6xl text-3xl text-center">
+          <h1 className="md:text-6xl text-3xl text-center sm:text-2xl">
             <span className="text-orange-500">AI powered feedback</span> <br />
             collection built into your app
           </h1>
