@@ -24,7 +24,7 @@ export default async function page(params: {
   return (
     <div>
       {projects.map((project) => (
-        <div className="">
+        <div className="" key={project.id}>
           <h1>{project.name}</h1>
           <p>{project.description}</p>
           <p>{project.url}</p>
