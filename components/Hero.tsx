@@ -19,6 +19,7 @@ export default function Hero() {
       <main className="flex flex-col items-center gap-4 my-12 ">
         <div className=" flex flex-col items-center gap-2 ">
           <div className=" z-10 flex -space-x-4 rtl:space-x-reverse ">
+            
      <AvatarCircles numPeople={11} avatarUrls={avatarUrls} />
 
           </div>

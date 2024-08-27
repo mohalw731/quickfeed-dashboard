@@ -26,7 +26,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <my-widget project="12"></my-widget>
-<script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>
+<script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js" ></script>
           </Container>
         </body>
       </html>
