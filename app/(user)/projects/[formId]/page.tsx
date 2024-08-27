@@ -1,3 +1,4 @@
+import FeedbackList from "@/components/FeedbackList";
 import Table from "@/components/table";
 import { db } from "@/db";
 import { projects as dbProjects } from "@/db/schema";
@@ -28,7 +29,7 @@ export default async function page(params: {
           <h1>{project.name}</h1>
           <p>{project.description}</p>
           <p>{project.url}</p>
-          <Table data={project.feedbacks} />
+          <FeedbackList feedbacks={project.feedbacks} />
         </div>
       ))}
     </div>

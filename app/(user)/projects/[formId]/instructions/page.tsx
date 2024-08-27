@@ -16,9 +16,9 @@ const page = ({ params }: {
         <code className=" text-white">
           {`<my-widget project-id="${params.formId}"></my-widget>`}
           <br />
-          {`<script src="${process.env.WIDGET_URL}/widget.umd.js"></script>`}
+          {`<script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>`}
         </code>
-        <CopyBtn text={`<my-widget project="${params.formId}"></my-widget>\n<script src="${process.env.WIDGET_URL}/widget.umd.js"></script>`} />
+        <CopyBtn text={`<my-widget project="${params.formId}"></my-widget>\n<script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>`} />
       </div>
     </div>
   )
