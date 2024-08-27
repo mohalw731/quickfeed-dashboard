@@ -1,5 +1,4 @@
 import FeedbackList from "@/components/FeedbackList";
-import Table from "@/components/table";
 import { db } from "@/db";
 import { projects as dbProjects } from "@/db/schema";
 import { eq } from "drizzle-orm";
