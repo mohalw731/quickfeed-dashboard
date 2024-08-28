@@ -9,7 +9,7 @@ import { AnimatedBeamMultipleOutputDemo } from "../ui/Beam";
 export default function ColumnRow() {
   return (
     <main className="md:my-20 my-12">
-      <ul className="flex flex-col md:gap-32 gap-20">
+      <ul className="flex flex-col md:gap-32 gap-24">
 
 
         <li className="flex md:gap-12 md:flex-row flex-col gap-6 ">

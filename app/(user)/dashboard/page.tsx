@@ -4,7 +4,7 @@ import { auth } from '@clerk/nextjs/server';
 import { eq } from 'drizzle-orm';
 import React from 'react'
 import AddNewProject from '@/components/dashborad/AddNewProject';
-import ProjectsList from './ProjectList';
+import ProjectsList from '../../../components/dashborad/ProjectList';
 
 export default  async function Dashboard() {
   const { userId } = auth();

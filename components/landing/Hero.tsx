@@ -13,7 +13,7 @@ const avatarUrls = [
 export default function Hero() {
   return (
     <>
-      <div className="bg-blue-500 size-48 md:size-64 blur-[120px] rotate-[-45deg] absolute top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-8 md:left-28 md:translate-x-0 md:translate-y-0 -z-10" />
+      <div className="bg-blue-500 size-48 md:size-64 blur-[120px] rotate-[-45deg] absolute top-[0%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-8 md:left-28 md:translate-x-0 md:translate-y-0 -z-10" />
 
       <div className="bg-blue-500 size-64 blur-[180px] right-28 bottom-44 rotate-[-45deg]   absolute md:block hidden" />
 
@@ -40,10 +40,10 @@ export default function Hero() {
         </div>
 
         <div className="flex gap-4 md:mt-5">
-          <Button className="bg-blue-500 hover:bg-orange-600 hover:scale-105">
+          <Button className="bg-blue-500 hover:bg-blue-600 hover:scale-105">
             Get Started
           </Button>
-          <Button className="border text-black bg-transparent hover:bg-white hover:scale-105">
+          <Button className=" bg-slate-100 hover:scale-105 hover:bg-white text-black border-2 border-slate-300">
             Pricing
           </Button>
         </div>

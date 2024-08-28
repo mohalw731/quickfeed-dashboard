@@ -13,15 +13,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Plus } from "lucide-react";
 import AddNewProjectButton from "./AddNewProjectButton";
+import AddNewProjectHeader from "./AddNewProjectHeader";
+
 
 const AddNewProject = () => {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button className=" flex items-center gap-2">
-          <Plus className="w-4 h-4" /> Create Project
-        </Button>
-      </DialogTrigger>
+<AddNewProjectHeader/>
       <DialogContent className="sm:max-w-[425px] rounded-md">
         <DialogHeader>
           <DialogTitle>New Project</DialogTitle>
@@ -48,7 +46,7 @@ const AddNewProject = () => {
               placeholder="Description (optional)"
             />
           </div>
-          <AddNewProjectButton/>
+          <AddNewProjectButton />
         </form>
       </DialogContent>
     </Dialog>

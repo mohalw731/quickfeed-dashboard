@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import Navbar from "@/components/layout/Navbar";
-import Container from "@/components/layout/Container";
-// import Message from "@/components/layout/Message";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,13 +18,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          {/* <Message /> */}
-          <Container>
-            <Navbar />
             {children}
             <my-widget project="12"></my-widget>
-<script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js" ></script>
-          </Container>
+            <script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>
         </body>
       </html>
     </ClerkProvider>
