@@ -14,7 +14,7 @@ export default function AddNewProjectHeader() {
 
     <DialogTrigger asChild>
       <Button className=" flex items-center gap-2 bg-blue-500 hover:bg-blue-600 hover:scale-105">
-        <Plus className="w-4 h-4" /> Create Project
+        <Plus className="w-4 h-4" /> Create
       </Button>
     </DialogTrigger>
   </header>

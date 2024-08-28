@@ -19,11 +19,11 @@ type Props = {
 
 const ProjectsList = (props: Props) => {
   return (
-    <div>
-      <ul className="flex w-full">
+    <div className="mt-10">
+      <ul className="flex w-full gap-4">
         {props.projects.map((project: Project) => (
-          <li key={project.id} className="w-full">
-            <Card className="flex flex-col h-full w-full">
+          <li key={project.id} className=" bg-transparent w-full">
+            <Card className="flex flex-col h-[200px]">
               <CardHeader className="flex-1">
                 <CardTitle>{project.name}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>

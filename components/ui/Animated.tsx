@@ -13,32 +13,32 @@ interface Item {
 
 let notifications = [
   {
-    name: "Payment received",
-    description: "Magic UI",
-    time: "15m ago",
+    name: "New feedback",
+    description: "Love your site",
+    time: "5",
 
-    icon: "💸",
+    icon: "👍",
     color: "#00C9A7",
   },
   {
-    name: "User signed up",
-    description: "Magic UI",
-    time: "10m ago",
-    icon: "👤",
+    name: "New feedback",
+    description: "The checkout process was great",
+    time: "5",
+    icon: "💸",
     color: "#FFB800",
   },
   {
-    name: "New message",
-    description: "Magic UI",
-    time: "5m ago",
+    name: "New feedback",
+    description: "The return policy is hard to find",
+    time: "3",
     icon: "💬",
     color: "#FF3D71",
   },
   {
-    name: "New event",
-    description: "Magic UI",
-    time: "2m ago",
-    icon: "🗞️",
+    name: "New feedback",
+    description: "It would be nice with a customization feature",
+    time: "2",
+    icon: "🎨",
     color: "#1E86FF",
   },
 ];
