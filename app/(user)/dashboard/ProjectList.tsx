@@ -20,7 +20,7 @@ type Props = {
 const ProjectsList = (props: Props) => {
   return (
     <div>
-      <ul className="grid grid-cols-1 md:grid-cols-3 m-5 p-4 gap-4">
+      <ul className="grid grid-cols-1 md:grid-cols-3 py-5 gap-4">
         {props.projects.map((project: Project) => (
           <li key={project.id}>
             <Card className="max-w-[350px] flex flex-col h-full">
