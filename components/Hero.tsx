@@ -13,7 +13,7 @@ const avatarUrls = [
 export default function Hero() {
   return (
     <>
-  <div className="bg-orange-500 size-48 md:size-64 blur-[180px] md:blur-[200px] rotate-[-45deg] absolute top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-8 md:left-28 md:translate-x-0 md:translate-y-0" />
+  <div className="bg-orange-500 size-48 md:size-64 blur-[220px] md:blur-[200px] rotate-[-45deg] absolute top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-8 md:left-28 md:translate-x-0 md:translate-y-0" />
 
       <div className="bg-orange-500 size-64 blur-[200px] right-28 bottom-44 rotate-[-45deg]   absolute md:block hidden" />
 
@@ -30,7 +30,7 @@ export default function Hero() {
         </div>
 
         <div className="flex items-center flex-col gap-4">
-          <h1 className="md:text-6xl text-3xl text-center sm:text-2xl">
+          <h1 className="md:text-6xl text-2xl text-center sm:text-2xl">
             <span className="text-orange-500">AI powered feedback</span> <br />
             collection built into your app
           </h1>
@@ -40,7 +40,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="flex gap-4 mt-5">
+        <div className="flex gap-4 md:mt-5">
           <Button className="bg-orange-500 hover:bg-orange-600 hover:scale-105">
             Get Started
           </Button>
