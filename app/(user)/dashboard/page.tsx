@@ -16,7 +16,7 @@ export default  async function Dashboard() {
 
 
   return (
-    <div className=''>
+    <div >
       <AddNewProject/>
       <ProjectsList projects={userProjects}/>
     </div>

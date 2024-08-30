@@ -13,14 +13,12 @@ export default function Code() {
         <circle r="12" cy="12" cx="12"></circle>
       </svg></div><span className="absolute inset-x-0 top-2 text-xs text-slate-500">index.html</span>
   </div>
-  <div className="mt-5 space-y-1.5 px-5 pb-10">
+  <div className="mt-5 px-5 pb-10">
   <p className='mt-4 font-mono text-xs font-normal tracking-wide text-slate-500'>{'<head>'}</p>
 
 <p className='mt-4 font-mono text-xs font-normal tracking-wide text-violet-400'>{'<my-widget project={id}></my-widget>'}
 </p>
-
-
-<p className='mt-4 font-mono text-xs font-normal tracking-wide text-violet-400'>{'  <script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>'}
+<p className=' font-mono text-xs font-normal tracking-wide text-violet-400'>{'  <script src="url"></script>'}
 </p>
 
 

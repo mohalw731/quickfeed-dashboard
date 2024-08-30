@@ -15,41 +15,52 @@ import { Plus } from "lucide-react";
 import AddNewProjectButton from "./AddNewProjectButton";
 import AddNewProjectHeader from "./AddNewProjectHeader";
 
-
 const AddNewProject = () => {
   return (
-    <Dialog>
-<AddNewProjectHeader/>
-      <DialogContent className="sm:max-w-[425px] rounded-md">
-        <DialogHeader>
-          <DialogTitle>New Project</DialogTitle>
-          <DialogDescription>
-            Create a new project to get started
-          </DialogDescription>
-        </DialogHeader>
-        <form className="flex gap-4 flex-col" action={createProject}>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" placeholder="Project Name" />
+
+      <Dialog>
+        <AddNewProjectHeader />
+        <DialogContent className="rounded-md  md:max-w-md max-w-[350px]">
+          <DialogHeader>
+            <DialogTitle>New Project</DialogTitle>
+            <DialogDescription>
+              Create a new project to get started
+            </DialogDescription>
+          </DialogHeader>
+          <form className="flex gap-4 flex-col" action={createProject}>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="name">Name</Label>
+                <Input
+                  id="name"
+                  name="name"
+                  placeholder="Project Name"
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="url">URL</Label>
+                <Input
+                  id="url"
+                  name="url"
+                  placeholder="https://example.com"
+                  required
+                />
+              </div>
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="url">URL</Label>
-              <Input id="url" name="url" placeholder="https://example.com" />
+              <Label htmlFor="description">Description</Label>
+              <Textarea
+                name="description"
+                id="description"
+                placeholder="Description (what do you do?)"
+                required
+              />
             </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <Label htmlFor="description">Description</Label>
-            <Textarea
-              name="description"
-              id="description"
-              placeholder="Description (optional)"
-            />
-          </div>
-          <AddNewProjectButton />
-        </form>
-      </DialogContent>
-    </Dialog>
+            <AddNewProjectButton />
+          </form>
+        </DialogContent>
+      </Dialog>
   );
 };
 

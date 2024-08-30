@@ -1,4 +1,4 @@
-import FeedbackList from "@/components/FeedbackList";
+import FeedbackList from "@/components/dashborad/FeedbackList";
 import { db } from "@/db";
 import { projects as dbProjects } from "@/db/schema";
 import { eq } from "drizzle-orm";
@@ -18,8 +18,6 @@ export default async function page(params: {
       feedbacks: true,
     },
   });
-
-  console.log(projects);
 
   return (
     <div>
