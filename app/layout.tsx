@@ -18,9 +18,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-            {children}
-            <my-widget project="12"></my-widget>
-            <script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>
+          {children}
+          <my-widget project="22"></my-widget>
+          <script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>
         </body>
       </html>
     </ClerkProvider>

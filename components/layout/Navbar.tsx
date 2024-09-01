@@ -16,12 +16,14 @@ export default function PageHeader() {
 
         <div className="">
           <SignedOut>
+            <Link href="/sign-in">
             <Button
               className=" bg-slate-100 hover:scale-105 hover:bg-white text-black border-2 border-slate-300"
               
             >
-              <SignInButton />
+              Sign in
             </Button>
+            </Link>
           </SignedOut>
           <SignedIn>
             <UserButton />

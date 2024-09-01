@@ -24,7 +24,7 @@ const page = ({
       <h2 className="md:text-2xl  font-bold">Step 1: Embed the Widget Code</h2>
       <p className="md:text-lg text-sm text-slate-400">Place the following code snippet inside the {'<head>'} or at the end of the {'<body>'} of your HTML file:</p>
       </div>
-      <div className="bg-blue-950 md:py-12 md:px-7 p-3 rounded-md mt-6 relative max-w-4xl">
+      <div className="bg-blue-950  md:p-7 p-3 rounded-md mt-6 relative max-w-4xl">
         <code className=" text-white">
          <span className="font-mono md:text-lg text-sm">{`<my-widget project="${params.formId}"></my-widget>`}</span>
           <br />

@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "../ui/button";
 import AvatarCircles from "../magicui/avatar-circles";
 import { SignedOut } from "@clerk/nextjs";
+import Link from "next/link";
 
 const avatarUrls = [
   "https://avatars.githubusercontent.com/u/16860528",
@@ -41,16 +42,16 @@ export default function Hero() {
         </div>
 
         <div className="flex gap-4 md:mt-5">
-         <SignedOut>
-         <Button className="bg-blue-500 hover:bg-blue-600 hover:scale-105">
-            Get Started
-          </Button>
-         </SignedOut>
-         <a href="#pricing">
-         <Button className=" bg-slate-100 hover:scale-105 hover:bg-white text-black border-2 border-slate-300">
-            Pricing
-          </Button>
-         </a>
+          <Link href={"/sign-up"}>
+            <Button className="bg-blue-500 hover:bg-blue-600 hover:scale-105">
+              Get Started
+            </Button>
+          </Link>
+          <a href="#pricing">
+            <Button className=" bg-slate-100 hover:scale-105 hover:bg-white text-black border-2 border-slate-300">
+              Pricing
+            </Button>
+          </a>
         </div>
       </main>
     </>

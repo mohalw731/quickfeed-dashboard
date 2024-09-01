@@ -4,6 +4,7 @@ import Code from "../ui/Code";
 import { AnimatedListDemo } from "../ui/Animated";
 import { AnimatedBeam } from "../magicui/animated-beam";
 import { AnimatedBeamMultipleOutputDemo } from "../ui/Beam";
+import Link from "next/link";
 
 
 export default function ColumnRow() {
@@ -15,7 +16,6 @@ export default function ColumnRow() {
         <li className="flex md:gap-12 md:flex-row flex-col gap-6 ">
           <div className="flex flex-col gap-4 max-w-lg h-full ">
             <h2 className="md:text-4xl text-2xl">
-              {" "}
               Quick and <span className="text-blue-500">Simple</span>{" "}
               Integration
             </h2>
@@ -28,9 +28,11 @@ export default function ColumnRow() {
               start fast and focus on growth.
             </p>
             <div className="flex items-end justify-between">
+            <Link href={"/sign-up"}>
               <Button className="mt-4 bg-blue-500 hover:bg-blue-600 hover:scale-105 ">
                 Get Started in Minutes
               </Button>
+              </Link>
             </div>
           </div>
           <Code />
@@ -46,9 +48,11 @@ export default function ColumnRow() {
             Empower your customers to share their opinions directly on your website with our easy-to-use widget. Collect real-time feedback, suggestions, and reviews that help you understand customer needs and improve your products and services. Build trust, engage your audience, and elevate your business through meaningful feedback.
             </p>
             <div className="flex items-end justify-between">
+              <Link href={"/sign-up"}>
               <Button className="mt-4 bg-blue-500 hover:bg-blue-600 hover:scale-105 ">
               Start Collecting Feedback
               </Button>
+              </Link>
             </div>
           </div>
           <AnimatedListDemo />
@@ -65,9 +69,11 @@ export default function ColumnRow() {
             Move beyond collecting feedback—understand it with our AI-driven analysis. QuickFeed automatically summarizes feedback, identifies key themes, and offers actionable solutions to address any issues. Use these insights to enhance your customer experience and accelerate your growth with confidence.
             </p>
             <div className="flex items-end justify-between">
+              <Link href={"/sign-up"}>
               <Button className="mt-4 bg-blue-500 hover:bg-blue-600 hover:scale-105 ">
               Try AI Analysis Now
               </Button>
+              </Link>
             </div>
           </div>
           <AnimatedBeamMultipleOutputDemo />
