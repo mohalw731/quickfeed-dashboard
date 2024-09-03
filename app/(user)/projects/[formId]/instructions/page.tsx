@@ -1,4 +1,4 @@
-import CopyBtn from "@/modules/dashborad/CodeCopyBtn";
+import CopyBtn from "@/components/dashborad/CodeCopyBtn";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 

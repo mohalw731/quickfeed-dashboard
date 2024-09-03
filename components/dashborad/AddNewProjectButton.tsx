@@ -2,7 +2,7 @@
 import React from "react";
 import { useFormStatus } from "react-dom";
 import { Loader2 } from "lucide-react";
-import { Button } from "../../components/ui/button";
+import { Button } from "../ui/button";
 
 export default function AddNewProjectButton() {
   const { pending } = useFormStatus();

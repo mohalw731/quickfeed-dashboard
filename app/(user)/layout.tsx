@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import Loading from "./loading";
-import Navbar from "@/modules/layout/Navbar";
-import Footer from "@/modules/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export default function Userlayout({ children }: any) {
   return (
