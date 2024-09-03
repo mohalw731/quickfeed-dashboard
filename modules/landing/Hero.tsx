@@ -36,7 +36,7 @@ export default function Hero() {
             collection built into your app
           </h1>
           <p className="text-slate-500 md:text-base text-sm text-center max-w-[550px]">
-            QucikFeed uses machine learning algorithms to analyze customer
+            Quickfeed uses machine learning algorithms to analyze customer
             feedback and provide actionable insights.
           </p>
         </div>
