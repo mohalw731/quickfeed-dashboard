@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { InferSelectModel } from "drizzle-orm";
+import ProjectCard from "./ProjectCard";
 
 type Project = InferSelectModel<typeof projects>;
 
@@ -24,19 +25,7 @@ const ProjectsList = ({ projects }: Props) => {
       ) : (
         <ul className="flex w-full gap-4 md:flex-row flex-col">
           {projects.map((project: Project) => (
-            <li key={project.id} className=" bg-transparent w-full">
-              <Card className="flex flex-col h-[200px] bg-transparent border-2 border-gray-200 rounded-2xl md:w-[400px] w-full">
-                <CardHeader className="flex-1">
-                  <CardTitle>{project.name}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardFooter>
-                  <Link href={`/projects/${project.id}`}>
-                    <Button>View Project</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </li>
+            <ProjectCard key={project.id} project={project} />
           ))}
         </ul>
       )}

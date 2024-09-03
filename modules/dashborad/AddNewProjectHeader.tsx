@@ -2,7 +2,7 @@
 import { useUser } from "@clerk/nextjs";
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import React from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../components/ui/button";
 import { Plus } from "lucide-react";
 
 export default function AddNewProjectHeader() {

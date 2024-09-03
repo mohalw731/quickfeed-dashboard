@@ -1,4 +1,4 @@
-import FeedbackList from "@/components/dashborad/FeedbackList";
+import FeedbackList from "@/modules/dashborad/FeedbackList";
 import { Button } from "@/components/ui/button";
 import { db } from "@/db";
 import { projects as dbProjects } from "@/db/schema";
