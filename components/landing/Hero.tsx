@@ -1,8 +1,6 @@
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "../ui/button";
 import AvatarCircles from "../magicui/avatar-circles";
-import { SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
 
 const avatarUrls = [

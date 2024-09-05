@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: any) {
         <CardHeader className="flex-1 ">
           <div className="flex justify-between relative">
             <CardTitle>{capitalize(project.name)}</CardTitle>
-            <div className=" bg-blue-500 w-24 h-24 rounded-full blur-[70px] overflow-hidden absolute -right-8 -top-12 -z-0" />
+            <div className=" bg-blue-500 w-24 h-24 rounded-full md:blur-[100px] blur-[180px] overflow-hidden absolute -right-8 -top-12 -z-0" />
             <div className="z-[10]">
               <DropdownMenu>
                 <DropdownMenuTrigger>
