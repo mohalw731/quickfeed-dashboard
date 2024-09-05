@@ -2,8 +2,8 @@
 import { projects, feedbacks } from "@/db/schema";
 import { db } from "@/db";
 import { eq, and } from "drizzle-orm/expressions";
-import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 export async function deleteProject(projectId: number) {
   const { userId } = auth();

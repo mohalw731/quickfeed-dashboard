@@ -1,8 +1,8 @@
 "use server"
 import { projects } from '@/db/schema'
 import { db } from '@/db'
-import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
+import { auth } from '@clerk/nextjs/server'
 
 
 export async function createProject(formData: FormData) {

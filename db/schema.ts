@@ -5,6 +5,7 @@ import {
   varchar,
   integer,
   boolean,
+  timestamp,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
@@ -13,7 +14,8 @@ export const projects = pgTable("projects", {
   name: text("name"),
   description: text("description"),
   url: text("url"),
-  userId: varchar("userId"),
+  // createdAt: timestamp("created_at").defaultNow().notNull(),
+  userId: varchar("userId"), // Specify length
 });
 
 export const projectsRelations = relations(projects, ({ many }) => ({
@@ -22,9 +24,7 @@ export const projectsRelations = relations(projects, ({ many }) => ({
 
 export const feedbacks = pgTable("feedbacks", {
   id: serial("id").primaryKey(),
-  projectId: integer("project_id"),
-  userName: text("user_name"),
-  userEmail: text("user_email"),
+  projectId: integer("project_id").notNull(), // Add .notNull() if required
   message: text("message"),
   rating: integer("rating"),
 });
@@ -38,7 +38,7 @@ export const feedbacksRelations = relations(feedbacks, ({ one }) => ({
 
 export const subscriptions = pgTable("subscriptions", {
   id: serial("id").primaryKey(),
-  userId: varchar("userId"),
+  userId: varchar("userId"), // Specify length
   stripeCustomerId: text("stripe_customer_id"),
   stripeSubscriptionId: text("stripe_subscription_id"),
   subscribed: boolean("subscribed"),
