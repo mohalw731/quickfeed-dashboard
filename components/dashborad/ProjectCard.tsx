@@ -1,6 +1,4 @@
 "use client";
-
-import { deleteProject } from "@/actions/deleteProject";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,20 +15,24 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVertical } from "lucide-react";
+import { useState } from "react";
+import Modal from "./DeleteModal";
 
 export default function ProjectCard({ project }: any) {
+  const [open, setOpen] = useState(false);
 
   const capitalize = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  }
+  };
   return (
+<>
     <li key={project.id} className=" bg-transparent">
-      <Card className="flex flex-col h-[200px] bg-transparent border border-gray-200 rounded-md md:w-[400px] w-full overflow-hidden">
+      <Card className="flex flex-col h-[200px] bg-transparent border border-gray-200 rounded-md md:w-[400px] w-full overflow-hidden ">
         <CardHeader className="flex-1 ">
           <div className="flex justify-between relative">
             <CardTitle>{capitalize(project.name)}</CardTitle>
-            <div className=" bg-blue-500 w-24 h-24 rounded-full md:blur-[100px] blur-[180px] overflow-hidden absolute -right-8 -top-12 -z-0" />
-            <div className="z-[10]">
+            <div className="bg-blue-500 size-20 blur-[40px] absolute right-0 -top-10  -z-[-1]" />
+            <div className="z-[20]">
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <EllipsisVertical className="text-black" />
@@ -38,7 +40,7 @@ export default function ProjectCard({ project }: any) {
                 <DropdownMenuContent>
                   <DropdownMenuItem
                     className="text-red-500"
-                    onClick={() => deleteProject(project.id)}
+                   onClick={() => setOpen(true)}
                   >
                     Delete
                   </DropdownMenuItem>
@@ -55,5 +57,8 @@ export default function ProjectCard({ project }: any) {
         </CardFooter>
       </Card>
     </li>
+    {<Modal open={open} setOpen={setOpen} project={project}/>}
+
+    </>
   );
 }

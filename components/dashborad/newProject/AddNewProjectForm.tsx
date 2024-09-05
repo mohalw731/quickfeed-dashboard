@@ -7,12 +7,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import AddNewProjectButton from "./AddNewProjectButton";
-import AddNewProjectHeader from "./AddNewProjectHeader";
+import AddNewProjectHeader from "./ProjectHeader";
 import { Label } from "@/components/ui/label";
-import AddNewProjectDescription from "./AddNewProjectDescription";
+import AddNewProjectDescription from "./ProjectDescription";
 import useAI from "@/hooks/useAI";
+import AddNewProjectButton from "./AddNewProjectButton";
 
 const AddNewProject = () => {
   return (

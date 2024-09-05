@@ -1,8 +1,8 @@
 'use client'
 import { Label } from '@radix-ui/react-label'
 import { Loader2, Sparkles } from 'lucide-react'
-import { Textarea } from '../ui/textarea'
 import useAI from '@/hooks/useAI'
+import { Textarea } from '@/components/ui/textarea'
 
 export default function AddNewProjectDescription() {
  const {generatedText, setGeneratedText, loading, handleAIGenerate} = useAI()
