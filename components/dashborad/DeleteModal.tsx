@@ -5,10 +5,10 @@ import { deleteProject } from "@/actions/deleteProject";
 type ModalProps = {
   open: boolean;
   setOpen: (open: boolean) => void;
-  project: any;
+  id: number;
 }
 
-export default function Modal({ open, setOpen, project }: ModalProps) {
+export default function Modal({ open, setOpen, id }: ModalProps) {
   return (
     <div className={`w-full h-full ${open ? "overlay" : "bg-transparent"}`}>
       <main
@@ -20,7 +20,7 @@ export default function Modal({ open, setOpen, project }: ModalProps) {
           </h2>
           <p>Are you sure you want to delete this project?</p>
           <div className="flex gap-3">
-            <Button className="bg-red-600 hover:bg-red-700 " size={"sm"} onClick={() => deleteProject(project.id)}>Delete</Button>
+            <Button className="bg-red-600 hover:bg-red-700 " size={"sm"} onClick={() => {deleteProject(id); setOpen(false)}}>Delete</Button>
 
               <Button
                 variant={"outline"}

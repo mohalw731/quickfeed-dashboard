@@ -19,7 +19,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           {children}
-          <my-widget project="26"></my-widget>
+          <my-widget project="41"></my-widget>
           <script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>
         </body>
       </html>

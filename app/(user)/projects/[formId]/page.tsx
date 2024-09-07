@@ -1,3 +1,4 @@
+import { Chart } from "@/components/Chart";
 import FeedbackList from "@/components/dashborad/FeedbackList";
 import { Button } from "@/components/ui/button";
 import { db } from "@/db";
@@ -24,8 +25,9 @@ export default async function page(params: {
   return (
     <div className="mt-10 w-full">
       {projects.map((project) => (
-        <div key={project.id}>
-          <section className="flex items-center justify-between">
+        <div key={project.id}>         
+
+          <section className="flex items-start justify-between">
             <div className="flex gap-3 flex-col max-w-xl w-full">
               <h1 className="md:text-6xl text-2xl">{project.name}</h1>
 
@@ -45,10 +47,12 @@ export default async function page(params: {
                   <Button variant="outline">View Analysis</Button>
                 </Link>
               </div>
+              <FeedbackList feedbacks={project.feedbacks} />
+
             </div>
+            <Chart project={project.feedbacks} />
           </section>
 
-          <FeedbackList feedbacks={project.feedbacks} />
         </div>
       ))}
     </div>
