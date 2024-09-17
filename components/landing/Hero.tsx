@@ -13,9 +13,9 @@ const avatarUrls = [
 export default function Hero() {
   return (
     <>
-      <div className="bg-blue-500 size-48 md:size-64 blur-[120px] rotate-[-45deg] absolute top-[0%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:top-8 md:left-28 md:translate-x-0 md:translate-y-0 -z-10" />
+      <div className="bg-blue-500 size-48 md:size-64 blur-[150px] rotate-[-45deg] absolute top-[20%] left-[20%] transform -translate-x-1/2 -translate-y-1/2 " />
 
-      <div className="bg-blue-500 size-64 blur-[180px] right-28 bottom-44 rotate-[-45deg]   absolute md:block hidden" />
+      <div className="bg-blue-500 size-64 blur-[150px] right-28 bottom-44 rotate-[-45deg]   absolute md:block hidden" />
 
       <main className="flex flex-col items-center gap-4 h-[calc(100vh-180px)] justify-center z-[999]">
         <div className=" flex flex-col items-center gap-2 ">

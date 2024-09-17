@@ -1,119 +1,73 @@
-import React from "react";
-import { Button } from "../ui/button";
-import { CheckCircle2 } from "lucide-react";
+import PricingCard from "./PricingCard";
 
-export default function Pricing() {
-  return (
-    <main className="flex flex-col items-center py-12" id="pricing">
-      <h2 className="md:text-4xl text-xl mb-12">
-        Level up your <span className="text-blue-500">feedback</span> experience
-      </h2>
-      <section className=" flex gap-4 md:flex-row flex-col w-full">
-        <div className="bg-white p-8  rounded-xl max-w-sm w-full shadow-md">
-          <header className="flex flex-col gap-1 mb-4">
-            <h2 className="text-3xl text-blue-500 font-bold ">Free</h2>
-            <p>No credit card required</p>
-          </header>
-
-          <div className="flex flex-col gap-2">
-            <h2 className="text-5xl font-semibold">
-              $0 <span className="text-slate-400">/ mo</span>
-            </h2>
-          </div>
-          <hr className="my-4 rounded-full" />
-          <ul className="flex flex-col gap-2">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-          </ul>
-
-          <Button
-            variant={"outline"}
-            className="hover:scale-105 w-full mt-4 border-2 border-blue-300"
-          >
-            Get Started
-          </Button>
-        </div>
-
-        <div className="bg-white p-8  rounded-xl max-w-sm w-full shadow-md">
-          <header className="flex flex-col gap-1 mb-4">
-            <h2 className="text-3xl text-blue-500 font-bold ">Free</h2>
-            <p>No credit card required</p>
-          </header>
-
-          <div className="flex flex-col gap-2">
-            <h2 className="text-5xl font-semibold">
-              $0 <span className="text-slate-400">/ mo</span>
-            </h2>
-          </div>
-          <hr className="my-4 rounded-full" />
-          <ul className="flex flex-col gap-2">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-          </ul>
-
-          <Button
-            variant={"outline"}
-            className="hover:scale-105 w-full mt-4 border-2 border-blue-300"
-          >
-            Get Started
-          </Button>
-        </div>
-
-        <div className="bg-white p-8  rounded-xl max-w-sm w-full shadow-md">
-          <header className="flex flex-col gap-1 mb-4">
-            <h2 className="text-3xl text-blue-500 font-bold ">Free</h2>
-            <p>No credit card required</p>
-          </header>
-
-          <div className="flex flex-col gap-2">
-            <h2 className="text-5xl font-semibold">
-              $0 <span className="text-slate-400">/ mo</span>
-            </h2>
-          </div>
-          <hr className="my-4 rounded-full" />
-          <ul className="flex flex-col gap-2">
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="text-slate-400" /> 1 project
-            </li>
-          </ul>
-
-          <Button
-            variant={"outline"}
-            className="hover:scale-105 w-full mt-4 border-2 border-blue-300"
-          >
-            Get Started
-          </Button>
-        </div>
-      </section>
-    </main>
-  );
+export type PricingPlan = {
+  title: string;
+  price: number;
+  description: string;
+  isPopular: boolean;
+  features: string[];
+  url: string;
 }
+
+export const pricingPlans: PricingPlan[] = [
+  {
+    title: "Free",
+    price: 0,
+    description: "For small teams just getting started",
+    isPopular: false,
+    url: "/dashboard",
+    features: [
+      "1 project",
+      "Unlimited feedbacks",
+      "Feedback overview",
+      "Priority support",
+    ],
+  },
+  {
+    title: "Monthly",
+    price: 19.99,
+    description: "For growing teams",
+    isPopular: true,
+    url: "/payments/subscribe?plan=monthly",
+    features: [
+      "Unlimited projects",
+      "Unlimited feedbacks",
+      "AI-analytcs & overview",
+      "Priority support",
+    ],
+  },
+  {
+    title: "Yearly",
+    price: 199.99,
+    description: "Upgrade to save more!",
+    isPopular: false,
+    url: "/payments/subscribe?plan=yearly",
+    features: [
+      "Unlimited projects",
+      "Unlimited feedbacks",
+      "AI-analytcs & overview",
+      "Priority support",
+    ],
+  },
+]
+
+
+const Pricing = () => {
+  return (
+    <div className="text-center">
+      <h1 className="capitalize text-3xl text-blue-500">Pricing</h1>
+      <h2 className=" text-3xl mb-8 pt-3">
+        Flexible Pricing to Fit Your Needs
+      </h2>
+      <div className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl">
+        {
+          pricingPlans.map((plan, index) => (
+            <PricingCard key={index} {...plan} />
+          ))
+        }
+      </div>
+    </div>
+  )
+}
+
+export default Pricing;

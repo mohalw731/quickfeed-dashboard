@@ -3,8 +3,13 @@ import { useUser } from "@clerk/nextjs";
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import React from "react";
 import { Plus } from "lucide-react";
+import SubscribeBtn from "@/app/(user)/payments/subscribeButton";
 
-export default function AddNewProjectHeader() {
+type Props = {
+  subscribed: boolean;
+  projects: any;
+};
+export default function AddNewProjectHeader({ subscribed, projects }: Props) {
   const { user } = useUser();
 
   return (
@@ -14,12 +19,16 @@ export default function AddNewProjectHeader() {
           Welcome, <span className="text-blue-500">{user?.firstName}</span>
         </h1>
 
-        <DialogTrigger asChild>
-          <button className=" flex items-center gap-2 bg-blue-500 hover:bg-blue-600 hover:scale-105 md:py-2 p-3 md:px-5 md:rounded rounded-full text-white">
-            <Plus className="size-4" />{" "}
-            <span className="hidden md:block">Create</span>
-          </button>
-        </DialogTrigger>
+        {projects.length === 1 && !subscribed ? (
+          <SubscribeBtn price={"price_1PtLMzB35fil6MWOKpoSE4rd"} />
+        ) : (
+          <DialogTrigger asChild>
+            <button className=" flex items-center gap-2 bg-blue-500 hover:bg-blue-600 hover:scale-105 md:py-2 p-3 md:px-5 md:rounded rounded-full text-white">
+              <Plus className="size-4" />
+              <span className="hidden md:block">Create</span>
+            </button>
+          </DialogTrigger>
+        )}
       </header>
       <p
         className="text-slate-400 md:text-base text-sm

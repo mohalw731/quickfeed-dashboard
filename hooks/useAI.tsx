@@ -1,6 +1,8 @@
 'use client'
 import axios from 'axios';
 import { useState } from 'react'
+import { config } from 'dotenv'
+config({ path: '.env.local' })
 
 export default function useAI() {
     const [generatedText, setGeneratedText] = useState<string | null>(null);
@@ -22,7 +24,7 @@ export default function useAI() {
           },
           {
             headers: {
-              Authorization: `Bearer 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`,
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
               "Content-Type": "application/json",
             },
           }

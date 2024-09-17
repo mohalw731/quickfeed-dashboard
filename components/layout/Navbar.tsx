@@ -1,7 +1,7 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import React from "react";
 import { Button } from "../ui/button";
-import { MessageSquare } from "lucide-react";
+import { CreditCard, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
 export default function PageHeader() {
@@ -14,7 +14,7 @@ export default function PageHeader() {
           </h2>
         </Link>
 
-        <div className="">
+        <div className="flex items-center gap-3">
           <SignedOut>
             <Link href="/sign-in">
               <Button className=" bg-slate-100 hover:scale-105 hover:bg-white text-black border-2 border-slate-300">
@@ -22,7 +22,10 @@ export default function PageHeader() {
               </Button>
             </Link>
           </SignedOut>
-          <SignedIn>
+          <SignedIn >
+            <Link href={"/payments"} className="cursor-pointer">
+            <button className="p-1 border rounded-full bg-blue-500"><CreditCard className="size-5 text-white"/></button>
+            </Link>
             <UserButton />
           </SignedIn>
         </div>

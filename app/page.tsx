@@ -8,7 +8,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-slate-100">
       <Container>
         <Navbar />
         <Hero />

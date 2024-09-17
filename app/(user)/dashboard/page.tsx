@@ -7,6 +7,7 @@ import ProjectsList from "../../../components/dashborad/ProjectList";
 import AddNewProject from "@/components/dashborad/newProject/AddNewProjectForm";
 import SubscribeBtn from "../payments/subscribeButton";
 import { monthlyPlanId } from "@/lib/payments";
+import { getSubscription } from "@/actions/userSubscriptions";
 
 export default async function Dashboard() {
   const { userId } = auth();
@@ -19,11 +20,12 @@ export default async function Dashboard() {
     .from(projects)
     .where(eq(projects.userId, userId));
 
+  const subscribed = await getSubscription({ userId });
+
   return (
     <div>
-      <AddNewProject />
-      <ProjectsList projects={userProjects} />
-      <SubscribeBtn price={monthlyPlanId}/>
+      <AddNewProject subscribed={subscribed as boolean} projects={userProjects}/>
+      <ProjectsList projects={userProjects}  subscribed={subscribed as boolean}/>
     </div>
   );
 }

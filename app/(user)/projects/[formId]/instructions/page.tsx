@@ -36,10 +36,10 @@ const page = ({
           <span className="font-mono md:text-lg text-sm">{`<my-widget project="${params.formId}"></my-widget>`}</span>
           <br />
           <br />
-          <span className="font-mono md:text-lg text-sm">{`<script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>`}</span>
+          <span className="font-mono md:text-lg text-sm">{`<script src="hhttps://quickfeedwidget.netlify.app/widget.js"></script>`}</span>
         </code>
         <CopyBtn
-          text={`<my-widget project="${params.formId}"></my-widget>\n<script src="https://spectacular-axolotl-97165f.netlify.app/widget.umd.js"></script>`}
+          text={`<my-widget project="${params.formId}"></my-widget>\n<script src="hhttps://quickfeedwidget.netlify.app/widget.js"></script>`}
         />
       </div>
 

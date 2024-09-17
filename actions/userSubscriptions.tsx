@@ -2,21 +2,18 @@ import { db } from "@/db";
 import { subscriptions } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
+
 export async function createSubscription({ stripeCustomerId }: { stripeCustomerId: string }) {
   await db
     .update(subscriptions)
-    .set({
-      subscribed: true,
-    })
+    .set({ subscribed: true })
     .where(eq(subscriptions.stripeCustomerId, stripeCustomerId));
 }
 
 export async function cancelSubscription({ stripeCustomerId }: { stripeCustomerId: string }) {
   await db
     .update(subscriptions)
-    .set({
-      subscribed: false,
-    })
+    .set({ subscribed: false })
     .where(eq(subscriptions.stripeCustomerId, stripeCustomerId));
 }
 

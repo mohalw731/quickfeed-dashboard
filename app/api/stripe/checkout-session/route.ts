@@ -16,25 +16,12 @@ export async function POST(req: Request) {
     where: eq(subscriptions.userId, userId),
   });
   let customer;
+
   if (userSubscription) {
-    // get the stripe customer
-    customer = {
-      id: userSubscription.stripeCustomerId,
-    };
+    customer = { id: userSubscription.stripeCustomerId };
   } else {
-    // create user subscription
-    const customerData: {
-      metadata: {
-        dbId: string;
-      };
-    } = {
-      metadata: {
-        dbId: userId,
-      },
-    };
-
+    const customerData = { metadata: { dbId: userId } };
     const response = await stripe.customers.create(customerData);
-
     customer = { id: response.id };
 
     await db.insert(subscriptions).values({
@@ -51,7 +38,7 @@ export async function POST(req: Request) {
 
   try {
     const session = await stripe.checkout.sessions.create({
-      success_url: `${baseUrl}/payments/checkout-success`,
+      success_url: `${baseUrl}/payments/success`,
       customer: customer?.id,
       payment_method_types: ["card"],
       mode: "subscription",

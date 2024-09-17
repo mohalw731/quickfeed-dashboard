@@ -1,16 +1,24 @@
-"use client"; // This directive makes the component a Client Component
+"use client"
 
 import React, { useState } from "react";
 import axios from "axios";
+import { config } from "dotenv";
+config({ path: ".env.local" });
 
-export default function ClientComponent({ feedbackMessages }: { feedbackMessages: string[] }) {
+export default function ClientComponent({
+  feedbackMessages,
+}: {
+  feedbackMessages: string[];
+}) {
   const [generatedText, setGeneratedText] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleAIGenerate = async () => {
     setLoading(true);
     const prompt = `
-      Analyze all the feedbacks. Here are the feedbacks: ${feedbackMessages.join(", ")}.
+      Analyze all the feedbacks. Here are the feedbacks: ${feedbackMessages.join(
+        ", "
+      )}.
       Give me a to-do list of all the improvements I can do based on the feedback.
     `;
 
@@ -24,7 +32,7 @@ export default function ClientComponent({ feedbackMessages }: { feedbackMessages
         },
         {
           headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
             "Content-Type": "application/json",
           },
         }
