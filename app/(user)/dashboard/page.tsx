@@ -5,8 +5,6 @@ import { eq } from "drizzle-orm";
 import React from "react";
 import ProjectsList from "../../../components/dashborad/ProjectList";
 import AddNewProject from "@/components/dashborad/newProject/AddNewProjectForm";
-import SubscribeBtn from "../payments/subscribeButton";
-import { monthlyPlanId } from "@/lib/payments";
 import { getSubscription } from "@/actions/userSubscriptions";
 
 export default async function Dashboard() {

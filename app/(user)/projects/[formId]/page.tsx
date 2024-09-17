@@ -1,6 +1,6 @@
-import { getSubscription } from "@/actions/userSubscriptions";
 import { Chart } from "@/components/Chart";
 import FeedbackList from "@/components/dashborad/FeedbackList";
+import OverallRating from "@/components/Overallreating";
 import { Button } from "@/components/ui/button";
 import { db } from "@/db";
 import { projects as dbProjects } from "@/db/schema";
@@ -43,11 +43,14 @@ export default async function page(params: {
                 </Link>
               </div>
               <Chart project={project.feedbacks} />
+              <OverallRating ratings={project.feedbacks.map((feedback) => feedback.rating) as number[]}/>
+
             </div>
             <FeedbackList
               feedbacks={project.feedbacks}
               projectId={project.id}
             />
+
           </section>
         </div>
       ))}

@@ -20,6 +20,7 @@ export default async function FeedbackList({
     <div className="max-w-2xl w-full ">
       <h1 className="text-2xl font-bold flex justify-between items-center">
         Feedbacks
+        
         {subscribed ? (
           <Link href={`/projects/${projectId}/analyze`}>
             <Button size="sm" className="bg-blue-500 hover:bg-blue-600  ">
@@ -30,6 +31,7 @@ export default async function FeedbackList({
           <SubscribeBtn price={monthlyPlanId} />
         )}
       </h1>
+
       <div className="h-[calc(100dvh-162px)] overflow-y-auto mt-4  p-4 rounded-lg shadow-sm border bg-white custom-scrollbar">
         {feedbacks.length === 0 && (
           <div className="flex justify-center items-center  h-[calc(100dvh-202px)]">
