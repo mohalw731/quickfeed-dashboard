@@ -1,10 +1,12 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import React from "react";
 import { Button } from "../ui/button";
 import { CreditCard, MessageSquare } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function PageHeader() {
+
   return (
     <header className="w-full transition-all z-[999]">
       <div className="flex items-center justify-between py-5">
@@ -27,6 +29,8 @@ export default function PageHeader() {
             <button className="p-1 border rounded-full bg-blue-500"><CreditCard className="size-5 text-white"/></button>
             </Link>
             <UserButton />
+
+
           </SignedIn>
         </div>
       </div>

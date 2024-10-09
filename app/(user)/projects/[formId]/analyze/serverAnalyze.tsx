@@ -15,7 +15,9 @@ export default async function ServerComponent({ formId }: { formId: string }) {
   });
 
   const feedbacks = projects.map((project) => project.feedbacks).flat();
-  const feedbackMessages = feedbacks.map((feedback) => feedback.message);
+
+  if (!feedbacks.length) return { feedbackMessages: [] };
+  const feedbackMessages = feedbacks.map((feedback) => `feedback: ${feedback.message}/n rating: ${feedback.rating}`);
 
   return { feedbackMessages };
 }

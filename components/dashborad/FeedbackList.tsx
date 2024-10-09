@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import SubscribeBtn from "@/app/(user)/payments/subscribeButton";
 import { monthlyPlanId } from "@/lib/payments";
 import { LucideWand2 } from "lucide-react";
+import ServerComponent from "@/app/(user)/projects/[formId]/analyze/serverAnalyze";
 
 export default async function FeedbackList({
   feedbacks,
@@ -16,6 +17,7 @@ export default async function FeedbackList({
 }) {
   const { userId } = auth();
   const subscribed = await getSubscription({ userId: userId as string });
+
   return (
     <div className="max-w-2xl w-full ">
       <h1 className="text-2xl font-bold flex justify-between items-center">

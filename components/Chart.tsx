@@ -15,6 +15,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { useEffect, useState } from "react";
 export const description = "A mixed bar chart";
 
 const chartConfig = {
@@ -84,11 +85,28 @@ export function Chart({ project }: { project: any }) {
       fill: "rgb(226 232 240)",
     },
   ];
+  const [overallRating, setOverallRating] = useState(0);
+
+
+  const calculateOverallRating = (ratingsArray: number[]) => {
+    if (ratingsArray.length === 0) {
+      return 0;
+    }
+
+    const total = ratingsArray.reduce((acc, current) => acc + current, 0);
+    const average = total / ratingsArray.length;
+    return Math.round(average * 2) / 2;
+  };
+
+  useEffect(() => {
+    const rating = calculateOverallRating(feedback);
+    setOverallRating(rating);
+  }, [feedback]);
 
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Feedback Analysis</CardTitle>
+        <CardTitle>Feedback overview</CardTitle>
         <CardDescription>January - {name} {new Date().getFullYear()}</CardDescription>
       </CardHeader>
       <CardContent>
@@ -125,7 +143,7 @@ export function Chart({ project }: { project: any }) {
           Your feedbacks in the last {months} months
         </div>
         <div className="leading-none text-muted-foreground">
-          Total feedbacks last {months} months : {project.length}
+          Overall rating : {overallRating} / 5
         </div>
       </CardFooter>
     </Card>
