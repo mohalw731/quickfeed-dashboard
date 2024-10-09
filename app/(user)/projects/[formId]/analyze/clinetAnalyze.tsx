@@ -45,8 +45,6 @@ export default function FeedbackAnalysis({
       setAnalysis(JSON.parse(storedAnalysis))
     }
   }, [])
-
-  console.log(feedbackMessages)
   const handleAnalyze = async (useCustomPrompt: boolean = false) => {
     setIsAnalyzing(true)
     const prompt = useCustomPrompt
@@ -123,7 +121,7 @@ export default function FeedbackAnalysis({
   }
 
   return (
-    <div className="h-[calc(100%-200px)]  flex items-center justify-center ">
+    <div className="h-[calc(100dvh-200px)]  flex items-center justify-center ">
       <Card className="w-full max-w-2xl space-y-6 md:p-8  p-5 bg-white shadow-lg rounded-2xl">
         <div className="flex justify-between items-center">
           <h1 className="md:text-3xl text-xl  text-black">Feedback Analysis</h1>
