@@ -25,7 +25,7 @@ const ProjectsList = ({ projects, subscribed }: Props) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="mt-10">
+      <div className="my-10">
         {projects.length === 0 ? (
           <NoProjects />
         ) : (

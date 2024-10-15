@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: { formId: string } }) {
           subscribed={subscribed as boolean}
         />
       </section>
-      <FeedbackList feedbacks={project.feedbacks} projectId={project.id} />
+      <FeedbackList feedbacks={project.feedbacks}  />
     </div>
   );
 }

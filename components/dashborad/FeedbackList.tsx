@@ -1,38 +1,17 @@
-import { getSubscription } from "@/actions/userSubscriptions";
-import { auth } from "@clerk/nextjs/server";
-import Link from "next/link";
 import React from "react";
-import { Button } from "../ui/button";
-import SubscribeBtn from "@/app/(user)/payments/subscribeButton";
-import { monthlyPlanId } from "@/lib/payments";
 
 export default async function FeedbackList({
   feedbacks,
-  projectId,
 }: {
   feedbacks: any;
-  projectId: number;
 }) {
-  // const { userId } = auth();
-  // const subscribed = await getSubscription({ userId: userId as string });
-  {
-    /* {subscribed ? (
-          <Link href={`/projects/${projectId}/analyze`}>
-            <Button size="sm" className="bg-blue-500 hover:bg-blue-600  ">
-              AI Analyze
-            </Button>
-          </Link>
-        ) : (
-          <SubscribeBtn price={monthlyPlanId} />
-        )} */
-  }
   return (
-    <div className=" bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:min-w-[600px] h-[500px] overflow-auto">
+    <div className=" bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto">
       <h1 className="text-2xl mb-5 text-white">
         Feedbacks <span className="wave">👋</span>
       </h1>
 
-      <div className="">
+      <div>
         {feedbacks.length === 0 && (
           <div className="flex justify-center items-center  h-[calc(100dvh-202px)]">
             <p className="text-slate-200 text-center text-2xl">
