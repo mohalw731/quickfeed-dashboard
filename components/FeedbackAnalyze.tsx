@@ -1,85 +1,93 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
-import ReactMarkdown from "react-markdown"
-import axios from "axios"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Slider } from "@/components/ui/slider"
-import { Card } from "@/components/ui/card"
-import { Eye, Loader2, Settings } from "lucide-react"
+import React, { useState, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import axios from "axios";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Slider } from "@/components/ui/slider";
+import { Card } from "@/components/ui/card";
+import { Eye, Loader2, Settings } from "lucide-react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
+import { Sub } from "@radix-ui/react-dropdown-menu";
+import SubscribeBtn from "@/app/(user)/payments/subscribeButton";
+import { monthlyPlanId } from "@/lib/payments";
 
 interface AnalysisResult {
-  text: string
-  timestamp: number
+  text: string;
+  timestamp: number;
 }
 
 interface CooldownData {
-  [key: string]: number
+  [key: string]: number;
 }
 
 export default function FeedbackAnalysis({
   feedbackMessages,
   id,
+  subscribed,
 }: {
-  feedbackMessages: string[]
-  id: string
+  feedbackMessages: string[];
+  id: string;
+  subscribed: boolean;
 }) {
-  const [analysis, setAnalysis] = useState<AnalysisResult | null>(null)
-  const [isAnalyzing, setIsAnalyzing] = useState(false)
-  const [cooldowns, setCooldowns] = useState<CooldownData>({})
-  const [customPrompt, setCustomPrompt] = useState<string>("")
-  const [tokenCount, setTokenCount] = useState<number>(150)
-  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false)
-  const [showButton, setShowButton] = useState<boolean>(true)
+  const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [cooldowns, setCooldowns] = useState<CooldownData>({});
+  const [customPrompt, setCustomPrompt] = useState<string>("");
+  const [tokenCount, setTokenCount] = useState<number>(150);
+  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+  const [showButton, setShowButton] = useState<boolean>(true);
 
   // Load stored cooldowns and analysis on mount
   useEffect(() => {
-    const storedCooldowns = localStorage.getItem("analysisCooldowns")
-    const storedAnalysis = localStorage.getItem(`analysisResult_${id}`)
+    const storedCooldowns = localStorage.getItem("analysisCooldowns");
+    const storedAnalysis = localStorage.getItem(`analysisResult_${id}`);
 
     if (storedCooldowns) {
-      setCooldowns(JSON.parse(storedCooldowns))
+      setCooldowns(JSON.parse(storedCooldowns));
     }
 
     if (storedAnalysis) {
-      setAnalysis(JSON.parse(storedAnalysis))
-      setShowButton(false)
+      setAnalysis(JSON.parse(storedAnalysis));
+      setShowButton(false);
     }
 
     const checkCooldown = () => {
       if (cooldowns[id] && Date.now() >= cooldowns[id]) {
         setCooldowns((prev) => {
-          const newCooldowns = { ...prev }
-          delete newCooldowns[id]
-          localStorage.setItem("analysisCooldowns", JSON.stringify(newCooldowns))
-          return newCooldowns
-        })
-        setShowButton(true)
+          const newCooldowns = { ...prev };
+          delete newCooldowns[id];
+          localStorage.setItem(
+            "analysisCooldowns",
+            JSON.stringify(newCooldowns)
+          );
+          return newCooldowns;
+        });
+        setShowButton(true);
       }
-    }
+    };
 
-    const interval = setInterval(checkCooldown, 60000) // Check every minute
+    const interval = setInterval(checkCooldown, 60000); // Check every minute
 
-    return () => clearInterval(interval)
-  }, [id]) // Only depend on `id`
+    return () => clearInterval(interval);
+  }, [id]); // Only depend on `id`
 
   // Show the button if cooldown for the given id has passed
   useEffect(() => {
-    if (!cooldowns[id] || Date.now() < cooldowns[id]) return
-    setShowButton(true)
-  }, [cooldowns, id])
+    if (!cooldowns[id] || Date.now() < cooldowns[id]) return;
+    setShowButton(true);
+  }, [cooldowns, id]);
 
   // Analyze feedback
   const handleAnalyze = async (useCustomPrompt: boolean = false) => {
-    setIsAnalyzing(true)
+    setIsAnalyzing(true);
     const prompt = useCustomPrompt
       ? customPrompt +
         `use max tokens: ${tokenCount}\n\nFeedback: ${feedbackMessages.join(
@@ -95,7 +103,7 @@ export default function FeedbackAnalysis({
       Suggestions:
 
       Provide clear and actionable recommendations for improving the areas highlighted in the feedback.
-      use max tokens: ${tokenCount}`
+      use max tokens: ${tokenCount}`;
 
     try {
       const response = await axios.post(
@@ -111,43 +119,46 @@ export default function FeedbackAnalysis({
             "Content-Type": "application/json",
           },
         }
-      )
+      );
 
       const newAnalysis: AnalysisResult = {
         text: response.data.choices[0].message.content,
         timestamp: Date.now(),
-      }
-      setAnalysis(newAnalysis)
+      };
+      setAnalysis(newAnalysis);
 
-      const newCooldownEnd = Date.now() + 7 * 24 * 60 * 60 * 1000 // 1 week from now
-      const updatedCooldowns = { ...cooldowns, [id]: newCooldownEnd }
-      setCooldowns(updatedCooldowns)
-      localStorage.setItem("analysisCooldowns", JSON.stringify(updatedCooldowns))
-      localStorage.setItem(`analysisResult_${id}`, JSON.stringify(newAnalysis))
-      setShowButton(false)
+      const newCooldownEnd = Date.now() + 7 * 24 * 60 * 60 * 1000; // 1 week from now
+      const updatedCooldowns = { ...cooldowns, [id]: newCooldownEnd };
+      setCooldowns(updatedCooldowns);
+      localStorage.setItem(
+        "analysisCooldowns",
+        JSON.stringify(updatedCooldowns)
+      );
+      localStorage.setItem(`analysisResult_${id}`, JSON.stringify(newAnalysis));
+      setShowButton(false);
     } catch (error) {
-      console.error("Error generating analysis:", error)
+      console.error("Error generating analysis:", error);
     } finally {
-      setIsAnalyzing(false)
-      setIsSettingsOpen(false)
+      setIsAnalyzing(false);
+      setIsSettingsOpen(false);
     }
-  }
+  };
 
   // Button state management
   const isButtonDisabled =
-    isAnalyzing || (cooldowns[id] && Date.now() < cooldowns[id])
+    isAnalyzing || (cooldowns[id] && Date.now() < cooldowns[id]);
 
   // Get remaining cooldown time
   const getRemainingTime = () => {
-    if (!cooldowns[id]) return null
-    const remaining = cooldowns[id] - Date.now()
-    if (remaining <= 0) return null
-    const days = Math.floor(remaining / (24 * 60 * 60 * 1000))
+    if (!cooldowns[id]) return null;
+    const remaining = cooldowns[id] - Date.now();
+    if (remaining <= 0) return null;
+    const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
     const hours = Math.floor(
       (remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000)
-    )
-    return `${days}d ${hours}h`
-  }
+    );
+    return `${days}d ${hours}h`;
+  };
 
   // Format timestamp into readable date
   const formatDate = (timestamp: number) => {
@@ -157,11 +168,11 @@ export default function FeedbackAnalysis({
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-    })
-  }
+    });
+  };
 
   return (
-    <Card className="w-full space-y-6 p-5 bg-[#202020] rounded-2xl border-none max-w-[820px]  overflow-auto custom-scrollbar md:h-full h-[500px]" >
+    <Card className="w-full space-y-6 p-5 bg-[#202020] rounded-2xl border-none max-w-[820px]  overflow-auto custom-scrollbar md:h-full h-[500px]">
       <div className="flex items-start justify-between text-white">
         <h1 className="text-2xl">Feedback Analysis ✨</h1>
         <Dialog open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
@@ -195,18 +206,24 @@ export default function FeedbackAnalysis({
                   className="w-full"
                 />
               </div>
-              <Button
-                onClick={() => handleAnalyze(true)}
-                disabled={
-                  isAnalyzing ||
-                  !customPrompt ||
-                  isButtonDisabled ||
-                  !feedbackMessages.length
-                }
-                className="w-full h-10 bg-gray-800 hover:bg-gray-900 text-white rounded-xl transition-all duration-200 ease-in-out transform hover:scale-105"
-              >
-                Run Custom Analysis
-              </Button>
+              {subscribed ? (
+                <Button
+                  onClick={() => handleAnalyze(true)}
+                  disabled={
+                    isAnalyzing ||
+                    !customPrompt ||
+                    isButtonDisabled ||
+                    !feedbackMessages.length
+                  }
+                  className="w-full h-10 bg-gray-800 hover:bg-gray-900 text-white rounded-xl transition-all duration-200 ease-in-out transform hover:scale-105"
+                >
+                  Run Custom Analysis
+                </Button>
+              ) : (
+                <div className="w-full flex justify-center">
+                  <SubscribeBtn price={monthlyPlanId} />
+                </div>
+              )}
             </div>
           </DialogContent>
         </Dialog>
@@ -215,23 +232,29 @@ export default function FeedbackAnalysis({
       <div className="flex-grow overflow-y-auto">
         {showButton && (
           <>
-            <div className="flex flex-col items-center mb-5">
+            <div className="flex flex-col items-center mb-2">
               <span className="text-3xl">📊</span>
               <h2 className="md:text-2xl font-mono text-center text-white mb-2">
                 Get to understand your customers
               </h2>
             </div>
-            <Button
-              onClick={() => handleAnalyze(false)}
-              disabled={isButtonDisabled || !feedbackMessages.length}
-              className="w-full h-12 text-lg font-semibold bg-blue-500 hover:bg-blue-600 text-white rounded-xl transition-all duration-200 ease-in-out transform "
-            >
-              {isAnalyzing ? (
-                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-              ) : (
-                "Analyze Feedback"
-              )}
-            </Button>
+            {subscribed ? (
+              <Button
+                onClick={() => handleAnalyze(false)}
+                disabled={isButtonDisabled || !feedbackMessages.length}
+                className="w-full h-12 text-lg font-semibold bg-blue-500 hover:bg-blue-600 text-white rounded-xl transition-all duration-200 ease-in-out transform "
+              >
+                {isAnalyzing ? (
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                ) : (
+                  "Analyze Feedback"
+                )}
+              </Button>
+            ) : (
+              <div className="w-full flex justify-center">
+                <SubscribeBtn price={monthlyPlanId} />
+              </div>
+            )}
           </>
         )}
         {cooldowns[id] && Date.now() < cooldowns[id] && (
@@ -241,14 +264,38 @@ export default function FeedbackAnalysis({
         )}
 
         {analysis && (
-          <div className="text-black rounded-xl bg-gray-200 p-5 mt-4 ">
-            <h2 className="text-xl font-semibold mb-2">Latest Analysis Result</h2>
-            <hr className="my-2" />
-            <ReactMarkdown className="prose prose-lg">{analysis.text}</ReactMarkdown>
-            <p className="text-sm text-gray-500 mt-4">Generated on: {formatDate(analysis.timestamp)}</p>
-          </div>
+          <Dialog>
+            <DialogTrigger asChild className="cursor-pointer">
+              <div className="text-black rounded-xl bg-gray-200 p-5 mt-4 ">
+                <h2 className="text-xl font-semibold mb-2">
+                  Latest Analysis Result
+                </h2>
+                <hr className="my-2" />
+                <ReactMarkdown className="prose prose-lg">
+                  {analysis.text}
+                </ReactMarkdown>
+                <p className="text-sm text-gray-500 mt-4">
+                  Generated on: {formatDate(analysis.timestamp)}
+                </p>
+              </div>
+            </DialogTrigger>
+            <DialogContent className="md:w-full max-h-[600px] w-[90%] rounded-xl  overflow-auto">
+              <DialogHeader>
+                <DialogTitle>Latest Analysis Result ✨</DialogTitle>
+              </DialogHeader>
+              <div className="text-black rounded-xl ">
+                <hr className="my-2" />
+                <ReactMarkdown className="prose prose-lg">
+                  {analysis.text}
+                </ReactMarkdown>
+                <p className="text-sm text-gray-500 mt-4">
+                  Generated on: {formatDate(analysis.timestamp)}
+                </p>
+              </div>
+            </DialogContent>
+          </Dialog>
         )}
       </div>
     </Card>
-  )
+  );
 }
