@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 
 export default function Userlayout({ children }: any) {
   return (
-    <div className="md:h-screen px-5 bg-white">
+    <div className="px-5  ">
       <Suspense fallback={<Loading />}>
         <Navbar />
         {children}

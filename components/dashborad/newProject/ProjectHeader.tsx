@@ -15,8 +15,8 @@ export default function AddNewProjectHeader({ subscribed, projects }: Props) {
   return (
     <div className="">
       <header className="flex items-center justify-between mt-5">
-        <h1 className="md:text-3xl  text-2xl">
-          Welcome, <span className="text-blue-500">{user?.firstName}</span>
+        <h1 className="md:text-3xl  text-2xl text-white">
+          Welcome, <span className="text-blue-500">{user?.firstName}</span> <span className="wave">👋</span>
         </h1>
 
         {projects.length === 1 && !subscribed ? (
@@ -31,7 +31,7 @@ export default function AddNewProjectHeader({ subscribed, projects }: Props) {
         )}
       </header>
       <p
-        className="text-slate-400 md:text-base text-sm
+        className="text-slate-200 md:text-base text-sm
    mt-1"
       >
         Manage your widgets here

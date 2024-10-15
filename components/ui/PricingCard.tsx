@@ -1,7 +1,7 @@
 "use client";
+import { PricingPlan } from "@/sections/Pricing";
 import { Check } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { PricingPlan } from "./Pricing";
 
 const PricingCard = ({ title, price, description, features, isPopular, url }: PricingPlan) => {
   const router = useRouter();
@@ -30,7 +30,7 @@ const PricingCard = ({ title, price, description, features, isPopular, url }: Pr
         <div className="flex-grow border-t border-gray-400 opacity-25 my-3"/>
         <ul>
           {
-            features.map((feature, index) => (
+            features.map((feature: string, index: number) => (
               <li key={index} className="flex flex-row items-center text-gray-700 gap-2 my-2">
                 <div className="rounded-full flex items-center justify-center">
                   <Check className="text-green-500 size-4"  />

@@ -1,18 +1,19 @@
-import { Chart } from "@/components/Chart";
-import FeedbackList from "@/components/dashborad/FeedbackList";
-import { Button } from "@/components/ui/button";
+import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { projects as dbProjects } from "@/db/schema";
-import { eq } from "drizzle-orm";
-import Link from "next/link";
-import React from "react";
-export default async function page(params: {
-  params: {
-    formId: string;
-  };
-}) {
-  const projectId = params.params.formId;
-  if (!projectId) return <div>Invalid Project ID</div>;
+import FeedbackList from "@/components/dashborad/FeedbackList";
+import FeedbackOverview from "@/components/FeedbackOverview";
+import ProjectOverview from "@/components/ProjectOverview";
+import FeedbackAnalysis from "@/components/FeedbackAnalyze";
+
+export default async function Page({ params }: { params: { formId: string } }) {
+  const projectId = params.formId;
+  if (!projectId)
+    return (
+      <div className="flex items-center justify-center h-screen text-lg font-medium text-gray-500">
+        Invalid Project ID
+      </div>
+    );
 
   const projects = await db.query.projects.findMany({
     where: eq(dbProjects.id, parseInt(projectId)),
@@ -21,39 +22,31 @@ export default async function page(params: {
     },
   });
 
+  if (!projects.length)
+    return (
+      <div className="flex items-center justify-center h-screen text-lg font-medium text-gray-500">
+        Project not found
+      </div>
+    );
+
+  const project = projects[0];
+  const feedbackMessages = project.feedbacks.map(
+    (feedback) => `feedback: ${feedback.message}\nrating: ${feedback.rating}`
+  );
+
   return (
-    <div className="mt-5 w-full ">
-      {projects.map((project) => (
-        <div key={project.id}>
-          <section className="flex items-start justify-center md:gap-10 gap-20 w-full md:flex-row flex-col pb-10">
-            <div className="flex gap-5 flex-col max-w-xl w-full">
-              <h1 className="md:text-6xl text-2xl">{project.name}</h1>
-
-              <div className="flex gap-2">
-                <a
-                  href={project?.url as string}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="outline">View Project</Button>
-                </a>
-                <Link href={`/projects/${project.id}/instructions`}>
-                  <Button variant="outline">View Instructions</Button>
-                </Link>
-              </div>
-              <Chart project={project.feedbacks} />
-             
-            </div>
-            <FeedbackList
-              feedbacks={project.feedbacks}
-              projectId={project.id}
-            />
-
-           
-
-          </section>
+    <div className="flex  gap-5 md:flex-row flex-col md:h-[calc(100dvh-100px)]  mb-20 justify-center">
+      <section className=" flex  gap-5 flex-col">
+        <div className="flex gap-5 lg:flex-row flex-col">
+          <ProjectOverview project={project} />
+          <FeedbackOverview project={project.feedbacks} />
         </div>
-      ))}
+        <FeedbackAnalysis
+          feedbackMessages={feedbackMessages}
+          id={project.id.toString()}
+        />
+      </section>
+      <FeedbackList feedbacks={project.feedbacks} projectId={project.id} />
     </div>
   );
 }

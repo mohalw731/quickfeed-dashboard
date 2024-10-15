@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "../ui/button";
-import AvatarCircles from "../magicui/avatar-circles";
 import Link from "next/link";
+import AvatarCircles from "@/components/magicui/avatar-circles";
+import { Button } from "@/components/ui/button";
+
 
 const avatarUrls = [
   "https://avatars.githubusercontent.com/u/16860528",

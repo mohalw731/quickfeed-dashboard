@@ -1,4 +1,4 @@
-import PricingCard from "./PricingCard";
+import PricingCard from "@/components/ui/PricingCard";
 
 export type PricingPlan = {
   title: string;
@@ -7,7 +7,7 @@ export type PricingPlan = {
   isPopular: boolean;
   features: string[];
   url: string;
-}
+};
 
 export const pricingPlans: PricingPlan[] = [
   {
@@ -49,8 +49,7 @@ export const pricingPlans: PricingPlan[] = [
       "Priority support",
     ],
   },
-]
-
+];
 
 const Pricing = () => {
   return (
@@ -60,14 +59,12 @@ const Pricing = () => {
         Flexible Pricing to Fit Your Needs
       </h2>
       <div className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl">
-        {
-          pricingPlans.map((plan, index) => (
-            <PricingCard key={index} {...plan} />
-          ))
-        }
+        {pricingPlans.map((plan, index) => (
+          <PricingCard key={index} {...plan} />
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Pricing;

@@ -1,10 +1,10 @@
 import React from "react";
-import { Button } from "../ui/button";
-import Code from "../ui/Code";
-import { AnimatedListDemo } from "../ui/Animated";
-import { AnimatedBeam } from "../magicui/animated-beam";
-import { AnimatedBeamMultipleOutputDemo } from "../ui/Beam";
+
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import Code from "@/components/ui/Code";
+import { AnimatedListDemo } from "@/components/ui/Animated";
+import { AnimatedBeamMultipleOutputDemo } from "@/components/ui/Beam";
 
 export default function ColumnRow() {
   return (
