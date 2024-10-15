@@ -43,7 +43,7 @@ const PricingCard = ({ title, price, description, features, isPopular, url }: Pr
       </div>
       <div>
         <button onClick={onClick} className="bg-blue-500 hover:bg-blue-600  py-2 mt-3 rounded-lg text-white w-full">
-          Select Plan
+          Get Started
         </button>
       </div>
     </div>

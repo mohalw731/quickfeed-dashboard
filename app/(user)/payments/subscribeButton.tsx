@@ -41,7 +41,7 @@ const SubscribeBtn = ({ price }: { price: string }) => {
   }
 
   return (
-    <Button onClick={() => handleCheckout(price)} className="bg-indigo-700" disabled={loading}>
+    <Button onClick={() => handleCheckout(price)} className="bg-indigo-700 hover:bg-indigo-900" disabled={loading}>
       {loading ? <Loader2 className=" h-4 w-4 animate-spin" /> : `subscribe ` }
       {loading ? '' : <Lock className="h-4 w-4 ml-2" /> }
     </Button>

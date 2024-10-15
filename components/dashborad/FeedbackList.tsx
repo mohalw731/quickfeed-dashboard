@@ -6,7 +6,7 @@ export default async function FeedbackList({
   feedbacks: any;
 }) {
   return (
-    <div className=" bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto">
+    <div className={`bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[500px]`}>
       <h1 className="text-2xl mb-5 text-white">
         Feedbacks <span className="wave">👋</span>
       </h1>

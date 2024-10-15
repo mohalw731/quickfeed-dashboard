@@ -41,7 +41,7 @@ export default function FeedbackOverview({ project }: any) {
         </ul>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-4">
         <p className="text-white">Total: {total}</p>
         <p className="text-black bg-slate-200 py-1 px-2 rounded-lg text-sm">Average: {overallRating}</p>
       </div>

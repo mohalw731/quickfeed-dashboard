@@ -1,49 +1,70 @@
-import { auth } from "@clerk/nextjs/server"
-import { db } from "@/db"
-import { subscriptions } from "@/db/schema"
-import { eq } from "drizzle-orm"
-import { Suspense } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
-import { Skeleton } from "@/components/ui/skeleton"
-import ManageSubscription from "./ManageSubscription"
+import { auth } from "@clerk/nextjs/server";
+import { db } from "@/db";
+import { subscriptions } from "@/db/schema";
+import { eq } from "drizzle-orm";
+import { Suspense } from "react";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import ManageSubscription from "./ManageSubscription";
+import { getSubscription } from "@/actions/userSubscriptions";
+import SubscribeBtn from "./subscribeButton";
+import { monthlyPlanId } from "@/lib/payments";
 
 // Update the type definition to include currentPeriodEnd
 type Subscription = {
-  userId: string | null
-  id: number
-  stripeCustomerId: string | null
-  stripeSubscriptionId: string | null
-  subscribed: boolean | null
-  currentPeriodEnd?: string // Add this line
-}
+  userId: string | null;
+  id: number;
+  stripeCustomerId: string | null;
+  stripeSubscriptionId: string | null;
+  subscribed: boolean | null;
+  currentPeriodEnd?: string; // Add this line
+};
 
 function SubscriptionBadge({ plan }: { plan: string }) {
   return (
-    <Badge variant={plan === 'premium' ? "default" : "secondary"} className="ml-2">
-      {plan === 'premium' ? 'Premium' : 'Free'}
+    <Badge
+      variant={plan === "premium" ? "default" : "secondary"}
+      className="ml-2"
+    >
+      {plan === "premium" ? "Premium" : "Free"}
     </Badge>
-  )
+  );
 }
 
 async function SubscriptionDetails() {
-  const { userId } = await auth()
+  const { userId } = await auth();
 
   if (!userId) {
-    return <p className="text-muted-foreground">Please sign in to view subscription details.</p>
+    return (
+      <p className="text-muted-foreground">
+        Please sign in to view subscription details.
+      </p>
+    );
   }
 
-  const subscription = await db.query.subscriptions.findFirst({
-    where: eq(subscriptions.userId, userId)
-  }) as Subscription | null
+  const subscription = (await db.query.subscriptions.findFirst({
+    where: eq(subscriptions.userId, userId),
+  })) as Subscription | null;
 
-  const plan = subscription && subscription.subscribed ? 'premium' : 'free'
+  const subscribed = await getSubscription({ userId });
+
+  const plan = subscription && subscription.subscribed ? "premium" : "free";
 
   return (
     <Card className="bg-[#202020] text-white border-[#303030] w-full">
       <CardHeader>
         <CardTitle className="text-2xl">Subscription Details</CardTitle>
-        <CardDescription className="text-slate-300">Manage your subscription and billing information</CardDescription>
+        <CardDescription className="text-slate-300">
+          Manage your subscription and billing information
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -53,26 +74,31 @@ async function SubscriptionDetails() {
               <SubscriptionBadge plan={plan} />
             </h2>
             <p className="text-sm text-slate-300">
-              {plan === 'premium' 
-                ? 'You have access to all premium features.' 
-                : 'Upgrade to premium for full access to all features.'}
+              {plan === "premium"
+                ? "You have access to all premium features."
+                : "Upgrade to premium for full access to all features."}
             </p>
           </div>
           {subscription && subscription.currentPeriodEnd && (
             <div>
               <h2 className="text-lg font-semibold">Billing Cycle</h2>
               <p className="text-sm text-muted-foreground">
-                Your next billing date is {new Date(subscription.currentPeriodEnd).toLocaleDateString()}
+                Your next billing date is{" "}
+                {new Date(subscription.currentPeriodEnd).toLocaleDateString()}
               </p>
             </div>
           )}
         </div>
       </CardContent>
       <CardFooter>
-        <ManageSubscription />
+        {subscribed ? (
+          <ManageSubscription />
+        ) : (
+          <SubscribeBtn price={monthlyPlanId} />
+        )}
       </CardFooter>
     </Card>
-  )
+  );
 }
 
 export default function Page() {
@@ -82,7 +108,7 @@ export default function Page() {
         <SubscriptionDetails />
       </Suspense>
     </div>
-  )
+  );
 }
 
 function SubscriptionSkeleton() {
@@ -104,5 +130,5 @@ function SubscriptionSkeleton() {
         <Skeleton className="h-10 w-full" />
       </CardFooter>
     </Card>
-  )
+  );
 }

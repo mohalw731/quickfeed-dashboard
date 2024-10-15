@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
-import { Eye, Loader2, Settings } from "lucide-react";
+import { Loader2, Settings } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -15,7 +15,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Sub } from "@radix-ui/react-dropdown-menu";
 import SubscribeBtn from "@/app/(user)/payments/subscribeButton";
 import { monthlyPlanId } from "@/lib/payments";
 
@@ -109,7 +108,7 @@ export default function FeedbackAnalysis({
       const response = await axios.post(
         "https://api.openai.com/v1/chat/completions",
         {
-          model: "gpt-4",
+          model: tokenCount < 500 ? "gpt-3.5-turbo" : "gpt-4",
           messages: [{ role: "user", content: prompt }],
           max_tokens: tokenCount,
         },
@@ -229,12 +228,12 @@ export default function FeedbackAnalysis({
         </Dialog>
       </div>
 
-      <div className="flex-grow overflow-y-auto">
-        {showButton && (
+      <div className={`flex-grow overflow-y-auto ${analysis?.text  ? " " : "flex flex-col justify-center items-center h-[calc(100%-130px)]"}`}>
+      {showButton && (
           <>
-            <div className="flex flex-col items-center mb-2">
-              <span className="text-3xl">📊</span>
-              <h2 className="md:text-2xl font-mono text-center text-white mb-2">
+            <div className="flex flex-col items-center gap-5">
+              <span className="text-5xl">📊</span>
+              <h2 className="md:text-2xl font-mono text-center text-white mb-3">
                 Get to understand your customers
               </h2>
             </div>
@@ -279,7 +278,7 @@ export default function FeedbackAnalysis({
                 </p>
               </div>
             </DialogTrigger>
-            <DialogContent className="md:w-full max-h-[600px] w-[90%] rounded-xl  overflow-auto">
+            <DialogContent className="md:w-full max-h-[600px] w-[90%] rounded-xl  overflow-auto custom-scrollbar">
               <DialogHeader>
                 <DialogTitle>Latest Analysis Result ✨</DialogTitle>
               </DialogHeader>
