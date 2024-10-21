@@ -22,14 +22,14 @@ export default function Hero() {
           <div className=" z-10 flex -space-x-4 rtl:space-x-reverse ">
             <AvatarCircles numPeople={11} avatarUrls={avatarUrls} />
           </div>
-          <p>
+          <p className="text-neutral-400">
             <span className="font-bold md:text-base text-sm">11</span> founders
             collect more feedback
           </p>
         </div>
 
         <div className="flex items-center flex-col md:gap-4 gap-2">
-          <h1 className="md:text-6xl text-2xl text-center sm:text-2xl">
+          <h1 className="md:text-6xl text-neutral-300 text-2xl text-center sm:text-2xl">
             <span className="text-blue-500">AI powered feedback</span> <br />
             collection built into your app
           </h1>

@@ -12,7 +12,7 @@ export default function ColumnRow() {
       <ul className="flex flex-col md:gap-32 gap-24">
         <li className="flex md:gap-12 md:flex-row flex-col gap-6 ">
           <div className="flex flex-col gap-4 max-w-lg h-full ">
-            <h2 className="md:text-4xl text-2xl">
+            <h2 className="md:text-4xl text-neutral-300 text-2xl">
               Quick and <span className="text-blue-500">Simple</span>{" "}
               Integration
             </h2>
@@ -37,7 +37,7 @@ export default function ColumnRow() {
 
         <li className="flex md:gap-12 md:flex-row-reverse flex-col gap-6 ">
           <div className="flex flex-col gap-4 max-w-lg h-full ">
-            <h2 className="md:text-4xl text-2xl">
+            <h2 className="md:text-4xl text-neutral-300 text-2xl">
               Collect <span className="text-blue-500">Feedbacks</span>
             </h2>
             <p className="text-slate-500 tracking-wide leading-6 md:text-base text-sm">
@@ -60,7 +60,7 @@ export default function ColumnRow() {
 
         <li className="flex md:gap-12 md:flex-row flex-col gap-6 ">
           <div className="flex flex-col gap-4 max-w-lg h-full ">
-            <h2 className="md:text-4xl text-2xl">
+            <h2 className="md:text-4xl text-neutral-300 text-2xl">
               <span className="text-blue-500">AI-Driven</span> Solutions
             </h2>
             <p className="text-slate-500 tracking-wide leading-6 md:text-base text-sm">
