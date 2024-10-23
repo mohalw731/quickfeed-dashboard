@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 
 interface Feedback {
   id: number;
-  message: string | null; 
+  message: string | null;
   rating: number | null;
 };
 
