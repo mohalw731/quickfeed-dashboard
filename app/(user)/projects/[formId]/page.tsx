@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: { formId: string } }) {
   );
 
   return (
-    <div className="flex gap-5 md:flex-row flex-col md:h-[calc(100dvh-100px)] mb-20 justify-center">
+    <div className="flex gap-5 md:flex-row flex-col md:h-[calc(100dvh-100px)] mb-10 justify-center">
       <section className="flex gap-5 flex-col">
         <div className="flex gap-5 lg:flex-row flex-col">
           <ProjectOverview project={project} />
