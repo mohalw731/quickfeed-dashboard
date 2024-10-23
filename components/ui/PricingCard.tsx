@@ -22,7 +22,7 @@ export default function PricingCard({ title, price, description, features, isPop
     `}>
       {isPopular && (
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg flex items-center gap-1">
-          <Star className="w-4 h-4" /> Most Popular
+          <Star fill="yellow" className="w-4 h-4" /> Most Popular
         </div>
       )}
       <div className="space-y-6 p-6 pt-8">
