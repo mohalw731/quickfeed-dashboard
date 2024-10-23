@@ -49,7 +49,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
   return (
     <figure
       className={cn(
-        "relative mx-auto min-h-fit w-full cursor-pointer overflow-hidden rounded-2xl p-4 border",
+        "relative mx-auto min-h-fit w-full cursor-pointer overflow-hidden rounded-2xl p-4 border border-neutral-800",
         // animation styles
         "transition-all duration-200 ease-in-out hover:scale-[103%]",
         // light styles
@@ -70,11 +70,11 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
         </div>
         <div className="flex flex-col overflow-hidden">
           <figcaption className="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white ">
-            <span className="text-sm sm:text-lg">{name}</span>
+            <span className="text-sm text-neutral-300 sm:text-lg">{name}</span>
             <span className="mx-1">·</span>
             <span className="text-xs text-gray-500">{time}</span>
           </figcaption>
-          <p className="text-sm font-normal dark:text-white/60">
+          <p className="text-sm text-slate-400 font-normal dark:text-white/60">
             {description}
           </p>
         </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import AvatarCircles from "@/components/magicui/avatar-circles";
 import { Button } from "@/components/ui/button";
 
 const avatarUrls = [
@@ -18,9 +17,14 @@ export default function Hero() {
       <div className="bg-blue-500 size-64 blur-[150px] right-28 bottom-44 rotate-[-45deg]   absolute md:block hidden" />
 
       <main className="flex flex-col items-center gap-4 h-[calc(100vh-180px)] justify-center z-[999]">
+<<<<<<< HEAD
        
         <div className="flex items-center flex-col md:gap-4 gap-2">
           <h1 className="md:text-7xl text-2xl text-center sm:text-2xl text-white ">
+=======
+        <div className="flex items-center flex-col md:gap-4 gap-2">
+          <h1 className="md:text-7xl text-neutral-300 text-2xl text-center sm:text-2xl">
+>>>>>>> origin/test
             <span className="text-blue-500">AI powered feedback</span> <br />
             collection built into your app
           </h1>
@@ -32,12 +36,20 @@ export default function Hero() {
 
         <div className="flex gap-4 md:mt-5">
           <Link href={"/sign-up"}>
+<<<<<<< HEAD
             <Button className="bg-blue-500 hover:bg-blue-600 hover:scale-105 rounded-full">
+=======
+            <Button variant={"outline"} className="bg-blue-500 border-[#3333] hover:bg-blue-600 rounded-full hover:scale-105">
+>>>>>>> origin/test
               Get Started
             </Button>
           </Link>
           <a href="#pricing">
+<<<<<<< HEAD
             <Button className="bg-transparent text-white hover:text-white hover:bg-[#303030] border-[1px] border-[#303030] rounded-full">
+=======
+            <Button variant={"outline"} className=" bg-slate-100 hover:scale-105 rounded-full hover:bg-white text-black border-2 border-[#3333]">
+>>>>>>> origin/test
               Pricing
             </Button>
           </a>
