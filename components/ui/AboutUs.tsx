@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function QuickFeedSection() {
+export default function AboutUs() {
     const words = ["Quick", "Easy", "Secure"];
     const [activeWord, setActiveWord] = useState(words[0]);
 
