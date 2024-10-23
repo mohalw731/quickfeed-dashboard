@@ -1,15 +1,12 @@
 import {
   SignedIn,
   SignedOut,
-  SignInButton,
   UserButton,
-  useUser,
 } from "@clerk/nextjs";
 import React from "react";
 import { Button } from "../ui/button";
 import { CreditCard, MessageSquare } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function PageHeader() {
   return (
@@ -24,7 +21,7 @@ export default function PageHeader() {
         <div className="flex items-center gap-3">
           <SignedOut>
             <Link href="/sign-in">
-              <Button className=" bg-slate-100 hover:scale-105 hover:bg-white text-black border-2 border-slate-300">
+              <Button className="bg-transparent text-white hover:text-white hover:bg-[#303030] border-[1px] border-[#303030] rounded-full p-5 text-base" variant={"outline"}> 
                 Sign in
               </Button>
             </Link>

@@ -18,22 +18,13 @@ export default function Hero() {
       <div className="bg-blue-500 size-64 blur-[150px] right-28 bottom-44 rotate-[-45deg]   absolute md:block hidden" />
 
       <main className="flex flex-col items-center gap-4 h-[calc(100vh-180px)] justify-center z-[999]">
-        <div className=" flex flex-col items-center gap-2 ">
-          <div className=" z-10 flex -space-x-4 rtl:space-x-reverse ">
-            <AvatarCircles numPeople={11} avatarUrls={avatarUrls} />
-          </div>
-          <p>
-            <span className="font-bold md:text-base text-sm">11</span> founders
-            collect more feedback
-          </p>
-        </div>
-
+       
         <div className="flex items-center flex-col md:gap-4 gap-2">
-          <h1 className="md:text-6xl text-2xl text-center sm:text-2xl">
+          <h1 className="md:text-7xl text-2xl text-center sm:text-2xl text-white ">
             <span className="text-blue-500">AI powered feedback</span> <br />
             collection built into your app
           </h1>
-          <p className="text-slate-500 md:text-base text-sm text-center max-w-[550px]">
+          <p className="text-slate-300 md:text-base text-sm text-center max-w-[550px]">
             Quickfeed uses machine learning algorithms to analyze customer
             feedback and provide actionable insights.
           </p>
@@ -41,12 +32,12 @@ export default function Hero() {
 
         <div className="flex gap-4 md:mt-5">
           <Link href={"/sign-up"}>
-            <Button className="bg-blue-500 hover:bg-blue-600 hover:scale-105">
+            <Button className="bg-blue-500 hover:bg-blue-600 hover:scale-105 rounded-full">
               Get Started
             </Button>
           </Link>
           <a href="#pricing">
-            <Button className=" bg-slate-100 hover:scale-105 hover:bg-white text-black border-2 border-slate-300">
+            <Button className="bg-transparent text-white hover:text-white hover:bg-[#303030] border-[1px] border-[#303030] rounded-full">
               Pricing
             </Button>
           </a>
