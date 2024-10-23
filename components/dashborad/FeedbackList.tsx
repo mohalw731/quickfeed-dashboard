@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 
 interface Feedback {
-  id: string
+  id: number
   message: string
   rating: number
 }
