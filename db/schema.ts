@@ -27,6 +27,8 @@ export const feedbacks = pgTable("feedbacks", {
   projectId: integer("project_id").notNull(), // Add .notNull() if required
   message: text("message"),
   rating: integer("rating"),
+  name: text("name"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export const feedbacksRelations = relations(feedbacks, ({ one }) => ({

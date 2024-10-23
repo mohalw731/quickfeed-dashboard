@@ -27,7 +27,7 @@ export default function PageHeader() {
           </SignedOut>
           <SignedIn>
             <Link href={"/payments"} className="cursor-pointer">
-              <button className="p-1 bg-[#303030] rounded-full border-[1px] border-slate-600">
+              <button className="p-1 bg-[#303030] rounded-full border-[1px] border-[#606060]">
                 <CreditCard className="size-5 text-white" />
               </button>
             </Link>
