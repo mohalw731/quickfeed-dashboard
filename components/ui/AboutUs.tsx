@@ -22,7 +22,7 @@ export default function AboutUs() {
   }, [words]);
 
   return (
-    <div className=" flex flex-col py-24 border-y border-neutral-900 items-center justify-center">
+    <div className=" flex flex-col py-24 border-y border-none items-center justify-center">
       <div className="flex flex-col items-center max-h-full text-center">
         <h1 className="tracking-widest text-5xl md:text-6xl text-blue-500">
           Quick<span className="text-neutral-300">Feed</span>

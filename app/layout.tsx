@@ -24,7 +24,7 @@ export default function RootLayout({
         <body className={inter.className}>
           {children}
           <my-widget project="41"></my-widget>
-          <script src="https://quickfeedwidgetlight.netlify.app/widget.js"></script>
+          <script src="https://quickfeedwidgetdark.netlify.app/widget.js"></script>
         </body>
       </html>
     </ClerkProvider>
