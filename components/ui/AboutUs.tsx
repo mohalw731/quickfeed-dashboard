@@ -16,7 +16,7 @@ export default function AboutUs() {
         const nextIndex = (currentIndex + 1) % words.length;
         return words[nextIndex];
       });
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, [words]);
@@ -24,7 +24,7 @@ export default function AboutUs() {
   return (
     <div className=" flex flex-col py-24 border-y border-none items-center justify-center">
       <div className="flex flex-col items-center max-h-full text-center">
-        <h1 className="tracking-widest text-5xl md:text-6xl text-blue-500">
+        <h1 className=" text-5xl md:text-6xl text-blue-500">
           Quick<span className="text-neutral-300">Feed</span>
         </h1>
         <h2 className="text-neutral-300 text-2xl mt-4">Analytics made easy!</h2>

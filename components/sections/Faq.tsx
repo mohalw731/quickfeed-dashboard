@@ -41,7 +41,7 @@ const faqData: FaqDataProps[] = [
 
 export default function Faq() {
   return (
-    <div className="w-full text-neutral-300 max-w-4xl mx-auto py-16 px-4">
+    <div className="w-full text-neutral-300  py-16 px-4">
       <h2 className="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
       <Accordion type="single" collapsible className="w-full space-y-4">
         {faqData.map((faq, index) => (

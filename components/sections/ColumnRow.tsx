@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import widget from "../../assets/widget.png";
+import analys from "../../assets/analys.png";
 
 
 type ColumnDataProps = {
@@ -11,16 +13,16 @@ type ColumnDataProps = {
 
 const columnData: ColumnDataProps[] = [
   {
-    title: "AI Driven Solutions",
+    title: "Light Weight Widget", 
     description: "Empower your decisions. Reveal trends and opportunities at a glance, visualised in a way that makes sense for everyone.",
     btnText: "Start now",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvkUFmp5jSF-DhrD5102bzHU7RbidetfqYfA&s"
+    imageUrl: widget.src
   },
   {
     title: "AI Driven Solutions",
     description: "Empower your decisions. Reveal trends and opportunities at a glance, visualised in a way that makes sense for everyone.",
     btnText: "Start now",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvkUFmp5jSF-DhrD5102bzHU7RbidetfqYfA&s"
+    imageUrl: analys.src
   },
   {
     title: "AI Driven Solutions",
@@ -42,7 +44,7 @@ export default function ColumnRow() {
       <ul className="gap-6 flex flex-col">
         {columnData.map((column, index) => (
           <div key={index}>
-            <li className={`flex md:gap-20 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} flex-col gap-6 items-center border border-[#202020] bg-[#171717] p-9 rounded-3xl z-[999]`}>
+            <li className={`flex md:gap-20 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} flex-col gap-6 items-center border border-[#202020] bg-[#171717] p-9 rounded-3xl z-[999] w-full`}>
               <Image
                 src={column.imageUrl}
                 alt="Column Row"
