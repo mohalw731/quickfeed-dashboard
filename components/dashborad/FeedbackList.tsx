@@ -37,16 +37,16 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
 
   return (
     <div
-      className={`bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[500px]`}
+      className={`bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[600px]`}
     >
       <h1 className="text-2xl mb-5 text-white">
         Feedbacks <span className="wave">👋</span>
       </h1>
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-2 mb-5">
         {filterButtons.map((button) => (
           <Button
             key={button.type}
-            className={`${button.className} rounded-lg ${filter === button.type && "border border-neutral-800"} focus:ring-0 focus:ring-offset-0 focus:outline-none focus:border-gray-700`}
+            className={`${button.className} rounded-lg ${filter === button.type && "border border-[#404040]"} focus:ring-0 focus:ring-offset-0 focus:outline-none focus:border-[#404040]`}
             onClick={() => setFilter(button.type)}
           >
             {button.label}
