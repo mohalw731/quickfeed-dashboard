@@ -8,7 +8,7 @@ interface Feedback {
   message: string | null;
   rating: number | null;
   name: string | null;
-  createdAt: string | null;
+  createdAt: Date | null;
 }
 
 type FilterType = "all" | "bad" | "okay" | "good";
