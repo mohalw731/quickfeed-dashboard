@@ -40,7 +40,7 @@ export default function ColumnRow() {
     <main className="flex md:my-20 my-12">
       <ul className="gap-6 flex flex-col">
         {columnData.map((column, index) => (
-          <div>
+          <div key={index}>
             <li className={`flex md:gap-20 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} flex-col gap-6 items-center border border-[#202020] bg-[#171717] p-9 rounded-3xl z-[999]`}>
               <Image
                 src={column.imageUrl}
