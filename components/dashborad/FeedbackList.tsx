@@ -4,25 +4,25 @@ import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 
 interface Feedback {
-  id: number
-  message: string
-  rating: number
-}
+  id: number;
+  message: string | null; 
+  rating: number | null;
+};
 
-type FilterType = 'all' | 'bad' | 'okay' | 'good'
+type FilterType = 'all' | 'bad' | 'okay' | 'good';
 
 interface FilterButton {
   type: FilterType
   label: string
   className: string
-}
+};
 
 const filterButtons: FilterButton[] = [
   { type: 'all', label: 'All', className: 'bg-blue-500 hover:bg-blue-600' },
   { type: 'good', label: 'Good', className: 'bg-[#303030] hover:bg-[#303030]' },
   { type: 'okay', label: 'Okay', className: 'bg-[#303030] hover:bg-[#303030]' },
   { type: 'bad', label: 'Bad', className: 'bg-[#303030] hover:bg-[#303030]' },
-]
+];
 
 export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
   const [filter, setFilter] = useState<FilterType>('all')
@@ -33,7 +33,7 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
     if (filter === 'okay' && feedback.rating === 3) return true
     if (filter === 'good' && (feedback.rating === 4 || feedback.rating === 5)) return true
     return false
-  })
+  });
 
   return (
     <div
