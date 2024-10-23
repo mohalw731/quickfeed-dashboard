@@ -1,38 +1,42 @@
-'use client'
+"use client";
 
-import React, { useState } from "react"
-import { Button } from "@/components/ui/button"
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface Feedback {
   id: number;
-  message: string | null; 
+  message: string | null;
   rating: number | null;
-};
+  name: string | null;
+  createdAt: string | null;
+}
 
-type FilterType = 'all' | 'bad' | 'okay' | 'good';
+type FilterType = "all" | "bad" | "okay" | "good";
 
 interface FilterButton {
-  type: FilterType
-  label: string
-  className: string
-};
+  type: FilterType;
+  label: string;
+  className: string;
+}
 
 const filterButtons: FilterButton[] = [
-  { type: 'all', label: 'All', className: 'bg-blue-500 hover:bg-blue-600' },
-  { type: 'good', label: 'Good', className: 'bg-[#303030] hover:bg-[#303030]' },
-  { type: 'okay', label: 'Okay', className: 'bg-[#303030] hover:bg-[#303030]' },
-  { type: 'bad', label: 'Bad', className: 'bg-[#303030] hover:bg-[#303030]' },
+  { type: "all", label: "All", className: "bg-blue-500 hover:bg-blue-600" },
+  { type: "good", label: "Good", className: "bg-[#303030] hover:bg-[#303030]" },
+  { type: "okay", label: "Okay", className: "bg-[#303030] hover:bg-[#303030]" },
+  { type: "bad", label: "Bad", className: "bg-[#303030] hover:bg-[#303030]" },
 ];
 
 export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
-  const [filter, setFilter] = useState<FilterType>('all')
+  const [filter, setFilter] = useState<FilterType>("all");
 
   const filteredFeedbacks = feedbacks.filter((feedback) => {
-    if (filter === 'all') return true
-    if (filter === 'bad' && (feedback.rating === 1 || feedback.rating === 2)) return true
-    if (filter === 'okay' && feedback.rating === 3) return true
-    if (filter === 'good' && (feedback.rating === 4 || feedback.rating === 5)) return true
-    return false
+    if (filter === "all") return true;
+    if (filter === "bad" && (feedback.rating === 1 || feedback.rating === 2))
+      return true;
+    if (filter === "okay" && feedback.rating === 3) return true;
+    if (filter === "good" && (feedback.rating === 4 || feedback.rating === 5))
+      return true;
+    return false;
   });
 
   return (
@@ -46,7 +50,9 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
         {filterButtons.map((button) => (
           <Button
             key={button.type}
-            className={`${button.className} rounded-lg ${filter === button.type && "border border-[#404040]"} focus:ring-0 focus:ring-offset-0 focus:outline-none focus:border-[#404040]`}
+            className={`${button.className} rounded-lg ${
+              filter === button.type && "border border-[#404040]"
+            } focus:ring-0 focus:ring-offset-0 focus:outline-none focus:border-[#404040]`}
             onClick={() => setFilter(button.type)}
           >
             {button.label}
@@ -65,26 +71,36 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
           {filteredFeedbacks.map((feedback: Feedback) => (
             <li
               key={feedback.id}
-              className="flex gap-2 bg-[#303030] rounded-[10px] p-5 justify-between flex-wrap"
+              className="flex gap-2 bg-[#303030] rounded-[10px] p-5 flex-col"
             >
-              <h2 className="flex flex-col gap-2">{feedback.message}</h2>
-              <span
-                className={
-                  feedback.rating === 1 || feedback.rating === 2
-                    ? "bg-red-800 text-black py-1 px-3 rounded-full text-xs"
-                    : feedback.rating === 3
+              <div className="flex justify-between items-center w-full flex-wrap">
+                <h2 className="flex flex-col gap-2">{feedback.message}</h2>
+                <span
+                  className={
+                    feedback.rating === 1 || feedback.rating === 2
+                      ? "bg-red-800 text-black py-1 px-3 rounded-full text-xs"
+                      : feedback.rating === 3
                       ? "bg-yellow-400 text-black py-1 px-3 rounded-full text-xs"
                       : feedback.rating === 4 || feedback.rating === 5
-                        ? "bg-green-500 text-black py-1 px-3 rounded-full text-xs"
-                        : ""
-                }
-              >
-                Rating: {feedback.rating}
-              </span>
+                      ? "bg-green-500 text-black py-1 px-3 rounded-full text-xs"
+                      : ""
+                  }
+                >
+                  Rating: {feedback.rating}
+                </span>
+              </div>
+              <div className="flex items-center gap-3 ">
+                {feedback.name &&  <p className="text-xs text-[#606060]"> by: {feedback.name}</p>}
+                <p className="text-xs text-[#606060]">
+                  {feedback.createdAt
+                    ? new Date(feedback.createdAt).toLocaleDateString()
+                    : "No date available"}
+                </p>
+              </div>
             </li>
           ))}
         </ul>
       </div>
     </div>
-  )
+  );
 }
