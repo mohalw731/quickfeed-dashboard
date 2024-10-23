@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import AvatarCircles from "@/components/magicui/avatar-circles";
 import { Button } from "@/components/ui/button";
 
 
@@ -21,7 +20,6 @@ export default function Hero() {
       <main className="flex flex-col items-center gap-4 h-[calc(100vh-180px)] justify-center z-[999]">
         <div className=" flex flex-col items-center gap-2 ">
           <div className=" z-10 flex -space-x-4 rtl:space-x-reverse ">
-            <AvatarCircles numPeople={11} avatarUrls={avatarUrls} />
           </div>
           <p>
             <span className="font-bold md:text-base text-sm">11</span> founders

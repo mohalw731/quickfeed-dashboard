@@ -19,14 +19,14 @@ export default function AboutUs() {
         }, 3000);
 
         return () => clearInterval(intervalId)
-    }, []);
+    }, [words]);
 
     return (
         <div className=" flex flex-col py-24 border-y border-neutral-900 items-center justify-center">
             <div className="flex flex-col items-center max-h-full text-center">
                 <h1 className="tracking-widest text-5xl md:text-6xl text-blue-500">Quick<span className="text-neutral-300">Feed</span></h1>
                 <h2 className="text-neutral-300 text-2xl mt-4">Analytics made easy!</h2>
-                <p className="text-neutral-400 mt-6 max-w-xl tracking-wide">Transform raw data into actionable insights at the touch of a button. Our cutting-edge analysis tool dives deep into the feedback you've received, providing you with a comprehensive understanding of your performance and clear pathways for improvement.</p>
+                <p className="text-neutral-400 mt-6 max-w-xl tracking-wide">Transform raw data into actionable insights at the touch of a button. Our cutting-edge analysis tool dives deep into the feedback you`ve received, providing you with a comprehensive understanding of your performance and clear pathways for improvement.</p>
             </div>
             <Link href={"/sign-up"}>
                 <Button

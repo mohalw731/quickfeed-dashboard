@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import AvatarCircles from "@/components/magicui/avatar-circles";
 import { Button } from "@/components/ui/button";
 
 const avatarUrls = [
