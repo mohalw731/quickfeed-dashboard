@@ -6,7 +6,6 @@ import Code from "@/components/ui/Code";
 import { AnimatedListDemo } from "@/components/ui/Animated";
 import { AnimatedBeamMultipleOutputDemo } from "@/components/ui/Beam";
 
-
 export default function ColumnRow() {
   return (
     <main className="md:my-20 my-12">

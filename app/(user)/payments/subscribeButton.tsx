@@ -6,8 +6,8 @@ import { Loader2, Lock } from "lucide-react";
 import { getStripe } from "@/lib/stripe-clinet";
 
 type Props = {
-  price: string
-}
+  price: string;
+};
 
 const SubscribeBtn = ({ price }: { price: string }) => {
   const router = useRouter();
@@ -41,12 +41,15 @@ const SubscribeBtn = ({ price }: { price: string }) => {
   }
 
   return (
-    <Button onClick={() => handleCheckout(price)} className="bg-indigo-700 hover:bg-indigo-900" disabled={loading}>
-      {loading ? <Loader2 className=" h-4 w-4 animate-spin" /> : `subscribe ` }
-      {loading ? '' : <Lock className="h-4 w-4 ml-2" /> }
+    <Button
+      onClick={() => handleCheckout(price)}
+      className="bg-indigo-700 hover:bg-indigo-900"
+      disabled={loading}
+    >
+      {loading ? <Loader2 className=" h-4 w-4 animate-spin" /> : `subscribe `}
+      {loading ? "" : <Lock className="h-4 w-4 ml-2" />}
     </Button>
   );
 };
-
 
 export default SubscribeBtn;

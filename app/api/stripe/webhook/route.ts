@@ -1,7 +1,10 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { stripe } from "@/lib/stripe";
-import { createSubscription, cancelSubscription } from "@/actions/userSubscriptions";
+import {
+  createSubscription,
+  cancelSubscription,
+} from "@/actions/userSubscriptions";
 
 const relevantEvents = new Set([
   "checkout.session.completed",
@@ -38,7 +41,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ received: true }, { status: 200 });
   } catch (error) {
-    console.error('Error processing webhook:', error);
+    console.error("Error processing webhook:", error);
     return NextResponse.json({ error: "Webhook Error" }, { status: 400 });
   }
 }

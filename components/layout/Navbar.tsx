@@ -1,8 +1,4 @@
-import {
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import React from "react";
 import { Button } from "../ui/button";
 import { CreditCard, MessageSquare } from "lucide-react";
@@ -21,7 +17,10 @@ export default function PageHeader() {
         <div className="flex items-center gap-3">
           <SignedOut>
             <Link href="/sign-in">
-              <Button className="bg-transparent text-white hover:text-white hover:bg-[#303030] border-[1px] border-[#303030] rounded-full p-5 text-base" variant={"outline"}> 
+              <Button
+                className="bg-transparent text-white hover:text-white hover:bg-[#303030] border-[1px] border-[#303030] rounded-full p-5 text-base"
+                variant={"outline"}
+              >
                 Sign in
               </Button>
             </Link>

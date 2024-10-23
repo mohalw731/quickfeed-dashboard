@@ -1,12 +1,10 @@
 import React from "react";
 
-export default async function FeedbackList({
-  feedbacks,
-}: {
-  feedbacks: any;
-}) {
+export default async function FeedbackList({ feedbacks }: { feedbacks: any }) {
   return (
-    <div className={`bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[500px]`}>
+    <div
+      className={`bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[500px]`}
+    >
       <h1 className="text-2xl mb-5 text-white">
         Feedbacks <span className="wave">👋</span>
       </h1>
@@ -31,10 +29,10 @@ export default async function FeedbackList({
                   feedback.rating === 1 || feedback.rating === 2
                     ? "bg-red-800 text-black py-1 px-3 rounded-full text-xs"
                     : feedback.rating === 3
-                    ? "bg-yellow-400 text-black py-1 px-3 rounded-full text-xs"
-                    : feedback.rating === 4 || feedback.rating === 5
-                    ? "bg-green-500 text-black py-1 px-3 rounded-full text-xs"
-                    : ""
+                      ? "bg-yellow-400 text-black py-1 px-3 rounded-full text-xs"
+                      : feedback.rating === 4 || feedback.rating === 5
+                        ? "bg-green-500 text-black py-1 px-3 rounded-full text-xs"
+                        : ""
                 }
               >
                 Rating: {feedback.rating}

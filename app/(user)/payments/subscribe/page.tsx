@@ -1,31 +1,40 @@
-import { monthlyPlanId, yearlyPlanId } from "@/lib/payments"
-import SubscribeBtn from "../subscribeButton"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle2 } from "lucide-react"
+import { monthlyPlanId, yearlyPlanId } from "@/lib/payments";
+import SubscribeBtn from "../subscribeButton";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle2 } from "lucide-react";
 
 const features = [
-"Unlimited projects",
-      "Unlimited feedbacks",
-      "AI-analytcs & overview",
-      "Priority support",
-]
+  "Unlimited projects",
+  "Unlimited feedbacks",
+  "AI-analytcs & overview",
+  "Priority support",
+];
 
 const PlanFeature = ({ feature }: { feature: string }) => (
   <div className="flex items-center space-x-2">
     <CheckCircle2 className="h-5 w-5 text-green-500" />
     <span>{feature}</span>
   </div>
-)
+);
 
-const Page = ({ searchParams }: {
+const Page = ({
+  searchParams,
+}: {
   searchParams: {
-    plan: string
-  }
+    plan: string;
+  };
 }) => {
-  const { plan } = searchParams
-  const planId = plan === "monthly" ? monthlyPlanId : yearlyPlanId
-  const isMonthly = plan === "monthly"
+  const { plan } = searchParams;
+  const planId = plan === "monthly" ? monthlyPlanId : yearlyPlanId;
+  const isMonthly = plan === "monthly";
 
   return (
     <div className="flex items-center justify-center w-full h-[calc(100dvh-100px)] flex-col">
@@ -62,21 +71,25 @@ const Page = ({ searchParams }: {
         <CardFooter className="flex flex-col items-start space-y-4">
           <SubscribeBtn price={planId} />
           <p className="text-sm text-muted-foreground">
-            By subscribing, you agree to our Terms of Service and Privacy Policy.
+            By subscribing, you agree to our Terms of Service and Privacy
+            Policy.
           </p>
         </CardFooter>
       </Card>
       <div className="mt-6 text-center">
         <p className="text-sm text-slate-200">
           Want to switch plans?
-          <a href={`?plan=${isMonthly ? "yearly" : "monthly"}`} className="text-blue-500 hover:underline">
+          <a
+            href={`?plan=${isMonthly ? "yearly" : "monthly"}`}
+            className="text-blue-500 hover:underline"
+          >
             {" "}
             View {isMonthly ? "yearly" : "monthly"} plan
           </a>
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

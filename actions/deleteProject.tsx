@@ -11,12 +11,12 @@ export async function deleteProject(projectId: number) {
     .select()
     .from(projects)
     .where(
-      and(eq(projects.id, projectId), eq(projects.userId, userId as string))
+      and(eq(projects.id, projectId), eq(projects.userId, userId as string)),
     );
 
   if (!projectToDelete.length) {
     throw new Error(
-      "Project not found or you do not have permission to delete this project."
+      "Project not found or you do not have permission to delete this project.",
     );
   }
 

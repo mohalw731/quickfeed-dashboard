@@ -16,7 +16,8 @@ export default function AddNewProjectHeader({ subscribed, projects }: Props) {
     <div className="">
       <header className="flex items-center justify-between mt-5">
         <h1 className="md:text-3xl  text-2xl text-white">
-          Welcome, <span className="text-blue-500">{user?.firstName}</span> <span className="wave">👋</span>
+          Welcome, <span className="text-blue-500">{user?.firstName}</span>{" "}
+          <span className="wave">👋</span>
         </h1>
 
         {projects.length === 1 && !subscribed ? (

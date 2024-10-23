@@ -21,9 +21,15 @@ export default async function Dashboard() {
   const subscribed = await getSubscription({ userId });
 
   return (
-    <div >
-      <AddNewProject subscribed={subscribed as boolean} projects={userProjects}/>
-      <ProjectsList projects={userProjects}  subscribed={subscribed as boolean}/>
+    <div>
+      <AddNewProject
+        subscribed={subscribed as boolean}
+        projects={userProjects}
+      />
+      <ProjectsList
+        projects={userProjects}
+        subscribed={subscribed as boolean}
+      />
     </div>
   );
 }

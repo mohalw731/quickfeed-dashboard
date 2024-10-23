@@ -5,9 +5,8 @@ import { useFormStatus } from "react-dom";
 import useAI from "@/hooks/useAI";
 import { Button } from "@/components/ui/button";
 
-
 export default function AddNewProjectButton() {
-  const { loading} = useAI()
+  const { loading } = useAI();
 
   const { pending } = useFormStatus();
   return (
@@ -16,7 +15,11 @@ export default function AddNewProjectButton() {
       disabled={pending || loading}
       className="bg-blue-500 hover:bg-blue-600 hover:scale-105 disabled:bg-blue-300"
     >
-      {pending || loading ? <Loader2 className="size-5 animate-spin" /> : "Create Project"}
+      {pending || loading ? (
+        <Loader2 className="size-5 animate-spin" />
+      ) : (
+        "Create Project"
+      )}
     </Button>
   );
 }

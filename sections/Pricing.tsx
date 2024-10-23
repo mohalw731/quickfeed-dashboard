@@ -49,7 +49,6 @@ export const pricingPlans: PricingPlan[] = [
       "Priority support",
     ],
   },
-
 ];
 
 const Pricing = () => {
@@ -61,7 +60,7 @@ const Pricing = () => {
       </h2>
       <div className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl">
         {pricingPlans.map((plan, index) => (
-          <PricingCard key={index} {...plan}  />
+          <PricingCard key={index} {...plan} />
         ))}
       </div>
     </div>

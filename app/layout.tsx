@@ -23,13 +23,8 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           {children}
-<<<<<<< HEAD
           <my-widget project="41"></my-widget>
           <script src="https://quickfeedwidgetlight.netlify.app/widget.js"></script>
-=======
-          <my-widget project="77"></my-widget>
-          <script src="https://quickfeedwidget.netlify.app/widget.js"></script>
->>>>>>> origin/test
         </body>
       </html>
     </ClerkProvider>

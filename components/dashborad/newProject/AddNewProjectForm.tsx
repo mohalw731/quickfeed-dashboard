@@ -14,13 +14,16 @@ import useAI from "@/hooks/useAI";
 import AddNewProjectButton from "./AddNewProjectButton";
 
 type Props = {
-  subscribed: boolean
-  projects: any
-}
+  subscribed: boolean;
+  projects: any;
+};
 const AddNewProject = ({ subscribed, projects }: Props) => {
   return (
     <Dialog>
-      <AddNewProjectHeader subscribed={subscribed as boolean} projects={projects}/>
+      <AddNewProjectHeader
+        subscribed={subscribed as boolean}
+        projects={projects}
+      />
       <DialogContent className="rounded-md  md:max-w-md max-w-[350px]">
         <DialogHeader>
           <DialogTitle>New Project</DialogTitle>

@@ -17,26 +17,36 @@ const ManageSubscription = () => {
         headers: {
           "Content-Type": "application/json",
         },
-      }
-      ).then((res) => res.json());
+      }).then((res) => res.json());
 
       console.log("url", url);
 
       router.push(url.url);
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error);
     }
     setLoading(false);
-  }
+  };
 
   if (error) {
-    return <p>{error}</p>
+    return <p>{error}</p>;
   }
   return (
-    <Button onClick={redirectToCustomerPortal} className="bg-indigo-700" disabled={loading}>{loading ? <>
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />Please Wait</> : "Modify Your Subscription"}</Button>
-  )
-}
+    <Button
+      onClick={redirectToCustomerPortal}
+      className="bg-indigo-700"
+      disabled={loading}
+    >
+      {loading ? (
+        <>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          Please Wait
+        </>
+      ) : (
+        "Modify Your Subscription"
+      )}
+    </Button>
+  );
+};
 
 export default ManageSubscription;

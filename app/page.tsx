@@ -11,14 +11,14 @@ import React from "react";
 
 export default function Home() {
   return (
-    <main >
+    <main>
       <Container>
         <Navbar />
         <Hero />
         <ColumnRow />
         <AboutUs />
         <Pricing />
-        <Faq /> 
+        <Faq />
       </Container>
       <Footer />
     </main>

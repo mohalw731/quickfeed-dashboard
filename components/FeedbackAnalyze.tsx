@@ -65,7 +65,7 @@ export default function FeedbackAnalysis({
           delete newCooldowns[id];
           localStorage.setItem(
             "analysisCooldowns",
-            JSON.stringify(newCooldowns)
+            JSON.stringify(newCooldowns),
           );
           return newCooldowns;
         });
@@ -90,7 +90,7 @@ export default function FeedbackAnalysis({
     const prompt = useCustomPrompt
       ? customPrompt +
         `use max tokens: ${tokenCount}\n\nFeedback: ${feedbackMessages.join(
-          ", "
+          ", ",
         )}\n\nAnalysis:`
       : ` You are an expert AI system specializing in customer experience and feedback analysis. 
   Your task is to comprehensively analyze the provided customer feedback, identifying key patterns, strengths, weaknesses, and opportunities for improvement. 
@@ -166,7 +166,7 @@ export default function FeedbackAnalysis({
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       const newAnalysis: AnalysisResult = {
@@ -180,7 +180,7 @@ export default function FeedbackAnalysis({
       setCooldowns(updatedCooldowns);
       localStorage.setItem(
         "analysisCooldowns",
-        JSON.stringify(updatedCooldowns)
+        JSON.stringify(updatedCooldowns),
       );
       localStorage.setItem(`analysisResult_${id}`, JSON.stringify(newAnalysis));
       setShowButton(false);
@@ -203,7 +203,7 @@ export default function FeedbackAnalysis({
     if (remaining <= 0) return null;
     const days = Math.floor(remaining / (24 * 60 * 60 * 1000));
     const hours = Math.floor(
-      (remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000)
+      (remaining % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000),
     );
     return `${days}d ${hours}h`;
   };

@@ -39,7 +39,7 @@ const ProjectsList = ({ projects, subscribed }: Props) => {
               />
             ))}
 
-         {!subscribed && <PayWall />}
+            {!subscribed && <PayWall />}
           </ul>
         )}
       </div>
@@ -68,10 +68,12 @@ const PayWall = () => {
             <CardTitle className=" text-white">Upgrade to Pro</CardTitle>
             <div className="bg-blue-500 size-20 blur-[40px] absolute right-0 -top-10  -z-[-1]" />
           </div>
-          <CardDescription className="text-slate-200">Get access to all features</CardDescription>
+          <CardDescription className="text-slate-200">
+            Get access to all features
+          </CardDescription>
         </CardHeader>
         <CardFooter>
-          <SubscribeBtn price={'price_1PtLMzB35fil6MWOKpoSE4rd'} />
+          <SubscribeBtn price={"price_1PtLMzB35fil6MWOKpoSE4rd"} />
         </CardFooter>
       </Card>
     </li>

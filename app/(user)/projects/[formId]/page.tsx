@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: { formId: string } }) {
   const projects = await db.query.projects.findMany({
     where: and(
       eq(dbProjects.id, parseInt(projectId)),
-      eq(dbProjects.userId, userId)
+      eq(dbProjects.userId, userId),
     ),
     with: {
       feedbacks: true,
@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: { formId: string } }) {
 
   const project = projects[0];
   const feedbackMessages = project.feedbacks.map(
-    (feedback) => `feedback: ${feedback.message}\nrating: ${feedback.rating}`
+    (feedback) => `feedback: ${feedback.message}\nrating: ${feedback.rating}`,
   );
 
   return (
@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: { formId: string } }) {
           subscribed={subscribed as boolean}
         />
       </section>
-      <FeedbackList feedbacks={project.feedbacks}  />
+      <FeedbackList feedbacks={project.feedbacks} />
     </div>
   );
 }
