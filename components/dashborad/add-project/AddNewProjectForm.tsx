@@ -7,11 +7,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import AddNewProjectHeader from "./ProjectHeader";
+import AddNewProjectHeader from "../header/ProjectHeader";
 import { Label } from "@/components/ui/label";
 import AddNewProjectDescription from "./ProjectDescription";
 import useAI from "@/hooks/useAI";
-import AddNewProjectButton from "./AddNewProjectButton";
+import AddNewProjectButton from "../header/AddNewProjectButton";
 
 type Props = {
   subscribed: boolean;

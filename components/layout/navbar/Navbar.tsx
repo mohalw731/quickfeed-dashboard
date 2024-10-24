@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import React from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { CreditCard, MessageSquare } from "lucide-react";
 import Link from "next/link";
 

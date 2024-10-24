@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
-import { Button } from "../ui/button";
 import { deleteProject } from "@/actions/deleteProject";
+import { Button } from "@/components/ui/button";
 
 type ModalProps = {
   open: boolean;
@@ -16,7 +16,7 @@ export default function Modal({ open, setOpen, id }: ModalProps) {
       >
         <div className="z-[110] bg-white p-5 w-full md:max-w-md max-w-[350px] mx-auto rounded-md flex flex-col gap-5">
           <h2 className="text-xl text-red-500 flex items-center justify-between">
-            Delete Project{" "}
+            Delete Project
             <X
               className="text-black cursor-pointer"
               onClick={() => setOpen(false)}

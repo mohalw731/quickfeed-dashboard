@@ -1,17 +1,17 @@
 "use client";
 import { projects } from "@/db/schema";
 import { InferSelectModel } from "drizzle-orm";
-import ProjectCard from "./ProjectCard";
 import { useState } from "react";
-import Modal from "./DeleteModal";
+import Modal from "./delete-modal/DeleteModal";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../ui/card";
+} from "../../ui/card";
 import SubscribeBtn from "@/app/(user)/payments/subscribeButton";
+import ProjectCard from "./ProjectCard";
 
 type Project = InferSelectModel<typeof projects>;
 

@@ -1,12 +1,10 @@
-import Container from "@/components/layout/Container";
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
-import ColumnRow from "@/components/sections/ColumnRow";
-import Faq from "@/components/sections/Faq";
-import Hero from "@/components/sections/Hero";
-import LandingPageFooter from "@/components/sections/LandingPageFooter";
-import Pricing from "@/components/sections/Pricing";
-import AboutUs from "@/components/ui/AboutUs";
+import Container from "@/components/layout/container/Container";
+import Footer from "@/components/layout/footer/Footer";
+import Navbar from "@/components/layout/navbar/Navbar";
+
+import Faq from "@/components/landing/faq/Faq";
+import Hero from "@/components/landing/hero/Hero";
+import Pricing from "@/components/landing/pricing/Pricing";
 
 import React from "react";
 
@@ -16,12 +14,9 @@ export default function Home() {
       <Container>
         <Navbar />
         <Hero />
-        <ColumnRow />
-        <AboutUs />
         <Pricing />
         <Faq />
       </Container>
-      <LandingPageFooter/>
       <Footer />
     </main>
   );

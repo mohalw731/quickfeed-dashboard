@@ -1,12 +1,12 @@
 import { and, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { projects as dbProjects } from "@/db/schema";
-import FeedbackList from "@/components/dashborad/FeedbackList";
-import FeedbackOverview from "@/components/FeedbackOverview";
-import ProjectOverview from "@/components/ProjectOverview";
-import FeedbackAnalysis from "@/components/FeedbackAnalyze";
+import FeedbackList from "@/components/dashborad/feedback-list/FeedbackList";
+import FeedbackOverview from "@/components/dashborad/feedback-overview/FeedbackOverview";
+import FeedbackAnalysis from "@/components/dashborad/feedback-analysis/FeedbackAnalyze";
 import { auth } from "@clerk/nextjs/server";
 import { getSubscription } from "@/actions/userSubscriptions";
+import ProjectOverview from "@/components/dashborad/project-overview/ProjectOverview";
 
 type Rating = 1 | 2 | 3 | 4 | 5; // If ratings are limited to certain values
 

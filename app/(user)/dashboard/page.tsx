@@ -3,9 +3,9 @@ import { projects } from "@/db/schema";
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 import React from "react";
-import ProjectsList from "../../../components/dashborad/ProjectList";
-import AddNewProject from "@/components/dashborad/newProject/AddNewProjectForm";
+import AddNewProject from "@/components/dashborad/add-project/AddNewProjectForm";
 import { getSubscription } from "@/actions/userSubscriptions";
+import ProjectsList from "@/components/dashborad/projects/ProjectList";
 
 export default async function Dashboard() {
   const { userId } = auth();
