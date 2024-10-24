@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from '@clerk/themes'
+import { ThemeProvider } from "../providers/ThemeProvider";
 
 const inter = Outfit({ subsets: ["latin"] });
 
@@ -22,9 +23,16 @@ export default function RootLayout({
     }}>
       <html lang="en">
         <body className={inter.className}>
-          {children}
-          <my-widget project="41"></my-widget>
-          <script src="https://quickfeedwidgetlight.netlify.app/widget.js"></script>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <my-widget project="41"></my-widget>
+            <script src="https://quickfeedwidgetlight.netlify.app/widget.js"></script>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

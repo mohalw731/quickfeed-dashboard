@@ -3,9 +3,29 @@
 @tailwind utilities;
 
 body {
-  background-color: #141414;
   scroll-behavior: smooth;
 }
+
+.dark body {
+  background-color: #09090B;
+}
+.light body {
+  background-color: #F8F9FA;
+}
+.dark h1 {
+  color: #F8F9FA
+}
+.light h1 {
+  color: #343A40
+}
+
+.dark p {
+  color: #cecece
+}
+.light p {
+  color: #6C757D
+}
+
 
 @layer base {
   :root {
@@ -134,28 +154,12 @@ body {
 }
 
 @keyframes wave-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(10deg);
-  }
-  20% {
-    transform: rotate(-6deg);
-  }
-  30% {
-    transform: rotate(10deg);
-  }
-  40% {
-    transform: rotate(-3deg);
-  }
-  50% {
-    transform: rotate(7deg);
-  }
-  60% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(10deg); }
+  20% { transform: rotate(-6deg); }
+  30% { transform: rotate(10deg); }
+  40% { transform: rotate(-3deg); }
+  50% { transform: rotate(7deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }

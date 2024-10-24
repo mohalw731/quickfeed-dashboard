@@ -26,25 +26,27 @@ export default function PricingCard({
       className={`
       relative flex flex-col justify-between h-full rounded-xl
       shadow-md transition-all duration-300 hover:shadow-xl 
-      ${isPopular ? "border border-neutral-300" : "border border-neutral-800 hover:border-neutral-500"}
+      bg-[#DEE2E6] dark:bg-[#0F0F11]
+      border-[#CED4DA] dark:border-[#131314] border
+      ${isPopular && "shadow-2xl"}
     `}
     >
       {isPopular && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg flex items-center gap-1">
-          <Star fill="yellow" className="w-4 h-4" /> Most Popular
+        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#343A40] dark:bg-[#E2E2E2] text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-lg flex items-center gap-1">
+          <Star className="w-4 h-4" /> Most Popular
         </div>
       )}
       <div className="space-y-6 p-6 pt-8">
         <div>
-          <h3 className="font-bold text-2xl text-neutral-300">{title}</h3>
-          <p className="text-sm text-slate-500 mt-2">{description}</p>
+          <h1 className="font-bold text-2xl">{title}</h1>
+          <p className="text-sm mt-2">{description}</p>
         </div>
         <div className="flex flex-col">
           <div className="flex items-baseline">
-            <span className="text-4xl font-extrabold text-neutral-300">
+            <h1 className="text-4xl font-semibold ">
               ${price.toFixed(2)}
-            </span>
-            <span className="ml-1 text-sm text-neutral-300">
+            </h1>
+            <span className="ml-1 text-sm ">
               {isYearly ? "/year" : price !== 0 ? "/month" : ""}
             </span>
             {isYearly && (
@@ -58,7 +60,7 @@ export default function PricingCard({
           {features.map((feature: string, index: number) => (
             <li key={index} className="flex items-start">
               <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-              <span className="text-sm text-slate-500">{feature}</span>
+              <span className="text-sm">{feature}</span>
             </li>
           ))}
         </ul>
@@ -66,7 +68,7 @@ export default function PricingCard({
       <div className="p-6 pt-0">
         <Button
           onClick={onClick}
-          className={`w-full ${isPopular ? "bg-neutral-300 hover:bg-neutral-400 text-black" : ""}`}
+          className={`w-full bg-[#343A40] dark:bg-[#E2E2E2] rounded-full `}
         >
           <span className="">Get Started</span>
         </Button>

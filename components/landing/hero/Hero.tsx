@@ -1,41 +1,95 @@
+"use client"
+
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Zap } from "lucide-react"
+import scrollToId from "@/animations/scrollToId";
+
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0
+      }
+    }
+  };
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10
+    }
+  }
+};
 
 export default function Hero() {
+
   return (
-    <>
-      <div className="bg-blue-500 size-48 md:size-64 blur-[150px] rotate-[-45deg] absolute top-[20%] left-[20%] transform -translate-x-1/2 -translate-y-1/2 " />
+    <motion.main
+      className="flex flex-col items-center gap-4 h-[calc(100vh-180px)] justify-center z-[999]"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div
+        className="flex items-center flex-col md:gap-4 gap-2"
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
+          <Badge />
+        </motion.div>
+        <motion.h1
+          variants={itemVariants}
+          className="md:text-7xl text-2xl text-center sm:text-2xl"
+        >
+          AI powered feedback<br />
+          collection built into your app
+        </motion.h1>
+        <motion.p
+          variants={itemVariants}
+          className="text-slate-300 md:text-base text-sm text-center max-w-[550px]"
+        >
+          Quickfeed uses machine learning algorithms to analyze customer
+          feedback and provide actionable insights.
+        </motion.p>
+      </motion.div>
 
-      <div className="bg-blue-500 size-64 blur-[150px] right-28 bottom-44 rotate-[-45deg]   absolute md:block hidden" />
-
-      <main className="flex flex-col items-center gap-4 h-[calc(100vh-180px)] justify-center z-[999]">
-        <div className="flex items-center flex-col md:gap-4 gap-2">
-          <h1 className="md:text-7xl text-neutral-300 text-2xl text-center sm:text-2xl">
-
-            <span className="text-blue-500">AI powered feedback</span> <br />
-            collection built into your app
-          </h1>
-          <p className="text-slate-300 md:text-base text-sm text-center max-w-[550px]">
-            Quickfeed uses machine learning algorithms to analyze customer
-            feedback and provide actionable insights.
-          </p>
-        </div>
-
-        <div className="flex gap-4 md:mt-5">
-          <Link href={"/sign-up"}>
-
-            <Button variant={"outline"} className="bg-blue-500 border-[#3333] hover:bg-blue-600 rounded-full  text-white hover:text-white">
+      <motion.div
+        className="flex gap-4 md:mt-5"
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
+          <Link href="/sign-up">
+            <Button variant="outline" className="border-[#3333] bg-blue-500 hover:text-white text-white hover:bg-blue-500 hover:opacity-90 hover:scale-105 rounded-full">
               Get Started
             </Button>
           </Link>
-          <a href="#pricing">
-            <Button variant={"outline"} className="rounded-full bg-transparent border-[#303030] text-white hover:opacity-90 hover:text-white hover:bg-[#303030]">
+        </motion.div>
+        <motion.div variants={itemVariants}>
+            <Button onClick={() => scrollToId("pricing")} variant="outline" className="rounded-full bg-transparent border-[#303030] hover:opacity-90 hover:bg-transparent">
               Pricing
             </Button>
-          </a>
-        </div>
-      </main>
-    </>
+        </motion.div>
+      </motion.div>
+    </motion.main>
   );
+}
+
+const Badge = () => {
+  return (
+    <div className="border py-2 px-3 md:py-4 md:px-6 gap-2 inline-flex rounded-full">
+      <Zap className="w-6 h-6" />
+      <h1 className=" md:text-xl">Get your AI-assistant</h1>
+    </div>
+  )
 }

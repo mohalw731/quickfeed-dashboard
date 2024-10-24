@@ -41,16 +41,16 @@ const faqData: FaqDataProps[] = [
 
 export default function Faq() {
   return (
-    <div className="w-full text-neutral-300  py-16 px-4">
-      <h2 className="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
+    <div className="w-full py-16 px-4">
+      <h1 className="text-4xl font-bold mb-12">Frequently Asked Questions</h1>
       <Accordion type="single" collapsible className="w-full space-y-4">
         {faqData.map((faq, index) => (
           <AccordionItem
             key={index}
             value={`item-${index}`}
-            className="border border-neutral-800 rounded-lg overflow-hidden transition-all duration-200 hover:border-neutral-700"
+            className="border dark:border-neutral-800 rounded-lg overflow-hidden transition-all duration-200 dark:hover:border-neutral-700"
           >
-            <AccordionTrigger className="text-left text-neutral-300 hover:no-underline p-6 text-lg font-medium">
+            <AccordionTrigger className="text-left hover:no-underline p-6 text-lg font-medium">
               {faq.title}
             </AccordionTrigger>
             <AccordionContent className="text-neutral-400 px-6 pb-6 pt-2">

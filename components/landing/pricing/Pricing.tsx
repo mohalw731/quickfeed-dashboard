@@ -1,13 +1,16 @@
-import PricingCard from "@/components/landing/pricing/PricingCard";
+"use client"
+
+import { motion } from "framer-motion"
+import PricingCard from "@/components/landing/pricing/PricingCard"
 
 export type PricingPlan = {
-  title: string;
-  price: number;
-  description: string;
-  isPopular: boolean;
-  features: string[];
-  url: string;
-};
+  title: string
+  price: number
+  description: string
+  isPopular: boolean
+  features: string[]
+  url: string
+}
 
 export const pricingPlans: PricingPlan[] = [
   {
@@ -49,22 +52,59 @@ export const pricingPlans: PricingPlan[] = [
       "Priority support",
     ],
   },
-];
+]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+}
 
 const Pricing = () => {
   return (
-    <div className="text-center">
-      <h1 className="capitalize text-3xl text-blue-500">Pricing</h1>
-      <h2 className=" text-3xl text-neutral-300 mb-8 pt-3">
+    <motion.div
+      id="pricing"
+      className="text-center py-16"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+    >
+      <motion.h2 variants={itemVariants} className="text-3xl text-blue-500">
+        Pricing
+      </motion.h2>
+      <motion.h1 variants={itemVariants} className="text-3xl mb-8 pt-3">
         Flexible Pricing to Fit Your Needs
-      </h2>
-      <div className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl">
+      </motion.h1>
+      <motion.div
+        className="mt-10 grid items-center grid-cols-1 gap-3 md:grid-cols-3 max-w-screen-xl mx-auto"
+        variants={containerVariants}
+      >
         {pricingPlans.map((plan, index) => (
-          <PricingCard key={index} {...plan} />
+          <motion.div key={index} variants={itemVariants}>
+            <PricingCard {...plan} />
+          </motion.div>
         ))}
-      </div>
-    </div>
-  );
-};
+      </motion.div>
+    </motion.div>
+  )
+}
 
-export default Pricing;
+export default Pricing

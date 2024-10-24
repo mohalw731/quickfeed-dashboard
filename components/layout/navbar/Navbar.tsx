@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "../../ui/button";
 import { CreditCard, MessageSquare } from "lucide-react";
 import Link from "next/link";
+import { ToggleTheme } from "@/components/ui/ToggleTheme";
 
 export default function PageHeader() {
   return (
@@ -15,10 +16,11 @@ export default function PageHeader() {
         </Link>
 
         <div className="flex items-center gap-3">
+          <ToggleTheme />
           <SignedOut>
             <Link href="/sign-in">
               <Button
-                className="bg-transparent text-white hover:text-white hover:bg-[#303030] border-[1px] border-[#303030] rounded-full p-5 text-base"
+                className="bg-transparent hover:opacity-75 border-[1px]  rounded-full p-5 text-base"
                 variant={"outline"}
               >
                 Sign in
