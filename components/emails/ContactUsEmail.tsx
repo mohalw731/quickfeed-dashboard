@@ -48,12 +48,12 @@ export const ContactUsEmail: React.FC<Readonly<EmailTemplateProps>> = ({
                     </Text>
                     <Text style={messageText}>{message}</Text>
                 </Section>
-                <Button pX={20} pY={12} style={button} href={`mailto:${email}`}>
+                <Button style={button} href={`mailto:${email}`}>
                     Reply to {name.split(' ')[0]}
                 </Button>
                 <Hr style={hr} />
                 <Text style={footerText}>
-                    This email was sent from your website's contact form.
+                    This email was sent from your website`s contact form.
                 </Text>
             </Container>
         </Body>

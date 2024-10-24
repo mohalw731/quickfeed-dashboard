@@ -95,7 +95,7 @@ export default function LandingPageFooter() {
                 <div className="w-full md:w-auto">
                     <div className="flex max-w-md mx-auto flex-col gap-4">
                         <h3 className="text-4xl text-white text-center md:text-left">Contact us</h3>
-                        <p className="text-slate-300 md:text-xl text-base text-center md:text-left">Get in touch with us today—our team is ready to assist you with any questions or support you need. Let's connect!</p>
+                        <p className="text-slate-300 md:text-xl text-base text-center md:text-left">Get in touch with us today—our team is ready to assist you with any questions or support you need. Let`s connect!</p>
                     </div>
                     <form onSubmit={handleSubmit} className="flex flex-col gap-3 mt-6">
                         {inputValues.map((inp, index) => (

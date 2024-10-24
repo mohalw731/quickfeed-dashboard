@@ -56,9 +56,9 @@ export const ConfirmationEmail: React.FC<Readonly<EmailTemplateProps>> = ({
                     <Text style={messageText}>{message}</Text>
                 </Section>
                 <Text style={text}>
-                    We typically respond to inquiries within 1-2 business days. If your matter is urgent, please don't hesitate to call us at +1 (555) 123-4567.
+                    We typically respond to inquiries within 1-2 business days. If your matter is urgent, please don`t hesitate to call us at +1 (555) 123-4567.
                 </Text>
-                <Button pX={20} pY={12} style={button} href="https://quickfeed.com/contact">
+                <Button style={button} href="https://quickfeed.com/contact">
                     Visit Our Contact Page
                 </Button>
                 <Hr style={hr} />
