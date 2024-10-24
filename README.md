@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QuickFeed 📊
 
-## Getting Started
+QuickFeed is a simple, powerful feedback widget that companies can easily integrate into their websites. It provides a seamless way to collect user feedback and analyze it using AI-powered insights.
 
-First, run the development server:
+![QuickFeed Widget](https://i.gyazo.com/63bd0ed16fd5409c507864df2a6607f6.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- **Easy Integration**: Add the widget to your site with just two lines of code
+- **User-Friendly Interface**: Subtle feedback button that expands into a simple form
+- **Comprehensive Feedback Collection**: 
+  - Name
+  - Feedback description
+  - 1-5 scale rating
+- **Centralized Dashboard**: View all feedback in one place
+- **AI-Powered Analysis**: Get instant insights and summaries of your feedback using OpenAI
+
+## 🛠 Installation
+
+Adding QuickFeed to your website is as simple as adding two lines to your HTML:
+
+```html
+<my-widget project="YOUR_PROJECT_ID"></my-widget>
+<script src="https://quickfeedwidgetlight.netlify.app/widget.js"></script>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Replace `YOUR_PROJECT_ID` with the unique ID provided when you create a project in the QuickFeed dashboard.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 💡 Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **For Website Visitors**:
+   - Click on the feedback button on the right side of the screen
+   - Enter name, feedback description, and rating
+   - Submit the feedback
 
-## Learn More
+2. **For Website Owners**:
+   - Log in to the QuickFeed dashboard
+   - View all collected feedback
+   - Click "Analyze" to get AI-generated insights
 
-To learn more about Next.js, take a look at the following resources:
+## 📊 Dashboard
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The QuickFeed dashboard provides:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- A comprehensive view of all feedback
+- Sorting and filtering options
+- AI-powered analysis of feedback trends
+- Actionable insights on what's working well and areas for improvement
 
-## Deploy on Vercel
+## 🔒 Privacy & Security
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We take data protection seriously. All feedback is securely stored and processed in compliance with data protection regulations.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🤝 Support
+
+For any questions or issues, please contact our support team at support@quickfeed.com
+
+## 📜 License
+
+QuickFeed is licensed under the [MIT License](LICENSE).
+
+---
+
+Made with ❤️ by the QuickFeed Team
