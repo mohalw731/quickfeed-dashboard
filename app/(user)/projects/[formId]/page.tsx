@@ -8,6 +8,17 @@ import FeedbackAnalysis from "@/components/FeedbackAnalyze";
 import { auth } from "@clerk/nextjs/server";
 import { getSubscription } from "@/actions/userSubscriptions";
 
+type Rating = 1 | 2 | 3 | 4 | 5; // If ratings are limited to certain values
+
+type FeedbackItem = {
+  id: number;
+  name: string | null;
+  projectId: number;
+  message: string | null;
+  rating: Rating; // Ensure rating is typed correctly
+  createdAt: Date;
+};
+
 export default async function Page({ params }: { params: { formId: string } }) {
   const projectId = params.formId;
   if (!projectId)
@@ -29,7 +40,7 @@ export default async function Page({ params }: { params: { formId: string } }) {
   const projects = await db.query.projects.findMany({
     where: and(
       eq(dbProjects.id, parseInt(projectId)),
-      eq(dbProjects.userId, userId),
+      eq(dbProjects.userId, userId)
     ),
     with: {
       feedbacks: true,
@@ -47,7 +58,7 @@ export default async function Page({ params }: { params: { formId: string } }) {
 
   const project = projects[0];
   const feedbackMessages = project.feedbacks.map(
-    (feedback) => `feedback: ${feedback.message}\nrating: ${feedback.rating}`,
+    (feedback) => `feedback: ${feedback.message}\nrating: ${feedback.rating}`
   );
 
   return (
@@ -55,7 +66,7 @@ export default async function Page({ params }: { params: { formId: string } }) {
       <section className="flex gap-5 flex-col">
         <div className="flex gap-5 lg:flex-row flex-col">
           <ProjectOverview project={project} />
-          <FeedbackOverview project={project.feedbacks} />
+          <FeedbackOverview project={project.feedbacks as FeedbackItem[]} />
         </div>
         <FeedbackAnalysis
           feedbackMessages={feedbackMessages}
