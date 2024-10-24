@@ -28,7 +28,7 @@ export const ConfirmationEmail: React.FC<Readonly<EmailTemplateProps>> = ({
 }) => (
     <Html>
         <Head />
-        <Preview>Thank you for contacting QuickFeed. We've received your message.</Preview>
+        <Preview>Thank you for contacting QuickFeed. We`ve received your message.</Preview>
         <Body style={main}>
             <Container style={container}>
                 <Heading style={h1}>Thank You for Contacting Us</Heading>

@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 
     const { error: ConfirmationError } = await resend.emails.send({
       from: 'QuickFeed <onboarding@resend.dev>',
-      to: ['sidricobjork@gmail.com'],
+      to: email,
       subject: 'Contact Confirmation',
       react: ConfirmationEmail({ 
         name, 
@@ -37,12 +37,12 @@ export async function POST(req: Request) {
     if (ContactError) {
       console.error('Error sending email:', ContactError);
       return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
-    }
+    };
 
     if (ConfirmationError) {
       console.error('Error sending email:', ConfirmationError);
       return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
-    }
+    };
 
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
   } catch (error) {
