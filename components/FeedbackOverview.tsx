@@ -1,52 +1,107 @@
-"use client";
-import React, { useEffect, useState } from "react";
+"use client"
 
-export default function FeedbackOverview({ project }: any) {
-  // get feedback and short them by rating
-  const feedback = project.map((item: any) => item.rating);
-  const good = feedback.filter((item: any) => item === 5 || item === 4).length;
-  const okey = feedback.filter((item: any) => item === 3).length;
-  const bad = feedback.filter((item: any) => item === 1 || item === 2).length;
-  const total = project.length;
+import React, { useMemo } from "react"
+import { Card, CardContent } from "@/components/ui/card"
+import { ThumbsUp, Minus, ThumbsDown } from "lucide-react"
 
-  // get average rating
-  const [overallRating, setOverallRating] = useState(0);
-  const calculateOverallRating = (ratingsArray: number[]) => {
-    if (ratingsArray.length === 0) 0;
+type Rating = 1 | 2 | 3 | 4 | 5
+type FeedbackItem = { rating: Rating }
 
-    const total = ratingsArray.reduce((acc, current) => acc + current, 0);
-    const average = total / ratingsArray.length;
-    return Math.round(average * 2) / 2;
-  };
+interface FeedbackOverviewProps {
+  project: FeedbackItem[]
+}
 
-  useEffect(() => {
-    const rating = calculateOverallRating(feedback);
-    setOverallRating(rating);
-  }, [feedback]);
+interface FeedbackCategoryProps {
+  icon: React.ReactNode
+  label: string
+  count: number
+  total: number
+  color: string
+}
+
+const RATING_CATEGORIES = {
+  GOOD: { ratings: [4, 5] as Rating[], label: "Good", icon: <ThumbsUp className="w-4 h-4 text-green-500" />, color: "bg-green-500" },
+  OKAY: { ratings: [3] as Rating[], label: "Okay", icon: <Minus className="w-4 h-4 text-yellow-500" />, color: "bg-yellow-500" },
+  BAD: { ratings: [1, 2] as Rating[], label: "Bad", icon: <ThumbsDown className="w-4 h-4 text-red-500" />, color: "bg-red-500" },
+} as const
+
+const FeedbackCategory: React.FC<FeedbackCategoryProps> = ({ icon, label, count, total, color }) => {
+  const percentage = total > 0 ? (count / total) * 100 : 0
 
   return (
-    <div className="flex flex-col gap-2 bg-[#202020] rounded-[20px] p-5  md:w-[400px] w-full  justify-between max-h-52">
-      <div className="flex gap-2 flex-col">
-        <h2 className="text-xl text-white mb-2">Feedback overview 🔎</h2>
-        <ul className="flex gap-2">
-          <li className="text-black bg-green-600 px-2 py-1 rounded-lg">
-            Good: {good}
-          </li>
-          <li className="text-black bg-yellow-400 px-2 py-1 rounded-lg">
-            Okey: {okey}
-          </li>
-          <li className="text-black bg-red-700 px-2 py-1 rounded-lg">
-            Bad: {bad}
-          </li>
-        </ul>
+    <div className="space-y-2">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          {icon}
+          <span className="text-sm font-medium">{label}</span>
+        </div>
+        <span className="text-sm text-gray-300">{count}</span>
       </div>
-
-      <div className="flex justify-between mt-4">
-        <p className="text-white">Total: {total}</p>
-        <p className="text-black bg-slate-200 py-1 px-2 rounded-lg text-sm">
-          Average: {overallRating}
-        </p>
+      <div className="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
+        <div
+          className={`h-full ${color}`}
+          style={{ width: `${percentage}%` }}
+          role="progressbar"
+          aria-valuenow={percentage}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        />
       </div>
     </div>
-  );
+  )
+}
+
+export default function FeedbackOverview({ project }: FeedbackOverviewProps) {
+  const { feedbackCounts, overallRating, totalFeedback } = useMemo(() => {
+    const initialCounts = { good: 0, okay: 0, bad: 0 }
+    const totalRating = project.reduce(
+      (acc, { rating }) => {
+        if (RATING_CATEGORIES.GOOD.ratings.includes(rating)) acc.counts.good++
+        else if (RATING_CATEGORIES.OKAY.ratings.includes(rating)) acc.counts.okay++
+        else if (RATING_CATEGORIES.BAD.ratings.includes(rating)) acc.counts.bad++
+        acc.totalRating += rating
+        return acc
+      },
+      { counts: initialCounts, totalRating: 0 }
+    )
+
+    const averageRating = project.length > 0 ? Math.round((totalRating.totalRating / project.length) * 2) / 2 : 0
+
+    return {
+      feedbackCounts: totalRating.counts,
+      overallRating: averageRating,
+      totalFeedback: project.length,
+    }
+  }, [project])
+
+  const categories = [
+    { ...RATING_CATEGORIES.GOOD, count: feedbackCounts.good },
+    { ...RATING_CATEGORIES.OKAY, count: feedbackCounts.okay },
+    { ...RATING_CATEGORIES.BAD, count: feedbackCounts.bad },
+  ]
+
+  return (
+    <Card className="w-full md:w-[400px] h-[208px] overflow-hidden bg-[#202020] text-white border-none">
+      <CardContent className="p-6 h-full flex flex-col">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold">Feedback Overview 🔍</h2>
+          <div className="bg-white text-[#202020] rounded-full px-3 py-1 text-sm font-medium">
+            {overallRating.toFixed(1)} / 5
+          </div>
+        </div>
+        <div className="flex-grow flex flex-col justify-between">
+          {categories.map(({ label, icon, count, color }) => (
+            <FeedbackCategory
+              key={label}
+              icon={icon}
+              label={label}
+              count={count}
+              total={totalFeedback}
+              color={color}
+            />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  )
 }
