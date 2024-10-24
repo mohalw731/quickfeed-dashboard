@@ -88,7 +88,7 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
         Feedbacks <span className="wave">👋</span>
       </h1>
       
-      <div className="flex justify-between items-center mb-5">
+      <div className="flex justify-between items-start  mb-5 md:flex-row flex-col gap-2">
         <div className="flex gap-2">
           {filterButtons.map((button) => (
             <Button
@@ -103,11 +103,11 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
         </div>
         <div className="flex items-center justify-end">
           <Select value={sort} onValueChange={(value: SortType) => setSort(value)}>
-            <SelectTrigger className="bg-transparent border-none text-gray-400 hover:text-white transition-colors focus:ring-0 focus:ring-offset-0">
-              <div className="hidden md:block">
+            <SelectTrigger className="bg-transparent border-none text-white hover:text-white transition-colors ring-2 ring-[#404040] focus:ring-2 focus:ring-[#404040]">
+              <div >
                 <SelectValue placeholder="Sort by" />
               </div>
-              <CalendarDays className="h-4 w-4 md:hidden" />
+              {/* <CalendarDays className="h-4 w-4 md:hidden" /> */}
             </SelectTrigger>
             <SelectContent className="bg-[#303030] border-[#404040]">
               {selectSort.map((item, index) => (
