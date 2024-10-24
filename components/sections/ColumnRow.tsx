@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import widget from "../../assets/widget.png";
 import analys from "../../assets/analys.png";
+import multipleProjects from "../../assets/multipleProjects.png";
 
 
 type ColumnDataProps = {
@@ -25,10 +26,10 @@ const columnData: ColumnDataProps[] = [
     imageUrl: analys.src
   },
   {
-    title: "AI Driven Solutions",
-    description: "Empower your decisions. Reveal trends and opportunities at a glance, visualised in a way that makes sense for everyone.",
+    title: "Multiple projects",
+    description: "Keep track and manage all of your projects from one single dashboard, quick and easy!",
     btnText: "Start now",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvkUFmp5jSF-DhrD5102bzHU7RbidetfqYfA&s"
+    imageUrl: multipleProjects.src
   },
   {
     title: "AI Driven Solutions",

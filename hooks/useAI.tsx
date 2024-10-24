@@ -11,7 +11,7 @@ export default function useAI() {
   const handleAIGenerate = async () => {
     setLoading(true);
     const prompt = `
-        Give me a short description of what kind of project thi is with about 10 words here is what i am doing with "a saas product to understand curstumer feedback data using ai" that was just an example and here is what i am doing : ${generatedText}.
+        Give me a short description of what kind of project this is with about 10 words here is what i am doing with "a saas product to understand customer feedback data using ai" that was just an example and here is what i am doing : ${generatedText}.
       `;
 
     try {
