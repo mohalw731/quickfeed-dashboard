@@ -85,6 +85,16 @@ body {
   height: 100vh;
 }
 
+
+.no-scrollbar {
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;  /* WebKit */
+}
+
 /* Add this to your global CSS file or in a module CSS file */
 .custom-scrollbar {
   /* Style for the entire scrollbar track */

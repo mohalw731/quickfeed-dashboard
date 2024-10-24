@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import ColumnRow from "@/components/sections/ColumnRow";
 import Faq from "@/components/sections/Faq";
 import Hero from "@/components/sections/Hero";
+import LandingPageFooter from "@/components/sections/LandingPageFooter";
 import Pricing from "@/components/sections/Pricing";
 import AboutUs from "@/components/ui/AboutUs";
 
@@ -20,6 +21,7 @@ export default function Home() {
         <Pricing />
         <Faq />
       </Container>
+      <LandingPageFooter/>
       <Footer />
     </main>
   );
