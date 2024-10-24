@@ -7,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import lightwidget from '../../../../../assets/lightwidget.png'
+import { Switch } from '@/components/ui/switch'
 
 const widgets = [
   {
@@ -14,7 +16,7 @@ const widgets = [
     name: 'Light Widget',
     description: 'A light-themed widget for your website',
     scriptUrl: 'https://quickfeedwidgetlight.netlify.app/widget.js',
-    previewImage: '/placeholder.svg?height=200&width=400',
+    previewImage: lightwidget.src,
   },
   {
     id: 'dark',
@@ -106,6 +108,11 @@ export default function WidgetImplementation({ params }: { params: { formId: str
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
   const [selectedLanguage, setSelectedLanguage] = useState('typescript')
 
+  
+  const toggleWidget = () => {
+    setSelectedWidget(prevWidget => prevWidget.id === 'light' ? widgets[1] : widgets[0])
+  }
+
   if (!params.formId) return <div className="text-white">Invalid Project ID</div>
 
   const copyCode = (code: string) => {
@@ -117,7 +124,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
   const id = params.formId
 
   return (
-    <div className="py-8 bg-[#141414] text-white px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="py-8 bg-[#141414] text-white max-w-7xl mx-auto">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">API Documentation & Widget Implementation</h1>
 
       <Card className="mb-8 bg-[#202020] border-[#353535]">
@@ -140,60 +147,60 @@ export default function WidgetImplementation({ params }: { params: { formId: str
       </Card>
 
       <Card className="mb-8 bg-[#202020] border-[#353535]">
-        <CardHeader>
-          <CardTitle className="text-white">Code Examples</CardTitle>
-          <CardDescription className="text-gray-300">
-            Here are examples of how to fetch and map over the feedback data in different programming languages:
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="md:hidden mb-4">
-            <Select onValueChange={setSelectedLanguage} defaultValue={selectedLanguage}>
-              <SelectTrigger className="w-full bg-[#303030] text-white">
-                <SelectValue placeholder="Select a language" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="typescript">TypeScript</SelectItem>
-                <SelectItem value="javascript">JavaScript</SelectItem>
-                <SelectItem value="python">Python</SelectItem>
-                <SelectItem value="java">Java</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <Tabs defaultValue="typescript" value={selectedLanguage} onValueChange={setSelectedLanguage}>
-            <TabsList className="bg-[#303030] text-white hidden md:flex justify-start">
-              <TabsTrigger value="typescript" className="data-[state=active]:bg-[#404040] text-gray-300">TypeScript</TabsTrigger>
-              <TabsTrigger value="javascript" className="data-[state=active]:bg-[#404040] text-gray-300">JavaScript</TabsTrigger>
-              <TabsTrigger value="python" className="data-[state=active]:bg-[#404040] text-gray-300">Python</TabsTrigger>
-              <TabsTrigger value="java" className="data-[state=active]:bg-[#404040] text-gray-300">Java</TabsTrigger>
-            </TabsList>
-            {Object.entries(codeExamples).map(([lang, code]) => (
-              <TabsContent key={lang} value={lang}>
-                <ScrollArea className="h-[300px] w-full rounded-md border border-[#353535]">
-                  <pre className="p-4 bg-[#303030] text-gray-200 h-full">
-                    <code>{code}</code>
-                  </pre>
-                </ScrollArea>
-                <Button
-                  onClick={() => copyCode(code)}
-                  className="mt-2 bg-[#303030] text-gray-200 hover:bg-[#404040]"
-                  variant="outline"
-                >
-                  {copiedCode === code ? (
-                    <>
-                      <Check className="mr-2 h-4 w-4" /> Copied
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="mr-2 h-4 w-4" /> Copy Code
-                    </>
-                  )}
-                </Button>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </CardContent>
-      </Card>
+  <CardHeader>
+    <CardTitle className="text-white">Code Examples</CardTitle>
+    <CardDescription className="text-gray-300">
+      Here are examples of how to fetch and map over the feedback data in different programming languages:
+    </CardDescription>
+  </CardHeader>
+  <CardContent>
+    <div className="md:hidden mb-4">
+      <Select onValueChange={setSelectedLanguage} defaultValue={selectedLanguage}>
+        <SelectTrigger className="w-full bg-[#303030] text-white">
+          <SelectValue placeholder="Select a language" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="typescript">TypeScript</SelectItem>
+          <SelectItem value="javascript">JavaScript</SelectItem>
+          <SelectItem value="python">Python</SelectItem>
+          <SelectItem value="java">Java</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+    <Tabs defaultValue="typescript" value={selectedLanguage} onValueChange={setSelectedLanguage}>
+      <TabsList className="bg-[#303030] text-white hidden md:flex justify-start">
+        <TabsTrigger value="typescript" className="data-[state=active]:bg-[#404040] text-gray-300">TypeScript</TabsTrigger>
+        <TabsTrigger value="javascript" className="data-[state=active]:bg-[#404040] text-gray-300">JavaScript</TabsTrigger>
+        <TabsTrigger value="python" className="data-[state=active]:bg-[#404040] text-gray-300">Python</TabsTrigger>
+        <TabsTrigger value="java" className="data-[state=active]:bg-[#404040] text-gray-300">Java</TabsTrigger>
+      </TabsList>
+      {Object.entries(codeExamples).map(([lang, code]) => (
+        <TabsContent key={lang} value={lang}>
+          <ScrollArea className="h-[300px] w-full rounded-md border border-[#353535]">
+            <pre className="p-4 bg-[#303030] text-gray-200 h-full overflow-x-auto">
+              <code>{code}</code>
+            </pre>
+          </ScrollArea>
+          <Button
+            onClick={() => copyCode(code)}
+            className="mt-2 bg-[#303030] text-gray-200 hover:bg-[#404040]"
+            variant="outline"
+          >
+            {copiedCode === code ? (
+              <>
+                <Check className="mr-2 h-4 w-4" /> Copied
+              </>
+            ) : (
+              <>
+                <Copy className="mr-2 h-4 w-4" /> Copy Code
+              </>
+            )}
+          </Button>
+        </TabsContent>
+      ))}
+    </Tabs>
+  </CardContent>
+</Card>
 
       <Card className="mb-8 bg-[#202020] border-[#353535]">
         <CardHeader>
@@ -228,46 +235,22 @@ export default function WidgetImplementation({ params }: { params: { formId: str
         </CardContent>
       </Card>
 
-      <Card className="mb-8 bg-[#202020] border-[#353535]">
-        <CardHeader>
-          <CardTitle className="text-white">Widget Selection</CardTitle>
-          <CardDescription className="text-gray-300">
-            Choose a widget style to implement on your website:
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {widgets.map((widget) => (
-              <Card
-                key={widget.id}
-                className={`cursor-pointer transition-all duration-200 bg-[#303030] border-[#353535] ${
-                  selectedWidget.id === widget.id ? 'ring-2 ring-blue-500' : ''
-                }`}
-                onClick={() => setSelectedWidget(widget)}
-              >
-                <CardHeader>
-                  <CardTitle className="text-white">{widget.name}</CardTitle>
-                  <CardDescription className="text-gray-300">{widget.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <img
-                    src={widget.previewImage}
-                    alt={`Preview of ${widget.name}`}
-                    className="w-full h-auto rounded-md"
-                  />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
+    
       <Card className="bg-[#202020] border-[#353535]">
         <CardHeader>
-          <CardTitle className="text-white">Widget Implementation</CardTitle>
+            <CardTitle className="text-white">Widget Implementation</CardTitle>
           <CardDescription className="text-gray-300">
-            Add the following code to your website to implement the selected widget:
+            Add the following code to your website to implement the {selectedWidget.name}:
           </CardDescription>
+          <div className="flex items-center space-x-2">
+              <span className="text-sm text-gray-300">Light</span>
+              <Switch
+                checked={selectedWidget.id === 'dark'}
+                onCheckedChange={toggleWidget}
+                className="data-[state=checked]:bg-primary"
+              />
+              <span className="text-sm text-gray-300">Dark</span>
+            </div>
         </CardHeader>
         <CardContent>
           <ScrollArea className="w-full rounded-md">
