@@ -1,9 +1,9 @@
 "use client";
 
-import { PricingPlan } from "@/sections/Pricing";
 import { Check, Star } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { PricingPlan } from "./Pricing";
 
 export default function PricingCard({
   title,
