@@ -20,18 +20,18 @@ export function ToggleTheme() {
     return (
         <motion.button
             onClick={toggleTheme}
-            className="relative w-16 h-8 rounded-full bg-gradient-to-b from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 p-1 transition-all duration-300 shadow-inner overflow-hidden"
+            className="relative w-16 h-8 rounded-full shadow-2xl p-1 overflow-hidden"
             whileTap={{ scale: 0.97 }}
             aria-label="Toggle theme"
         >
             <motion.div
-                className="absolute inset-0 bg-gradient-to-tr from-blue-50 to-blue-100 dark:from-indigo-900 dark:to-indigo-800 opacity-70 transition-opacity duration-300"
+                className="absolute inset-0 bg-gradient-to-tr  dark:from-indigo-900 dark:to-indigo-800 opacity-70 transition-opacity duration-300"
                 animate={{
                     opacity: theme === "light" ? 0.7 : 0,
                 }}
             />
             <motion.div
-                className="absolute top-1 left-1 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900 shadow-lg flex items-center justify-center"
+                className="absolute top-1 left-1 w-6 h-6 rounded-full  shadow-lg flex items-center justify-center"
                 animate={{
                     x: theme === "light" ? 0 : 32,
                 }}
@@ -45,9 +45,9 @@ export function ToggleTheme() {
                     transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                     {theme === "light" ? (
-                        <Sun className="h-4 w-4 text-amber-500" />
+                        <Sun className="h-5 w-5 text-amber-500" />
                     ) : (
-                        <Moon className="h-4 w-4 text-blue-200" />
+                        <Moon className="h-5 w-5 text-blue-200" />
                     )}
                 </motion.div>
             </motion.div>

@@ -6,8 +6,8 @@ import Faq from "@/components/landing/faq/Faq";
 import Hero from "@/components/landing/hero/Hero";
 import Pricing from "@/components/landing/pricing/Pricing";
 import KeyFeatures from "@/components/landing/key-features/KeyFeatures";
-
-import React from "react";
+import WidgetShowcase from "@/components/landing/widget-showcase/WidgetShowcase";
+import FlippableCards from "@/components/landing/flippable-cards/FlippableCards";
 
 
 export default function Home() {
@@ -17,6 +17,8 @@ export default function Home() {
         <Navbar />
         <Hero />
         <KeyFeatures />
+        <WidgetShowcase />
+        <FlippableCards />
         <Pricing />
         <Faq />
       </Container>

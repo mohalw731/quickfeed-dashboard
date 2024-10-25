@@ -62,8 +62,7 @@ const itemVariants = {
 export default function KeyFeatures() {
     return (
         <motion.div
-            id="key-features"
-            className="flex md:flex-row flex-col gap-12 justify-between py-16 sm:py-24 px-4 sm:px-8"
+            className="flex md:flex-row flex-col gap-12 justify-between py-16 sm:py-24 px-2 sm:px-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
