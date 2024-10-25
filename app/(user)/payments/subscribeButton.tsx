@@ -43,7 +43,7 @@ const SubscribeBtn = ({ price }: { price: string }) => {
   return (
     <Button
       onClick={() => handleCheckout(price)}
-      className="bg-indigo-700 hover:bg-indigo-900"
+      className="bg-indigo-700 hover:bg-indigo-900 text-white"
       disabled={loading}
     >
       {loading ? <Loader2 className=" h-4 w-4 animate-spin" /> : `subscribe `}

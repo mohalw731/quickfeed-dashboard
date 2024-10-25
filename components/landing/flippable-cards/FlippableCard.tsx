@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { LucideIcon, Repeat } from "lucide-react"
+import { Repeat } from "lucide-react"
 import { CardData } from "./FlippableCards"
 
 export default function FlippableCard({ data }: { data: CardData }) {

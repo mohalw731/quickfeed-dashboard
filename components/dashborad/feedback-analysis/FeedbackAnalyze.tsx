@@ -220,8 +220,8 @@ export default function FeedbackAnalysis({
   };
 
   return (
-    <Card className="w-full space-y-6 p-5 bg-[#202020] rounded-2xl border-none max-w-[820px]  overflow-auto custom-scrollbar md:h-full h-[500px]">
-      <div className="flex items-start justify-between text-white">
+    <Card className="w-full space-y-6 p-5 bg-[#DEE2E6] dark:bg-[#0F0F11] rounded-2xl border-none max-w-[820px] overflow-auto custom-scrollbar md:h-full h-[500px]">
+      <div className="flex items-start justify-between">
         <h1 className="text-2xl">Feedback Analysis ✨</h1>
         <Dialog open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
           <DialogTrigger asChild>
@@ -288,9 +288,9 @@ export default function FeedbackAnalysis({
           <>
             <div className="flex flex-col items-center gap-5">
               <span className="text-5xl">📊</span>
-              <h2 className="md:text-2xl font-mono text-center text-white mb-3">
+              <h1 className="md:text-2xl font-mono text-center mb-3">
                 Get to understand your customers
-              </h2>
+              </h1>
             </div>
             {subscribed ? (
               <Button

@@ -9,7 +9,8 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import lightwidget from '../../../../../assets/lightwidget.png'
 import { Switch } from '@/components/ui/switch'
-
+import { Fira_Code } from 'next/font/google'
+const firaCode = Fira_Code({ subsets: ['latin'] })
 const widgets = [
   {
     id: 'light',
@@ -124,94 +125,95 @@ export default function WidgetImplementation({ params }: { params: { formId: str
   const id = params.formId
 
   return (
-    <div className="py-8 bg-[#141414] text-white max-w-7xl mx-auto">
+    <div className="py-8 max-w-7xl rounded-md mx-auto">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">API Documentation & Widget Implementation</h1>
 
-      <Card className="mb-8 bg-[#202020] border-[#353535]">
+      <Card className="mb-8 bg-[#DEE2E6] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
         <CardHeader>
-          <CardTitle className="text-white">API Overview</CardTitle>
-          <CardDescription className="text-gray-300">
-            Access feedback data for your project using the following API endpoint:
+          <CardTitle><h1>API Overview</h1></CardTitle>
+          <CardDescription>
+            <h1>Access feedback data for your project using the following API endpoint:</h1>
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="bg-[#303030] p-2 rounded-md text-gray-200 overflow-x-auto">
+          <div className="bg-[#DEE2E6] dark:bg-[#0F0F11] p-2 rounded-md  overflow-x-auto">
             <code>
               https://quickfeed-dashboard.vercel.app/api/feedback/{id}
             </code>
           </div>
-          <p className="mt-4 text-gray-300">
+          <p className="mt-4">
             Replace {'{id}'} with your project ID to retrieve feedback for that specific project.
           </p>
         </CardContent>
       </Card>
 
-      <Card className="mb-8 bg-[#202020] border-[#353535]">
-  <CardHeader>
-    <CardTitle className="text-white">Code Examples</CardTitle>
-    <CardDescription className="text-gray-300">
-      Here are examples of how to fetch and map over the feedback data in different programming languages:
-    </CardDescription>
-  </CardHeader>
-  <CardContent>
-    <div className="md:hidden mb-4">
-      <Select onValueChange={setSelectedLanguage} defaultValue={selectedLanguage}>
-        <SelectTrigger className="w-full bg-[#303030] text-white">
-          <SelectValue placeholder="Select a language" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="typescript">TypeScript</SelectItem>
-          <SelectItem value="javascript">JavaScript</SelectItem>
-          <SelectItem value="python">Python</SelectItem>
-          <SelectItem value="java">Java</SelectItem>
-        </SelectContent>
-      </Select>
-    </div>
-    <Tabs defaultValue="typescript" value={selectedLanguage} onValueChange={setSelectedLanguage}>
-      <TabsList className="bg-[#303030] text-white hidden md:flex justify-start">
-        <TabsTrigger value="typescript" className="data-[state=active]:bg-[#404040] text-gray-300">TypeScript</TabsTrigger>
-        <TabsTrigger value="javascript" className="data-[state=active]:bg-[#404040] text-gray-300">JavaScript</TabsTrigger>
-        <TabsTrigger value="python" className="data-[state=active]:bg-[#404040] text-gray-300">Python</TabsTrigger>
-        <TabsTrigger value="java" className="data-[state=active]:bg-[#404040] text-gray-300">Java</TabsTrigger>
-      </TabsList>
-      {Object.entries(codeExamples).map(([lang, code]) => (
-        <TabsContent key={lang} value={lang}>
-          <ScrollArea className="h-[300px] w-full rounded-md border border-[#353535]">
-            <pre className="p-4 bg-[#303030] text-gray-200 h-full overflow-x-auto">
-              <code>{code}</code>
-            </pre>
-          </ScrollArea>
-          <Button
-            onClick={() => copyCode(code)}
-            className="mt-2 bg-[#303030] text-gray-200 hover:bg-[#404040]"
-            variant="outline"
-          >
-            {copiedCode === code ? (
-              <>
-                <Check className="mr-2 h-4 w-4" /> Copied
-              </>
-            ) : (
-              <>
-                <Copy className="mr-2 h-4 w-4" /> Copy Code
-              </>
-            )}
-          </Button>
-        </TabsContent>
-      ))}
-    </Tabs>
-  </CardContent>
-</Card>
-
-      <Card className="mb-8 bg-[#202020] border-[#353535]">
+      <Card className="mb-8 bg-[#DEE2E6] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
         <CardHeader>
-          <CardTitle className="text-white">Feedback Object Structure</CardTitle>
+          <CardTitle><h1>Code Examples</h1></CardTitle>
           <CardDescription className="text-gray-300">
-            Each feedback item in the response will have the following structure:
+            Here are examples of how to fetch and map over the feedback data in different programming languages:
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="md:hidden mb-4">
+            <Select onValueChange={setSelectedLanguage} defaultValue={selectedLanguage}>
+                <SelectTrigger className="w-full bg-[#DEE2E6] dark:bg-[#0F0F11]">
+                <SelectValue placeholder="Select a language" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="typescript">TypeScript</SelectItem>
+                <SelectItem value="javascript">JavaScript</SelectItem>
+                <SelectItem value="python">Python</SelectItem>
+                <SelectItem value="java">Java</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <Tabs defaultValue="typescript" value={selectedLanguage} onValueChange={setSelectedLanguage}>
+            <TabsList className="bg-transparent hidden md:flex justify-start">
+              <TabsTrigger value="typescript" className="data-[state=active]:bg-[#E9ECEF] dark:data-[state=active]:bg-[#171717]"><h1>TypeScript</h1></TabsTrigger>
+              <TabsTrigger value="javascript" className="data-[state=active]:bg-[#E9ECEF] dark:data-[state=active]:bg-[#171717]"><h1>JavaScript</h1></TabsTrigger>
+              <TabsTrigger value="python" className="data-[state=active]:bg-[#E9ECEF] dark:data-[state=active]:bg-[#171717]"><h1>Python</h1></TabsTrigger>
+              <TabsTrigger value="java" className="data-[state=active]:bg-[#E9ECEF] dark:data-[state=active]:bg-[#171717]"><h1>Java</h1></TabsTrigger>
+            </TabsList>
+            {Object.entries(codeExamples).map(([lang, code]) => (
+              <TabsContent key={lang} value={lang}>
+                <ScrollArea className="h-[400px] w-full rounded-md border-[#CED4DA] dark:border-[#131314]">
+                  <div className="rounded-lg overflow-hidden shadow-lg">
+                    <pre className={`p-4 dark:bg-[#171717] bg-[#E9ECEF] overflow-x-auto ${firaCode.className}`}>
+                      <code>{code}</code>
+                    </pre>
+                  </div>
+                </ScrollArea>
+                <Button
+                  onClick={() => copyCode(code)}
+                  className="mt-2 dark:bg-[#E2E2E2] bg-[#343A40]"
+                >
+                  {copiedCode === code ? (
+                    <>
+                      <Check className="mr-2 h-4 w-4" /> Copied
+                    </>
+                  ) : ( 
+                    <>
+                      <Copy className="mr-2 h-4 w-4" /> Copy Code
+                    </>
+                  )}
+                </Button>
+              </TabsContent>
+            ))}
+          </Tabs>
+        </CardContent>
+      </Card>
+
+      <Card className="mb-8 bg-[#DEE2E6] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
+        <CardHeader>
+          <CardTitle><h1>Feedback Object Structure</h1></CardTitle>
+          <CardDescription>
+            <p>Each feedback item in the response will have the following structure:</p>
           </CardDescription>
         </CardHeader>
         <CardContent>
           <ScrollArea className="w-full rounded-md">
-            <pre className="bg-[#303030] p-4 rounded-md text-gray-200 overflow-x-auto">
+            <pre className="dark:bg-[#171717] bg-[#E9ECEF] p-4 rounded-md overflow-x-auto">
               <code>{`
 {
   "id": number,
@@ -224,37 +226,37 @@ export default function WidgetImplementation({ params }: { params: { formId: str
               `}</code>
             </pre>
           </ScrollArea>
-          <ul className="md:list-disc list-inside mt-4 flex flex-col md:gap-2 gap-5 text-gray-300">
-            <li className='text-sm'><strong className="text-white">id:</strong> Unique identifier for the feedback</li>
-            <li className='text-sm'><strong className="text-white">projectId:</strong> ID of the project this feedback belongs to</li>
-            <li className='text-sm'><strong className="text-white">message:</strong> The feedback message</li>
-            <li className='text-sm'><strong className="text-white">rating:</strong> Numerical rating (if applicable)</li>
-            <li className='text-sm'><strong className="text-white">name:</strong> Name of the person who left the feedback (optional)</li>
-            <li className='text-sm'><strong className="text-white">createdAt:</strong> Timestamp when the feedback was created</li>
+          <ul className="md:list-disc list-inside mt-4 flex flex-col md:gap-2 gap-5">
+            <li className='text-sm'><strong>id:</strong> Unique identifier for the feedback</li>
+            <li className='text-sm'><strong>projectId:</strong> ID of the project this feedback belongs to</li>
+            <li className='text-sm'><strong>message:</strong> The feedback message</li>
+            <li className='text-sm'><strong>rating:</strong> Numerical rating (if applicable)</li>
+            <li className='text-sm'><strong>name:</strong> Name of the person who left the feedback (optional)</li>
+            <li className='text-sm'><strong>createdAt:</strong> Timestamp when the feedback was created</li>
           </ul>
         </CardContent>
       </Card>
 
     
-      <Card className="bg-[#202020] border-[#353535]">
+      <Card className="bg-[#DEE2E6] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
         <CardHeader>
-            <CardTitle className="text-white">Widget Implementation</CardTitle>
-          <CardDescription className="text-gray-300">
+            <CardTitle >Widget Implementation</CardTitle>
+          <CardDescription >
             Add the following code to your website to implement the {selectedWidget.name}:
           </CardDescription>
           <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-300">Light</span>
+              <span className="text-sm">Light</span>
               <Switch
                 checked={selectedWidget.id === 'dark'}
                 onCheckedChange={toggleWidget}
                 className="data-[state=checked]:bg-primary"
               />
-              <span className="text-sm text-gray-300">Dark</span>
+              <span className="text-sm">Dark</span>
             </div>
         </CardHeader>
         <CardContent>
           <ScrollArea className="w-full rounded-md">
-            <pre className="bg-[#303030] p-4 rounded-md text-gray-200 overflow-x-auto">
+            <pre className="dark:bg-[#171717] bg-[#E9ECEF] p-4 rounded-md overflow-x-auto">
               <code>{`
 <my-widget project="${params.formId}"></my-widget>
 <script src="${selectedWidget.scriptUrl}"></script>
@@ -263,7 +265,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
           </ScrollArea>
           <Button
             onClick={() => copyCode(`<my-widget project="${params.formId}"></my-widget>\n<script src="${selectedWidget.scriptUrl}"></script>`)}
-            className="mt-4 bg-[#303030] text-gray-200 hover:bg-[#404040]"
+            className="mt-4 dark:bg-[#E2E2E2] bg-[#343A40]"
           >
             {copiedCode === `<my-widget project="${params.formId}"></my-widget>\n<script src="${selectedWidget.scriptUrl}"></script>` ? (
               <>

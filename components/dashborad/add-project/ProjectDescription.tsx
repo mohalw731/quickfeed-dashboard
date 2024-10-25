@@ -19,7 +19,7 @@ export default function AddNewProjectDescription() {
   };
   
   return (
-    <div className="flex flex-col gap-2 my-2">
+    <div className="flex flex-col  gap-2 my-2">
       <Label
         htmlFor="description"
         className="flex items-center justify-between"
@@ -42,6 +42,7 @@ export default function AddNewProjectDescription() {
         onChange={handleTextChange}
         required
         maxLength={MAX_CHARACTERS}
+        className="bg-[#E9ECEF] dark:bg-[#171717]"
         aria-describedby="character-count"
       />
       <div 

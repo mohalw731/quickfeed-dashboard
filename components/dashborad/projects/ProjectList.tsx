@@ -52,24 +52,24 @@ export default ProjectsList;
 const NoProjects = () => {
   return (
     <main className="flex items-center justify-center flex-col md:h-[calc(100dvh-400px)]  h-[calc(100dvh-200px)] ">
-      <h2 className="text-2xl mt-4 text-slate-200 fontbold">
+      <h1 className="text-2xl mt-4 fontbold">
         No Projects found 👀
-      </h2>
+      </h1>
     </main>
   );
 };
 
 const PayWall = () => {
   return (
-    <li className=" bg-transparent">
-      <Card className="flex flex-col h-[200px] bg-transparent border border-[#202020] rounded-md md:w-[400px] w-full overflow-hidden ">
+    <li className="bg-transparent">
+      <Card className="flex flex-col h-[200px] bg-transparent border border-[#CED4DA] dark:border-[#131314] rounded-md md:w-[400px] w-full overflow-hidden ">
         <CardHeader className="flex-1">
           <div className="flex justify-between relative">
-            <CardTitle className=" text-white">Upgrade to Pro</CardTitle>
-            <div className="bg-blue-500 size-20 blur-[40px] absolute right-0 -top-10  -z-[-1]" />
+            <CardTitle ><h1>Upgrade to Pro</h1></CardTitle>
+            <div className="bg-blue-500 size-20 blur-[40px] absolute right-0 -top-10 -z-[-1]" />
           </div>
-          <CardDescription className="text-slate-200">
-            Get access to all features
+          <CardDescription>
+           <p>Get access to all features</p>
           </CardDescription>
         </CardHeader>
         <CardFooter>

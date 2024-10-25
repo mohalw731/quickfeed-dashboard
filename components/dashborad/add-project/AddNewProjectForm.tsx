@@ -24,11 +24,11 @@ const AddNewProject = ({ subscribed, projects }: Props) => {
         subscribed={subscribed as boolean}
         projects={projects}
       />
-      <DialogContent className="rounded-md  md:max-w-md max-w-[350px]">
-        <DialogHeader>
-          <DialogTitle>New Project</DialogTitle>
+      <DialogContent className="rounded-md bg-[#DEE2E6] dark:bg-[#0F0F11] md:max-w-md max-w-[350px]">
+        <DialogHeader>  
+          <DialogTitle><h1>New Project</h1></DialogTitle>
           <DialogDescription>
-            Create a new project to get started
+            <p>Create a new project to get started</p>
           </DialogDescription>
         </DialogHeader>
         <form className="flex gap-4 flex-col" action={createProject}>
@@ -39,6 +39,7 @@ const AddNewProject = ({ subscribed, projects }: Props) => {
                 id="name"
                 name="name"
                 placeholder="Project Name"
+                className="bg-[#E9ECEF] dark:bg-[#171717]"
                 required
               />
             </div>
@@ -48,6 +49,7 @@ const AddNewProject = ({ subscribed, projects }: Props) => {
                 id="url"
                 name="url"
                 placeholder="https://example.com"
+                className="bg-[#E9ECEF] dark:bg-[#171717]"
                 required
               />
             </div>

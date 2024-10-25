@@ -24,9 +24,9 @@ interface FilterButton {
 
 const filterButtons: FilterButton[] = [
   { type: "all", label: "All", className: "bg-blue-500 hover:bg-blue-600" },
-  { type: "good", label: "Good", className: "bg-[#303030] hover:bg-[#303030]" },
-  { type: "okay", label: "Okay", className: "bg-[#303030] hover:bg-[#303030]" },
-  { type: "bad", label: "Bad", className: "bg-[#303030] hover:bg-[#303030]" },
+  { type: "good", label: "Good", className: "bg-[#343A40] dark:bg-[#E2E2E2]" },
+  { type: "okay", label: "Okay", className: "bg-[#343A40] dark:bg-[#E2E2E2]" },
+  { type: "bad", label: "Bad", className: "bg-[#343A40] dark:bg-[#E2E2E2]" },
 ];
 
 interface SelectSortProps {
@@ -82,9 +82,9 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
 
   return (
     <div
-      className={`bg-[#202020] p-5 rounded-[20px] text-white md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[600px]`}
+      className={`bg-[#DEE2E6] dark:bg-[#0F0F11] p-5 rounded-[20px] md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[600px]`}
     >
-      <h1 className="text-2xl mb-5 text-white">
+      <h1 className="text-2xl mb-5 ">
         Feedbacks <span className="wave">👋</span>
       </h1>
       
@@ -93,7 +93,7 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
           {filterButtons.map((button) => (
             <Button
               key={button.type}
-              className={`${button.className} rounded-lg ${filter === button.type && "border border-[#404040]"
+              className={`${button.className} rounded-lg ${filter === button.type && ""
                 } focus:ring-0 focus:ring-offset-0 focus:outline-none focus:border-[#404040]`}
               onClick={() => setFilter(button.type)}
             >
@@ -103,22 +103,23 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
         </div>
         <div className="flex items-center justify-end">
           <Select value={sort} onValueChange={(value: SortType) => setSort(value)}>
-            <SelectTrigger className="bg-transparent border-none text-white hover:text-white transition-colors ring-2 ring-[#404040] focus:ring-2 focus:ring-[#404040]">
-              <div >
+            <SelectTrigger className="bg-transparent border-none focus:ring-0 ">
+              <div>
                 <SelectValue placeholder="Sort by" />
               </div>
-              {/* <CalendarDays className="h-4 w-4 md:hidden" /> */}
             </SelectTrigger>
-            <SelectContent className="bg-[#303030] border-[#404040]">
+            <SelectContent className="bg-background/80 dark:bg-background/20 backdrop-blur-lg border-none">
               {selectSort.map((item, index) => (
-                <div key={index}>
-                  <SelectItem value={item.value} className="text-gray-300 hover:text-white focus:bg-[#404040] focus:text-white">
-                    <div className="flex items-center">
-                      {item.title}
-                      <item.icon className="ml-2 h-3 w-3 opacity-50" />
-                    </div>
-                  </SelectItem>
-                </div>
+                <SelectItem
+                  key={index}
+                  value={item.value}
+                  className="hover:bg-background/90 dark:hover:bg-background/30 focus:bg-background/90 dark:focus:bg-background/30"
+                >
+                  <div className="flex items-center gap-1 mr-1 justify-between w-full">
+                    <span>{item.title}</span>
+                    <item.icon className="h-4 w-4 text-muted-foreground" />
+                  </div>
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -128,7 +129,7 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
       <div>
         {filteredAndSortedFeedbacks.length === 0 && (
           <div className="flex justify-center items-center h-[calc(100dvh-202px)]">
-            <p className="text-slate-200 text-center text-2xl">
+            <p className="text-center text-2xl">
               No feedback yet 👀
             </p>
           </div>
@@ -137,18 +138,18 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
           {filteredAndSortedFeedbacks.map((feedback: Feedback) => (
             <li
               key={feedback.id}
-              className="flex gap-2 bg-[#303030] rounded-[10px] p-5 flex-col"
+              className="flex gap-2 bg-[#E9ECEF] dark:bg-[#171717] rounded-[10px] p-5 flex-col"
             >
               <div className="flex justify-between items-center w-full flex-wrap">
-                <h2 className="flex flex-col gap-2">{feedback.message}</h2>
+                <h1 className="flex flex-col gap-2">{feedback.message}</h1>
                 <span
                   className={
                     feedback.rating === 1 || feedback.rating === 2
-                      ? "bg-red-800 text-black py-1 px-3 rounded-full text-xs"
+                      ? "bg-red-600 dark:bg-red-700 py-1 px-3 rounded-full text-xs"
                       : feedback.rating === 3
-                      ? "bg-yellow-400 text-black py-1 px-3 rounded-full text-xs"
+                      ? "bg-yellow-400 dark:bg-yellow-500 py-1 px-3 rounded-full text-xs"
                       : feedback.rating === 4 || feedback.rating === 5
-                      ? "bg-green-500 text-black py-1 px-3 rounded-full text-xs"
+                      ? "bg-green-500 dark:bg-green-600 py-1 px-3 rounded-full text-xs"
                       : ""
                   }
                 >
@@ -156,8 +157,8 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
                 </span>
               </div>
               <div className="flex items-center gap-3 ">
-                {feedback.name && <p className="text-xs text-[#606060]"> by: {feedback.name}</p>}
-                <p className="text-xs text-[#606060]">
+                {feedback.name && <p className="text-xs"> by: {feedback.name}</p>}
+                <p className="text-xs">
                   {formatDate(feedback.createdAt)}
                 </p>
               </div>

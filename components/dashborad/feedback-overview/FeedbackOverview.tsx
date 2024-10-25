@@ -35,9 +35,9 @@ const FeedbackCategory: React.FC<FeedbackCategoryProps> = ({ icon, label, count,
           {icon}
           <span className="text-sm font-medium">{label}</span>
         </div>
-        <span className="text-sm text-gray-300">{count}</span>
+        <span className="text-sm ">{count}</span>
       </div>
-      <div className="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
+      <div className="h-2 w-full bg-gray-400  dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className={`h-full ${color}`}
           style={{ width: `${percentage}%` }}
@@ -81,11 +81,11 @@ export default function FeedbackOverview({ project }: FeedbackOverviewProps) {
   ]
 
   return (
-    <Card className="w-full md:w-[400px] h-[208px] overflow-hidden bg-[#202020] text-white border-none">
+    <Card className="w-full md:w-[400px] h-[208px] overflow-hidden bg-[#DEE2E6] dark:bg-[#0F0F11] border-none">
       <CardContent className="p-6 h-full flex flex-col">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Feedback Overview 🔍</h2>
-          <div className="bg-white text-[#202020] rounded-full px-3 py-1 text-sm font-medium">
+          <h1 className="text-lg font-semibold">Feedback Overview 🔍</h1>
+          <div className="bg-[#CED4DA] dark:bg-[#171717] rounded-full px-3 py-1 text-sm font-medium">
             {overallRating.toFixed(1)} / 5
           </div>
         </div>
