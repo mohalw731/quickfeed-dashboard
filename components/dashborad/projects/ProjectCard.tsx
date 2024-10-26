@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,12 +23,12 @@ export default function ProjectCard({ project, setId, setOpen }: any) {
   };
   return (
     <>
-      <li key={project.id} className=" bg-transparent">
+      <li key={project.id} className="bg-transparent">
         <Card className="flex flex-col h-[200px] bg-transparent border border-[#CED4DA] dark:border-[#131314] rounded-md md:w-[400px] w-full overflow-hidden ">
           <CardHeader className="flex-1">
             <div className="flex justify-between relative">
-              <CardTitle className="">
-                <h1>{capitalize(project.name)}</h1>
+              <CardTitle className="dark:text-[#F8F9FA] text-[#343A40]">
+                {capitalize(project.name)}
               </CardTitle>
               <div className="bg-blue-500 size-20 blur-[50px] absolute right-0 -top-10 -z-[-1]" />
               <div className="z-[10]">

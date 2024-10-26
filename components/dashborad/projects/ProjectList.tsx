@@ -65,7 +65,7 @@ const PayWall = () => {
       <Card className="flex flex-col h-[200px] bg-transparent border border-[#CED4DA] dark:border-[#131314] rounded-md md:w-[400px] w-full overflow-hidden ">
         <CardHeader className="flex-1">
           <div className="flex justify-between relative">
-            <CardTitle ><h1>Upgrade to Pro</h1></CardTitle>
+            <CardTitle className="text-[#343A40] dark:text-[#F8F9FA]">Upgrade to Pro</CardTitle>
             <div className="bg-blue-500 size-20 blur-[40px] absolute right-0 -top-10 -z-[-1]" />
           </div>
           <CardDescription>

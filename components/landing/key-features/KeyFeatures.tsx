@@ -93,7 +93,7 @@ export default function KeyFeatures() {
                     <motion.div
                         key={index}
                         variants={itemVariants}
-                        className="bg-[#DEE2E6] dark:bg-[#0F0F11] flex flex-col gap-4 p-6 md:max-w-xs rounded-xl"
+                        className="bg-[#EDF0F2] dark:bg-[#0F0F11] flex flex-col gap-4 p-6 md:max-w-xs rounded-xl"
                     >
                         <h1 className="inline-flex gap-2"><card.icon /> {card.title}</h1>
                         <p>{card.description}</p>

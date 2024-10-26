@@ -81,7 +81,7 @@ export default function FeedbackOverview({ project }: FeedbackOverviewProps) {
   ]
 
   return (
-    <Card className="w-full md:w-[400px] h-[208px] overflow-hidden bg-[#DEE2E6] dark:bg-[#0F0F11] border-none">
+    <Card className="w-full md:w-[400px] h-[208px] overflow-hidden bg-[#EDF0F2] dark:bg-[#0F0F11] border-none">
       <CardContent className="p-6 h-full flex flex-col">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-lg font-semibold">Feedback Overview 🔍</h1>

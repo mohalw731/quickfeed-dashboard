@@ -43,7 +43,7 @@ export default function WidgetShowcase() {
         >
             <motion.div
                 variants={containerVariants}
-                className="bg-[#DEE2E6] dark:bg-[#0F0F11] border border-[#CED4DA] dark:border-[#131314] md:ml-8 rounded-xl"
+                className="bg-[#EDF0F2] dark:bg-[#0F0F11] border border-[#CED4DA] dark:border-[#131314] md:ml-8 rounded-xl"
             >
                 <Image 
                     src={widget} 

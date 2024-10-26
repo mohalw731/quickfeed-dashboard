@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 import AddNewProjectHeader from "../header/ProjectHeader";
 import { Label } from "@/components/ui/label";
 import AddNewProjectDescription from "./ProjectDescription";
-import useAI from "@/hooks/useAI";
 import AddNewProjectButton from "../header/AddNewProjectButton";
 
 type Props = {
@@ -24,7 +23,7 @@ const AddNewProject = ({ subscribed, projects }: Props) => {
         subscribed={subscribed as boolean}
         projects={projects}
       />
-      <DialogContent className="rounded-md bg-[#DEE2E6] dark:bg-[#0F0F11] md:max-w-md max-w-[350px]">
+      <DialogContent className="rounded-md bg-[#EDF0F2] dark:bg-[#0F0F11] md:max-w-md max-w-[350px]">
         <DialogHeader>  
           <DialogTitle><h1>New Project</h1></DialogTitle>
           <DialogDescription>

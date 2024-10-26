@@ -24,7 +24,7 @@ export default function FlippableCard({ data }: { data: CardData }) {
                 }}
             >
                 {/* Front Face */}
-                <div className="absolute inset-0 h-full w-full rounded-xl bg-[#DEE2E6] dark:bg-[#0F0F11] [backface-visibility:hidden] group-hover:shadow-2xl transition-shadow duration-300">
+                <div className="absolute inset-0 h-full w-full rounded-xl bg-[#EDF0F2] dark:bg-[#0F0F11] [backface-visibility:hidden] group-hover:shadow-2xl transition-shadow duration-300">
                     <div className="flex flex-col items-center justify-center h-full p-6">
                         <Icon className="w-16 h-16 mb-4" />
                         <h1 className="text-2xl font-bold mb-2">{data.title}</h1>
@@ -33,7 +33,7 @@ export default function FlippableCard({ data }: { data: CardData }) {
                     </div>
                 </div>
                 {/* Back Face */}
-                <div className="absolute flex items-center justify-center inset-0 h-full w-full rounded-xl bg-[#DEE2E6] dark:bg-[#0F0F11] [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-hidden group-hover:shadow-2xl transition-shadow duration-300">
+                <div className="absolute flex items-center justify-center inset-0 h-full w-full rounded-xl bg-[#EDF0F2] dark:bg-[#0F0F11] [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-hidden group-hover:shadow-2xl transition-shadow duration-300">
                     {typeof data.whenFlipped === 'object' && 'src' in data.whenFlipped ? (
                         <Image
                             src={data.whenFlipped}

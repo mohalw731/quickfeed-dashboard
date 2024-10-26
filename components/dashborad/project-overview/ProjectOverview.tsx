@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ProjectOverview({ project }: any) {
   return (
-    <div className="flex flex-col gap-2 bg-[#DEE2E6] dark:bg-[#0F0F11] rounded-[20px] p-5 max-h-52 md:w-[400px] w-full justify-between ">
+    <div className="flex flex-col gap-2 bg-[#EDF0F2] dark:bg-[#0F0F11] rounded-[20px] p-5 max-h-52 md:w-[400px] w-full justify-between ">
       <h1 className="text-3xl font-semibold md:mb-20 mb-10 flex items-center justify-between ">
         {project.name}
         <Link href={`/projects/${project.id}/instructions`}>

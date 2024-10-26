@@ -82,7 +82,7 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
 
   return (
     <div
-      className={`bg-[#DEE2E6] dark:bg-[#0F0F11] p-5 rounded-[20px] md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[600px]`}
+      className={`bg-[#EDF0F2] dark:bg-[#0F0F11] p-5 rounded-[20px] md:h-full custom-scrollbar md:max-w-[600px] h-[500px] overflow-auto md:min-w-[600px]`}
     >
       <h1 className="text-2xl mb-5 ">
         Feedbacks <span className="wave">👋</span>
@@ -138,7 +138,7 @@ export default function FeedbackList({ feedbacks }: { feedbacks: Feedback[] }) {
           {filteredAndSortedFeedbacks.map((feedback: Feedback) => (
             <li
               key={feedback.id}
-              className="flex gap-2 bg-[#E9ECEF] dark:bg-[#171717] rounded-[10px] p-5 flex-col"
+              className="flex gap-2 bg-[#EDF0F2] dark:bg-[#171717] rounded-[10px] p-5 flex-col"
             >
               <div className="flex justify-between items-center w-full flex-wrap">
                 <h1 className="flex flex-col gap-2">{feedback.message}</h1>

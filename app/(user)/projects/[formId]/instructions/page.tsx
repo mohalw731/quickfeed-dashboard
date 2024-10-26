@@ -128,7 +128,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
     <div className="py-8 max-w-7xl rounded-md mx-auto">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">API Documentation & Widget Implementation</h1>
 
-      <Card className="mb-8 bg-[#DEE2E6] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
+      <Card className="mb-8 bg-[#EDF0F2] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
         <CardHeader>
           <CardTitle><h1>API Overview</h1></CardTitle>
           <CardDescription>
@@ -136,7 +136,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="bg-[#DEE2E6] dark:bg-[#0F0F11] p-2 rounded-md  overflow-x-auto">
+          <div className="bg-[#EDF0F2] dark:bg-[#0F0F11] p-2 rounded-md  overflow-x-auto">
             <code>
               https://quickfeed-dashboard.vercel.app/api/feedback/{id}
             </code>
@@ -147,7 +147,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
         </CardContent>
       </Card>
 
-      <Card className="mb-8 bg-[#DEE2E6] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
+      <Card className="mb-8 bg-[#EDF0F2] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
         <CardHeader>
           <CardTitle><h1>Code Examples</h1></CardTitle>
           <CardDescription className="text-gray-300">
@@ -178,8 +178,8 @@ export default function WidgetImplementation({ params }: { params: { formId: str
             {Object.entries(codeExamples).map(([lang, code]) => (
               <TabsContent key={lang} value={lang}>
                 <ScrollArea className="h-[400px] w-full rounded-md border-[#CED4DA] dark:border-[#131314]">
-                  <div className="rounded-lg overflow-hidden shadow-lg">
-                    <pre className={`p-4 dark:bg-[#171717] bg-[#E9ECEF] overflow-x-auto ${firaCode.className}`}>
+                  <div className="rounded-lg overflow-hidden ">
+                    <pre className={`p-4 dark:bg-[#171717] bg-[#EDF0F2] overflow-x-auto ${firaCode.className}`}>
                       <code>{code}</code>
                     </pre>
                   </div>
@@ -204,7 +204,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
         </CardContent>
       </Card>
 
-      <Card className="mb-8 bg-[#DEE2E6] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
+      <Card className="mb-8 bg-[#EDF0F2] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
         <CardHeader>
           <CardTitle><h1>Feedback Object Structure</h1></CardTitle>
           <CardDescription>
@@ -238,7 +238,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
       </Card>
 
     
-      <Card className="bg-[#DEE2E6] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
+      <Card className="bg-[#EDF0F2] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
         <CardHeader>
             <CardTitle >Widget Implementation</CardTitle>
           <CardDescription >

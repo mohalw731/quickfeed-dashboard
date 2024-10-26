@@ -220,7 +220,7 @@ export default function FeedbackAnalysis({
   };
 
   return (
-    <Card className="w-full space-y-6 p-5 bg-[#DEE2E6] dark:bg-[#0F0F11] rounded-2xl border-none max-w-[820px] overflow-auto custom-scrollbar md:h-full h-[500px]">
+    <Card className="w-full space-y-6 p-5 bg-[#EDF0F2] dark:bg-[#0F0F11] rounded-2xl border-none max-w-[820px] overflow-auto custom-scrollbar md:h-full h-[500px]">
       <div className="flex items-start justify-between">
         <h1 className="text-2xl">Feedback Analysis ✨</h1>
         <Dialog open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>

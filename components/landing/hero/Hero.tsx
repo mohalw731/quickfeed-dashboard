@@ -76,7 +76,7 @@ export default function Hero() {
           </Link>
         </motion.div>
         <motion.div variants={itemVariants}>
-            <Button onClick={() => scrollToId("pricing")} variant="outline" className="rounded-full bg-transparent border-[#303030] hover:opacity-90 hover:bg-transparent">
+          <Button onClick={() => scrollToId("pricing")} variant="outline" className="rounded-full bg-transparent border-[#131314] dark:border-[#303030] hover:opacity-90 hover:bg-transparent">
               Pricing
             </Button>
         </motion.div>

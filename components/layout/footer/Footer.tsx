@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="w-full border-t border-[#CED4DA] dark:border-[#131314] mt-24 bg-[#DEE2E6] dark:bg-[#0F0F11] text-gray-800 dark:text-gray-200">
+    <footer className="w-full border-t border-[#CED4DA] dark:border-[#131314] mt-24 bg-[#EDF0F2] dark:bg-[#0F0F11] text-gray-800 dark:text-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
@@ -20,9 +20,9 @@ export default function Footer() {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold">Quick Links</h3>
               <ul className="space-y-2">
-                <li><Link href="#" className="text-sm hover:text-blue-500 transition-colors">Home</Link></li>
-                <li><Link href="#" className="text-sm hover:text-blue-500 transition-colors">Services</Link></li>
-                <li><Link href="#" className="text-sm hover:text-blue-500 transition-colors">About</Link></li>
+                <li><Link href="#" className="text-sm dark:hover:text-gray-400 hover:text-gray-600 transition-colors">Home</Link></li>
+                <li><Link href="#" className="text-sm dark:hover:text-gray-400 hover:text-gray-600 transition-colors">Services</Link></li>
+                <li><Link href="#" className="text-sm dark:hover:text-gray-400 hover:text-gray-600 transition-colors">About</Link></li>
               </ul>
             </div>
             <div className="space-y-4">
@@ -46,7 +46,7 @@ export default function Footer() {
               <h3 className="text-lg font-semibold">Social Links</h3>
               <div className="flex space-x-2">
                 <Link 
-                  className="text-sm hover:text-blue-500 transition-colors"
+                  className="text-sm hover:text-gray-400 transition-colors"
                   href="https://www.linkedin.com/company/quickfeed/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
@@ -60,10 +60,10 @@ export default function Footer() {
             © {currentYear} QuickFeed AB. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 sm:mt-0">
-            <Link href="#" className="text-sm hover:text-blue-500 transition-colors">
+            <Link href="#" className="text-sm dark:hover:text-gray-400 hover:text-gray-600 transition-colors">
               Terms of Service
             </Link>
-            <Link href="#" className="text-sm hover:text-blue-500 transition-colors">
+            <Link href="#" className="text-sm dark:hover:text-gray-400 hover:text-gray-600 transition-colors">
               Privacy Policy
             </Link>
           </div>
