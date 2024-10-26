@@ -23,7 +23,7 @@ const AddNewProject = ({ subscribed, projects }: Props) => {
         subscribed={subscribed as boolean}
         projects={projects}
       />
-      <DialogContent className="rounded-md bg-[#EDF0F2] dark:bg-[#0F0F11] md:max-w-md max-w-[350px]">
+      <DialogContent className="rounded-md bg-[#EDF0F2] dark:bg-[#0F0F11] md:max-w-md max-w-[350px] border dark:border-[#131314]">
         <DialogHeader>  
           <DialogTitle><h1>New Project</h1></DialogTitle>
           <DialogDescription>

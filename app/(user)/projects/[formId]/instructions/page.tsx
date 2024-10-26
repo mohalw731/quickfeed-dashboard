@@ -136,7 +136,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="bg-[#EDF0F2] dark:bg-[#0F0F11] p-2 rounded-md  overflow-x-auto">
+          <div className="bg-gray-200 dark:bg-[#171717] p-2 rounded-md  overflow-x-auto">
             <code>
               https://quickfeed-dashboard.vercel.app/api/feedback/{id}
             </code>
@@ -150,7 +150,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
       <Card className="mb-8 bg-[#EDF0F2] dark:bg-[#0F0F11] border-[#CED4DA] dark:border-[#131314]">
         <CardHeader>
           <CardTitle><h1>Code Examples</h1></CardTitle>
-          <CardDescription className="text-gray-300">
+          <CardDescription className="text-gray-200">
             Here are examples of how to fetch and map over the feedback data in different programming languages:
           </CardDescription>
         </CardHeader>
@@ -178,8 +178,8 @@ export default function WidgetImplementation({ params }: { params: { formId: str
             {Object.entries(codeExamples).map(([lang, code]) => (
               <TabsContent key={lang} value={lang}>
                 <ScrollArea className="h-[400px] w-full rounded-md border-[#CED4DA] dark:border-[#131314]">
-                  <div className="rounded-lg overflow-hidden ">
-                    <pre className={`p-4 dark:bg-[#171717] bg-[#EDF0F2] overflow-x-auto ${firaCode.className}`}>
+                  <div className="rounded-lg overflow-hidden h-full">
+                    <pre className={`p-4 dark:bg-[#171717] bg-gray-200 overflow-x-auto h-full ${firaCode.className}`}>
                       <code>{code}</code>
                     </pre>
                   </div>
@@ -213,7 +213,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
         </CardHeader>
         <CardContent>
           <ScrollArea className="w-full rounded-md">
-            <pre className="dark:bg-[#171717] bg-[#E9ECEF] p-4 rounded-md overflow-x-auto">
+            <pre className="dark:bg-[#171717] bg-gray-200 p-4 rounded-md overflow-x-auto">
               <code>{`
 {
   "id": number,
@@ -256,7 +256,7 @@ export default function WidgetImplementation({ params }: { params: { formId: str
         </CardHeader>
         <CardContent>
           <ScrollArea className="w-full rounded-md">
-            <pre className="dark:bg-[#171717] bg-[#E9ECEF] p-4 rounded-md overflow-x-auto">
+            <pre className="dark:bg-[#171717] bg-gray-200 p-4 rounded-md overflow-x-auto">
               <code>{`
 <my-widget project="${params.formId}"></my-widget>
 <script src="${selectedWidget.scriptUrl}"></script>

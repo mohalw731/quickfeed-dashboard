@@ -2,16 +2,16 @@
 import { projects } from "@/db/schema";
 import { InferSelectModel } from "drizzle-orm";
 import { useState } from "react";
-import Modal from "./delete-modal/DeleteModal";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../ui/card";
+} from "../../../ui/card";
 import SubscribeBtn from "@/app/(user)/payments/subscribeButton";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../project-card/ProjectCard";
+import Modal from "../delete-modal/DeleteModal";
 
 type Project = InferSelectModel<typeof projects>;
 

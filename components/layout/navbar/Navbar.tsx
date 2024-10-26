@@ -20,7 +20,7 @@ export default function PageHeader() {
           <SignedOut>
             <Link href="/sign-in">
               <Button
-                className="bg-transparent hover:opacity-75 border-[1px]  rounded-full p-5 text-base"
+                className="border-gray-300 dark:border-[#303030] hover:opacity-75 border-[1px] bg-transparent rounded-full p-5 text-base"
                 variant={"outline"}
               >
                 Sign in

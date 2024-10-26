@@ -5,7 +5,7 @@ import { eq } from "drizzle-orm";
 import React from "react";
 import AddNewProject from "@/components/dashborad/add-project/AddNewProjectForm";
 import { getSubscription } from "@/actions/userSubscriptions";
-import ProjectsList from "@/components/dashborad/projects/ProjectList";
+import ProjectsList from "@/components/dashborad/projects/project-list/ProjectList";
 
 export default async function Dashboard() {
   const { userId } = auth();

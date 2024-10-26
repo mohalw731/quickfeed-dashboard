@@ -51,15 +51,12 @@ export default function ProjectCard({ project, setId, setOpen }: any) {
               </div>
             </div>
             <CardDescription>
-              <p>{project.description}</p>
+              <span>{project.description}</span>
             </CardDescription>
           </CardHeader>
           <CardFooter>
             <Link href={`/projects/${project.id}`}>
-              <Button
-                className="bg-[#343A40] dark:bg-[#E2E2E2]"
-                size={"sm"}
-              >
+              <Button className="bg-[#343A40] dark:bg-[#E2E2E2]" size={"sm"}>
                 View Project
               </Button>
             </Link>
