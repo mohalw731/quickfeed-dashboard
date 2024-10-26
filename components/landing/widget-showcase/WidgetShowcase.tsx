@@ -54,11 +54,11 @@ export default function WidgetShowcase() {
             </motion.div>
             <motion.div variants={itemVariants} className="flex flex-col gap-6 max-w-lg">
                 <Badge />
-                <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl md:max-w-lg">Light and Dark mode for all your needs 🦾</motion.h1>
-                <motion.p variants={itemVariants} className="">ChatGPT skriver endast outputs. Om vi ska vara ärliga så får du bara text av ChatGPT. Den arbetar inte självständigt och ansluter inte till program som är relevanta för dig.</motion.p>
+                <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl md:max-w-lg">Light or Dark? You Choose the Vibe!</motion.h1>
+                <motion.p variants={itemVariants} className="">Customize the QuickFeed widget to match your brand`s aesthetic. Whether you prefer a sleek dark mode or a bright light mode, we`ve got you covered for a seamless user experience.</motion.p>
                 <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-evenly">
-                    <p className="inline-flex gap-1"><Check /> <span>Works in realtime</span></p>
-                    <p className="inline-flex gap-1"><Check /> <span>Integrates into your systems</span></p>
+                    <p className="inline-flex gap-1"><Check /> <span>Stylish Customization</span></p>
+                    <p className="inline-flex gap-1"><Check /> <span>User-Friendly Experience</span></p>
                 </motion.div>
                 <motion.div variants={itemVariants}>
                     <Button asChild className="bg-[#343A40] dark:bg-[#E2E2E2] mr-auto rounded-full" >

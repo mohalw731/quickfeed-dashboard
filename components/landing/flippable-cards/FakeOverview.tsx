@@ -44,7 +44,6 @@ const FeedbackCategory: React.FC<FeedbackCategoryProps> = ({ icon, label, count,
     )
 }
 
-// Mock data
 const mockData = {
     overallRating: 4.2,
     totalFeedback: 100,

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, LucideIcon, Zap } from "lucide-react"
+import { ArrowRight, BarChart3, Check, Cpu, LayoutDashboard, LucideIcon, MessageCircle, Zap } from "lucide-react"
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -13,24 +13,24 @@ interface MockDataProps {
 
 const mockData: MockDataProps[] = [
     {
-        icon: Zap,
-        title: "SoMe på autopilot",
-        description: "Slipp manuellt uppdatera din blogg eller LinkedIn regelbundet. Låt en AI-assistent hjälpa dig att växa organiskt - helt automatiskt."
+        icon: MessageCircle,
+        title: "Customer Feedback Collection",
+        description: "Collect feedback effortlessly with QuickFeed's widget. Get direct insights from customers, right when it matters most."
     },
     {
-        icon: Zap,
-        title: "SoMe på autopilot",
-        description: "Slipp manuellt uppdatera din blogg eller LinkedIn regelbundet. Låt en AI-assistent hjälpa dig att växa organiskt - helt automatiskt."
+        icon: LayoutDashboard,
+        title: "Feedback Dashboard",
+        description: "Access all feedback in one organized dashboard. QuickFeed makes it easy to view and manage every response."
     },
     {
-        icon: Zap,
-        title: "SoMe på autopilot",
-        description: "Slipp manuellt uppdatera din blogg eller LinkedIn regelbundet. Låt en AI-assistent hjälpa dig att växa organiskt - helt automatiskt."
+        icon: Cpu,
+        title: "AI-Powered Feedback Analysis",
+        description: "With one click, let AI highlight what`s working and what needs improvement. Say goodbye to manual analysis."
     },
     {
-        icon: Zap,
-        title: "SoMe på autopilot",
-        description: "Slipp manuellt uppdatera din blogg eller LinkedIn regelbundet. Låt en AI-assistent hjälpa dig att växa organiskt - helt automatiskt."
+        icon: BarChart3,
+        title: "Instant Performance Summary",
+        description: "QuickFeed`s AI summarizes key insights instantly, helping you make data-driven decisions at a glance."
     },
 ]
 
@@ -70,11 +70,11 @@ export default function KeyFeatures() {
         >
             <motion.div variants={itemVariants} className="flex flex-col gap-6 max-w-lg">
                 <Badge />
-                <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl md:max-w-md">Låt AI-assistenter sköta allt *gäsp* på jobbet 🥱</motion.h1>
-                <motion.p variants={itemVariants} className="">ChatGPT skriver endast outputs. Om vi ska vara ärliga så får du bara text av ChatGPT. Den arbetar inte självständigt och ansluter inte till program som är relevanta för dig.</motion.p>
-                <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-between max-w-md">
-                    <p className="inline-flex gap-1"><Check /> <span>Works in realtime</span></p>
-                    <p className="inline-flex gap-1"><Check /> <span>Integrates into your systems</span></p>
+                <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl md:max-w-md">Effortless Feedback Powerful Insights 🚀</motion.h1>
+                <motion.p variants={itemVariants} className="">QuickFeed`s AI simplifies customer feedback collection, analysis, and insights so you can focus on what matters most—improving your business.</motion.p>
+                <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-between max-w-sm">
+                    <p className="inline-flex gap-1"><Check /> <span>Real-Time Feedback</span></p>
+                    <p className="inline-flex gap-1"><Check /> <span>Instant Insights</span></p>
                 </motion.div>
                 <motion.div variants={itemVariants}>
                     <Button asChild className="bg-[#343A40] dark:bg-[#E2E2E2] mr-auto rounded-full" >

@@ -17,14 +17,14 @@ export default function FlippableCard({ data }: { data: CardData }) {
     return (
         <div className="group md:h-96 md:w-96 h-80 w-80">
             <div
-                className="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] cursor-pointer"
+                className="relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] cursor-pointer"
                 onClick={handleFlip}
                 style={{
                     transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
                 }}
             >
                 {/* Front Face */}
-                <div className="absolute inset-0 h-full w-full rounded-xl bg-[#EDF0F2] dark:bg-[#0F0F11] [backface-visibility:hidden] group-hover:shadow-2xl transition-shadow duration-300">
+                <div className="absolute inset-0 h-full w-full rounded-xl bg-[#EDF0F2] dark:bg-[#0F0F11] [backface-visibility:hidden] duration-300">
                     <div className="flex flex-col items-center justify-center h-full p-6">
                         <Icon className="w-16 h-16 mb-4" />
                         <h1 className="text-2xl font-bold mb-2">{data.title}</h1>
