@@ -26,7 +26,7 @@ export default function PricingCard({
       className={`
       relative flex flex-col justify-between h-full rounded-xl
       shadow-md transition-all duration-300 hover:shadow-xl 
-      bg-[#DEE2E6] dark:bg-[#0F0F11]
+      bg-[#EDF0F2] dark:bg-[#0F0F11]
       border-[#CED4DA] dark:border-[#131314] border
       ${isPopular && "shadow-2xl"}
     `}

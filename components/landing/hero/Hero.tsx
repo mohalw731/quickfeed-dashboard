@@ -57,10 +57,9 @@ export default function Hero() {
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="text-slate-300 md:text-base text-sm text-center max-w-[550px]"
+          className="text-slate-300 md:text-base text-sm text-center max-w-xl"
         >
-          Quickfeed uses machine learning algorithms to analyze customer
-          feedback and provide actionable insights.
+          Collect feedback, visualize insights, and drive growth with data-driven decisions.
         </motion.p>
       </motion.div>
 

@@ -31,19 +31,6 @@ const mockData: CardData[] = [
         description: "Switch seamlessly between light and dark modes for optimal viewing comfort. Our widget adapts to your preferences and environment, ensuring clear readability in any lighting condition.",
         whenFlipped: transparentWidget
     },
-    {
-        icon: Zap,
-        title: "Overview",
-        description: "Get a quick overview of your feedbacks!",
-        whenFlipped: transparentWidget
-    },
-    {
-        icon: Zap,
-        title: "Overview",
-        description: "Get a quick overview of your feedbacks!",
-        whenFlipped: FeedbackImage
-    },
-    
 ]
 
 

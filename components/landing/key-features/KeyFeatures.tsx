@@ -70,7 +70,7 @@ export default function KeyFeatures() {
         >
             <motion.div variants={itemVariants} className="flex flex-col gap-6 max-w-lg">
                 <Badge />
-                <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl md:max-w-md">Effortless Feedback Powerful Insights 🚀</motion.h1>
+                <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl md:max-w-md">Seamless Feedback, Supercharged Insights! 🚀</motion.h1>
                 <motion.p variants={itemVariants} className="">QuickFeed`s AI simplifies customer feedback collection, analysis, and insights so you can focus on what matters most—improving your business.</motion.p>
                 <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-between max-w-sm">
                     <p className="inline-flex gap-1"><Check /> <span>Real-Time Feedback</span></p>

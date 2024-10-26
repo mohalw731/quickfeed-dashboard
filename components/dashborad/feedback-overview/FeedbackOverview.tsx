@@ -37,7 +37,7 @@ const FeedbackCategory: React.FC<FeedbackCategoryProps> = ({ icon, label, count,
         </div>
         <span className="text-sm ">{count}</span>
       </div>
-      <div className="h-2 w-full bg-gray-400  dark:bg-gray-700 rounded-full overflow-hidden">
+      <div className="h-2 w-full bg-gray-400 dark:bg-gray-700 rounded-full overflow-hidden">
         <div
           className={`h-full ${color}`}
           style={{ width: `${percentage}%` }}

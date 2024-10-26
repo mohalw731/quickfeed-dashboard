@@ -26,11 +26,11 @@ const FeedbackCategory: React.FC<FeedbackCategoryProps> = ({ icon, label, count,
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                     {icon}
-                    <span className="text-sm font-medium">{label}</span>
+                    <span className="text-sm dark:text-white text-black font-medium">{label}</span>
                 </div>
-                <span className="text-sm text-gray-300">{count}</span>
+                <span className="text-sm dark:text-white text-black">{count}</span>
             </div>
-            <div className="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
+            <div className="h-2 w-full bg-gray-400 dark:bg-gray-700 rounded-full overflow-hidden">
                 <div
                     className={`h-full ${color}`}
                     style={{ width: `${percentage}%` }}
@@ -64,12 +64,12 @@ export default function FakeOverview() {
     ]
 
     return (
-        <Card className="w-full overflow-hidden bg-[#202020] text-white border-none">
+        <Card className="w-full overflow-hidden bg-[#F1F3F5] dark:bg-[#131314] text-white border-none">
             <CardContent className="p-6 h-full flex flex-col">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-lg font-semibold">Feedback Overview 🔍</h2>
-                    <div className="bg-white text-[#202020] rounded-full px-3 py-1 text-sm font-medium">
-                        {overallRating.toFixed(1)} / 5
+                    <h1 className="text-lg font-semibold">Feedback Overview 🔍</h1>
+                    <div className="bg-[#CED4DA] dark:bg-[#171717] rounded-full px-3 py-1 text-sm font-medium">
+                        <p>{overallRating.toFixed(1)} / 5</p>
                     </div>
                 </div>
                 <div className="flex-grow flex flex-col justify-between">

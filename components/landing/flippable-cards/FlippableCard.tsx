@@ -33,7 +33,7 @@ export default function FlippableCard({ data }: { data: CardData }) {
                     </div>
                 </div>
                 {/* Back Face */}
-                <div className="absolute flex items-center justify-center inset-0 h-full w-full rounded-xl bg-[#EDF0F2] dark:bg-[#0F0F11] [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-hidden group-hover:shadow-2xl transition-shadow duration-300">
+                <div className="absolute flex items-center justify-center inset-0 h-full w-full rounded-xl bg-[#EDF0F2] dark:bg-[#0F0F11] [transform:rotateY(180deg)] [backface-visibility:hidden] overflow-hidden duration-300">
                     {typeof data.whenFlipped === 'object' && 'src' in data.whenFlipped ? (
                         <Image
                             src={data.whenFlipped}
