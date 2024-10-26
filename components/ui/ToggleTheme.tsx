@@ -4,6 +4,7 @@ import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
 
 export function ToggleTheme() {
     const { theme, setTheme } = useTheme()
@@ -18,45 +19,24 @@ export function ToggleTheme() {
     if (!mounted) return null
 
     return (
-        <motion.button
+        <Button
+            variant="ghost"
+            size="icon"
             onClick={toggleTheme}
-            className="relative w-16 h-8 rounded-full shadow-2xl p-1 overflow-hidden"
-            whileTap={{ scale: 0.97 }}
+            className="relative w-9 h-9 rounded-full"
             aria-label="Toggle theme"
         >
             <motion.div
-                className="absolute inset-0 bg-gradient-to-tr  dark:from-indigo-900 dark:to-indigo-800 opacity-70 transition-opacity duration-300"
+                className="absolute inset-0 flex items-center justify-center"
+                initial={false}
                 animate={{
-                    opacity: theme === "light" ? 0.7 : 0,
+                    rotate: theme === "light" ? 0 : 180,
                 }}
-            />
-            <motion.div
-                className="absolute top-1 left-1 w-6 h-6 rounded-full  shadow-lg flex items-center justify-center"
-                animate={{
-                    x: theme === "light" ? 0 : 32,
-                }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-                <motion.div
-                    animate={{
-                        rotate: theme === "light" ? 0 : 360,
-                        scale: theme === "light" ? 1 : 0.8,
-                    }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                    {theme === "light" ? (
-                        <Sun className="h-5 w-5 text-amber-500" />
-                    ) : (
-                        <Moon className="h-5 w-5 text-blue-200" />
-                    )}
-                </motion.div>
+                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-4 w-4 rotate-[45deg] scale-0 transition-all dark:rotate-[75deg] dark:scale-100" />
             </motion.div>
-            <motion.div
-                className="absolute inset-0 rounded-full"
-                style={{
-                    boxShadow: "inset 0 1px 1px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.1)",
-                }}
-            />
-        </motion.button>
+        </Button>
     )
 }
