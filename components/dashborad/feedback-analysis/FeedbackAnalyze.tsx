@@ -18,6 +18,7 @@ import {
 import SubscribeBtn from "@/app/(user)/payments/subscribeButton";
 import { monthlyPlanId } from "@/lib/payments";
 import DefaultPromt from "@/utils/analysisPrompt";
+import Analysis from "./Analysis";
 
 interface AnalysisResult {
   text: string;
@@ -167,57 +168,57 @@ export default function FeedbackAnalysis({
       <div className="flex items-start justify-between">
         <h1 className="text-2xl">Feedback Analysis ✨</h1>
         <Dialog open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
-          <DialogTrigger asChild>
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <Settings className="h-6 w-6" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px] max-w-[90%] rounded-xl">
-            <DialogHeader>
-              <DialogTitle>Analysis Settings</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
-              <Textarea
-                placeholder="Enter custom prompt..."
-                value={customPrompt}
-                onChange={(e) => setCustomPrompt(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm text-gray-600">
-                  <span>Tokens: {tokenCount}</span>
-                  <span>Max: 1000</span>
-                </div>
-                <Slider
-                  value={[tokenCount]}
-                  onValueChange={(value) => setTokenCount(value[0])}
-                  min={100}
-                  max={1000}
-                  step={1}
-                  className="w-full"
-                />
-              </div>
-              {subscribed ? (
-                <Button
-                  onClick={() => handleAnalyze(true)}
-                  disabled={
-                    isAnalyzing ||
-                    !customPrompt ||
-                    isButtonDisabled ||
-                    !feedbackMessages.length
-                  }
-                  className="w-full h-10 bg-gray-800 hover:bg-gray-900 text-white rounded-xl transition-all duration-200 ease-in-out transform hover:scale-105"
-                >
-                  Run Custom Analysis
-                </Button>
-              ) : (
-                <div className="w-full flex justify-center">
-                  <SubscribeBtn price={monthlyPlanId} />
-                </div>
-              )}
-            </div>
-          </DialogContent>
-        </Dialog>
+    <DialogTrigger asChild>
+      <Button variant="ghost" size="icon" className="rounded-full">
+        <Settings className="h-6 w-6" />
+      </Button>
+    </DialogTrigger>
+    <DialogContent className="sm:max-w-[425px] max-w-[90%] rounded-xl">
+      <DialogHeader>
+        <DialogTitle>Analysis Settings</DialogTitle>
+      </DialogHeader>
+      <div className="space-y-4 py-4">
+        <Textarea
+          placeholder="Enter custom prompt..."
+          value={customPrompt}
+          onChange={(e) => setCustomPrompt(e.target.value)}
+          className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm text-gray-600">
+            <span>Tokens: {tokenCount}</span>
+            <span>Max: 1000</span>
+          </div>
+          <Slider
+            value={[tokenCount]}
+            onValueChange={(value: any) => setTokenCount(value[0])}
+            min={100}
+            max={1000}
+            step={1}
+            className="w-full"
+          />
+        </div>
+        {subscribed ? (
+          <Button
+            onClick={() => handleAnalyze(true)}
+            disabled={
+              isAnalyzing ||
+              !customPrompt ||
+              isButtonDisabled ||
+              !feedbackMessages.length
+            }
+            className="w-full h-10 bg-gray-800 hover:bg-gray-900 text-white rounded-xl transition-all duration-200 ease-in-out transform hover:scale-105"
+          >
+            Run Custom Analysis
+          </Button>
+        ) : (
+          <div className="w-full flex justify-center">
+            <SubscribeBtn price={monthlyPlanId} />
+          </div>
+        )}
+      </div>
+    </DialogContent>
+  </Dialog>
       </div>
 
       <div
@@ -255,42 +256,16 @@ export default function FeedbackAnalysis({
           </>
         )}
         {cooldowns[id] && Date.now() < cooldowns[id] && (
-          <p className="text-sm text-gray-300 text-center">
+          <p className="text-sm text-[#343A40]  dark:text-gray-300 text-center">
             Next analysis available in: {getRemainingTime()}
           </p>
         )}
 
         {analysis && (
-          <Dialog>
-            <DialogTrigger asChild className="cursor-pointer">
-              <div className="text-black rounded-xl bg-gray-200 p-5 mt-4 ">
-                <h2 className="text-xl font-semibold mb-2">
-                  Latest Analysis Result
-                </h2>
-                <hr className="my-2" />
-                <ReactMarkdown className="prose prose-lg">
-                  {analysis.text}
-                </ReactMarkdown>
-                <p className="text-sm text-gray-500 mt-4">
-                  Generated on: {formatDate(analysis.timestamp)}
-                </p>
-              </div>
-            </DialogTrigger>
-            <DialogContent className="md:w-full max-h-[600px] w-[90%] rounded-xl  overflow-auto custom-scrollbar">
-              <DialogHeader>
-                <DialogTitle>Latest Analysis Result ✨</DialogTitle>
-              </DialogHeader>
-              <div className="text-black rounded-xl ">
-                <hr className="my-2" />
-                <ReactMarkdown className="prose prose-lg">
-                  {analysis.text}
-                </ReactMarkdown>
-                <p className="text-sm text-gray-500 mt-4">
-                  Generated on: {formatDate(analysis.timestamp)}
-                </p>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <Analysis
+            formatDate={formatDate}
+            analysis={analysis}
+          />
         )}
       </div>
     </Card>

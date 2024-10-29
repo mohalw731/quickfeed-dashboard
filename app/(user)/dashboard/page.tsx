@@ -20,6 +20,7 @@ export default async function Dashboard() {
 
   const subscribed = await getSubscription({ userId });
 
+
   return (
     <div>
       <AddNewProject
